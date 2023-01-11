@@ -41,7 +41,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    /**
+    /** 
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
@@ -50,7 +50,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'nom_complet' => ['required', 'string', 'max:255'],
+            'nom' => ['required', 'string', 'max:255'],
+            'prenom' => ['required', 'string', 'max:255'],
             'CIN' => ['required', 'string', 'max:255'],
             'ville' => ['required', 'string', 'max:255'],
             'telephone' => ['required', 'string', 'max:255'],

@@ -12,17 +12,30 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="nom_complet" class="col-md-4 col-form-label text-md-end">{{ __('nom_complet') }}</label>
+                            <label for="nom" class="col-md-4 col-form-label text-md-end">{{ __('nom') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nom_complet" type="text" class="form-control @error('nom_complet') is-invalid @enderror" name="nom_complet" value="{{ old('nom_complet') }}" required autocomplete="name" autofocus>
+                                <input id="nom" type="text" class="form-control @error('nom') is-invalid @enderror" name="nom" value="{{ old('nom') }}" required autocomplete="name" autofocus>
 
-                                @error('nom_complet')
+                                @error('nom')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                             </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="prenom" class="col-md-4 col-form-label text-md-end">{{ __('prenom') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="prenom" type="text" class="form-control @error('nom') is-invalid @enderror" name="prenom" value="{{ old('prenom') }}" required autocomplete="prename" autofocus>
+
+                                @error('prenom')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="CIN" class="col-md-4 col-form-label text-md-end">{{ __('CIN') }}</label>
