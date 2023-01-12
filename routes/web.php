@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\matiereController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::resource('matieres', matiereController::class)->middleware(['auth', 'verified']);
 Route::resource('users', userController::class)->middleware(['auth', 'verified', 'role']);
