@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('matieres', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('nom_matiere');
+            $table->foreignId('formation_id')->constrained();
+            $table->timestamps();
         });
     }
 

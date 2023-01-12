@@ -39,7 +39,8 @@
                         <thead>
                             <tr>
                               <th scope="col">CIN</th>
-                              <th scope="col">nom complet</th>
+                              <th scope="col">nom</th>
+                              <th scope="col">prenom</th>
                               <th scope="col">role</th>
                               {{-- <th scope="col">ville</th> --}}
                               <th scope="col">actions</th>
@@ -52,7 +53,8 @@
                                 
                             <tr>
                                 <th scope="row">{{ $user->CIN }}</th>
-                              <td>{{ $user->nom_complet }}</td>
+                              <td>{{ $user->nom }}</td>
+                              <td>{{ $user->prenom }}</td>
                               <td>{{ $user->role }}</td>
                               {{-- <td>{{ $user->ville }}</td> --}}
                               <td>
