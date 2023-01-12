@@ -13,10 +13,11 @@ class matiereController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $formation = $request->formation;
         $matieres = matiere::all();
-        return view('matieres.index', [ 'matieres' => $matieres ]);
+        return view('matieres.index', [ 'matieres' => $matieres , 'formation' => $formation]);
     }
 
     /**
