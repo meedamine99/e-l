@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\formation;
 use Illuminate\Http\Request;
 
 class formationController extends Controller
@@ -13,7 +14,8 @@ class formationController extends Controller
      */
     public function index()
     {
-        //
+        $formation = formation::all();
+        return view('formation.index', [ 'formation' => $formation ]);
     }
 
     /**
@@ -23,7 +25,7 @@ class formationController extends Controller
      */
     public function create()
     {
-        //
+        return view('formation.create');
     }
 
     /**
@@ -34,7 +36,14 @@ class formationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id' => 'required',
+            'nom_formation' => 'required',
+            'type' => 'required',
+            ]);
+        formation::create($request->post());
+        return redirect()->route('cformation.index')
+            ->with('success','formation created successfully');
     }
 
     /**
@@ -43,20 +52,19 @@ class formationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(formation $formation)
     {
-        //
-    }
-
+        return view('formation.show', ['formation' => $formation]);
+    }    
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(formation $formation)
     {
-        //
+        return view('formation.edit', ['formation' => $formation]);
     }
 
     /**
@@ -66,9 +74,18 @@ class formationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, formation $formation)
     {
-        //
+        $request->validate([
+            'id' => 'required',
+            'nom_formation' => 'required',
+            'type' => 'required',
+            ]);
+
+
+            $formation->fill($request->post())->save();
+            return redirect()->route('formation.index')
+                ->with('success','formation edited successfully');
     }
 
     /**
@@ -77,8 +94,10 @@ class formationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(formation $formation)
     {
-        //
+        $formation->delete();
+        return redirect()->route('formation$formations.index')
+            ->with('success','formation$formation destroyed successfully');
     }
 }
