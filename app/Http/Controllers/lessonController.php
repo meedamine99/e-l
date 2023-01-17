@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\formation;
+use App\Models\lesson;
 use Illuminate\Http\Request;
-
-class formationController extends Controller
+    
+class lessonController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class formationController extends Controller
      */
     public function index()
     {
-        $formation = formation::all();
-        return view('formation.index', [ 'formation' => $formation ]);
+        $lesson = lesson::all();
+        return view('lesson.index', [ 'lesson' => $lesson ]);
     }
 
     /**
@@ -25,7 +25,7 @@ class formationController extends Controller
      */
     public function create()
     {
-        return view('formation.create');
+        return view('lesson.create');
     }
 
     /**
@@ -36,14 +36,16 @@ class formationController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+         $request->validate([
             'id' => 'required',
-            'nom_formation' => 'required',
-            'type' => 'required',
+            'nom' => 'required',
+            'id_matiere' => 'required',
+            'id_pdf' => 'required',
+            'id_video' => 'required',
             ]);
-        formation::create($request->post());
-        return redirect()->route('formation.index')
-            ->with('success','formation created successfully');
+        lesson::create($request->post());
+        return redirect()->route('lesson.index')
+            ->with('success','lesson created successfully');
     }
 
     /**
@@ -52,19 +54,20 @@ class formationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(formation $formation)
+    public function show(lesson $lesson)
     {
-        return view('formation.show', ['formation' => $formation]);
-    }    
+        return view('lesson.show', ['lesson' => $lesson]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(formation $formation)
+    public function edit(lesson $lesson)
     {
-        return view('formation.edit', ['formation' => $formation]);
+        return view('lesson.edit', ['lesson' => $lesson]); 
     }
 
     /**
@@ -74,18 +77,19 @@ class formationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, formation $formation)
+    public function update(Request $request, lesson $lesson)
     {
         $request->validate([
             'id' => 'required',
-            'nom_formation' => 'required',
-            'type' => 'required',
-            ]);
+            'nom' => 'required',
+            'id_matiere' => 'required',
+            'id_pdf' => 'required',
+            'id_video' => 'required',
+        ]);   
 
-
-            $formation->fill($request->post())->save();
-            return redirect()->route('formation.index')
-                ->with('success','formation edited successfully');
+            $lesson->fill($request->post())->save();
+            return redirect()->route('lesson.index')
+                ->with('success','lesson edited successfully');
     }
 
     /**
@@ -94,10 +98,10 @@ class formationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(formation $formation)
+    public function destroy(lesson $lesson)
     {
-        $formation->delete();
-        return redirect()->route('formation$formations.index')
-            ->with('success','formation$formation destroyed successfully');
+        $lesson->delete();
+        return redirect()->route('lesson$lesson.index')
+            ->with('success','lesson$lesson destroyed successfully');
     }
 }

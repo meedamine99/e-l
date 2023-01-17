@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\formation;
+use App\Models\lesson_pdf;
 use Illuminate\Http\Request;
 
-class formationController extends Controller
+class lessonpdfController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class formationController extends Controller
      */
     public function index()
     {
-        $formation = formation::all();
-        return view('formation.index', [ 'formation' => $formation ]);
+        $lessonpdf = lesson_pdf::all();
+        return view('lessonpdf.index', [ 'lessonpdf' => $lessonpdf ]);
     }
 
     /**
@@ -25,7 +25,7 @@ class formationController extends Controller
      */
     public function create()
     {
-        return view('formation.create');
+        return view('lessonpdf.create');
     }
 
     /**
@@ -38,12 +38,11 @@ class formationController extends Controller
     {
         $request->validate([
             'id' => 'required',
-            'nom_formation' => 'required',
-            'type' => 'required',
+            'pdffile' => 'required',
             ]);
-        formation::create($request->post());
-        return redirect()->route('formation.index')
-            ->with('success','formation created successfully');
+            lesson_pdf::create($request->post());
+        return redirect()->route('lessonpdf.index')
+            ->with('success','lessonpdf created successfully');
     }
 
     /**
@@ -52,19 +51,20 @@ class formationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(formation $formation)
+    public function show(lesson_pdf $lesson_pdf)
     {
-        return view('formation.show', ['formation' => $formation]);
-    }    
+        return view('lessonpdf.show', ['lessonpdf' => $lesson_pdf]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(formation $formation)
+    public function edit(lesson_pdf $lesson_pdf)
     {
-        return view('formation.edit', ['formation' => $formation]);
+        return view('lessonpdf.edit', ['lessonpdf' => $lesson_pdf]);
     }
 
     /**
@@ -74,18 +74,16 @@ class formationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, formation $formation)
+    public function update(Request $request, lesson_pdf $lesson_pdf)
     {
         $request->validate([
             'id' => 'required',
-            'nom_formation' => 'required',
-            'type' => 'required',
-            ]);
+            'pdffile' => 'required',
+        ]);   
 
-
-            $formation->fill($request->post())->save();
-            return redirect()->route('formation.index')
-                ->with('success','formation edited successfully');
+            $lesson_pdf->fill($request->post())->save();
+            return redirect()->route('lessonpdf.index')
+                ->with('success','lessonpdf edited successfully');
     }
 
     /**
@@ -94,10 +92,10 @@ class formationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(formation $formation)
+    public function destroy(lesson_pdf $lesson_pdf)
     {
-        $formation->delete();
-        return redirect()->route('formation$formations.index')
-            ->with('success','formation$formation destroyed successfully');
+        $lesson_pdf->delete();
+        return redirect()->route('lessonpdf$lessonpdf.index')
+            ->with('success','lessonpdf$lessonpdf destroyed successfully');
     }
 }

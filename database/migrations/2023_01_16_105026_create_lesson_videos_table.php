@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('formations', function (Blueprint $table) {
+        Schema::create('lesson_videos', function (Blueprint $table) {
             $table->id();
-            $table->string('nom_formation');
-            $table->date('date_début');
-            $table->date('date_fin');
-            $table->string('type');
+            $table->string('videofile');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('formations');
+        Schema::dropIfExists('lesson_videos');
     }
 };

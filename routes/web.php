@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\matiereController;
 use App\Http\Controllers\formationController;
+use App\Http\Controllers\lessonController;
 
 
 /*
@@ -29,3 +30,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('matieres', matiereController::class)->middleware(['auth', 'verified']);
 Route::resource('users', userController::class)->middleware(['auth', 'verified', 'role']);
 Route::resource('formation', formationController::class)->middleware(['auth', 'verified']);
+Route::resource('lesson', lessonController::class)->middleware(['auth', 'verified']);
