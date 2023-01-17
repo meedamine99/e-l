@@ -192,15 +192,12 @@ body {
 
 .auth {
     display: inline-block;
-    border: 1px solid var(--clr-accent);
-    border-radius: 3px;
+    text-decoration: underline;
+
     padding-inline: 1em;
 }
 
-.auth:nth-child(2) {
-    background-color: var(--clr-accent);
-    color: var(--clr-secondary);
-}
+
 
 /* nav */
 /* hero section */
@@ -216,66 +213,60 @@ body {
     /* padding-bottom: 150px; */
     /* height: 100vh; */
 }
-
-
- button {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 3px;
+.custom-btn {
+    /* width: 200px;
+    height: 50px; */
+    color: var(--clr-secondary);
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
     background: transparent;
-    overflow: hidden;
-    
-    border: 1px solid var(--clr-primary);
     cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
 }
 
- button:after {
-    content: " ";
-    width: 10%;
-    height: 100%;
+.btn-5 {
+    text-transform: uppercase;
+    width: 200px;
+    height: 50px;
+    padding: 0;
+    border: none;
     background: var(--clr-accent);
+}
+
+.btn-5:hover {
+    color: var(--clr-primary);
+    background: transparent;
+    box-shadow: none;
+}
+
+.btn-5:before,
+.btn-5:after {
+    content: '';
     position: absolute;
-    transition: all 0.4s ease-in-out;
+    top: 0;
+    right: 0;
+    height: 3px;
+    width: 0;
+    background: var(--clr-accent);
+    transition: .3s ease all;
+}
+
+.btn-5:after {
+    right: inherit;
+    top: inherit;
     left: 0;
+    bottom: 0;
 }
 
- button:hover::after {
-    right: auto;
-    left: 0;
+.btn-5:hover:before,
+.btn-5:hover:after {
     width: 100%;
-}
-
- button span {
-    text-align: center;
-    text-decoration: none;
-    width: 100%;
-    padding: 18px 25px;
-    color: var(--secondary-color);
-    font-size: 1.125em;
-    font-weight: 700;
-    z-index: 1;
-    transition: all 0.3s ease-in-out;
-}
-
- button:hover span {
-    color: var(--primary-color);
-    animation: scaleUp 0.3s ease-in-out;
-}
-
-@keyframes scaleUp {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(0.95);
-    }
-
-    100% {
-        transform: scale(1);
-    }
+    transition: 800ms ease all;
 }
 
 .image {
@@ -584,6 +575,65 @@ h2 {
     transition: all .2s;
 }
 
+.contact button {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 3px;
+   background: transparent;
+   overflow: hidden;
+   
+   border: 1px solid var(--clr-primary);
+   cursor: pointer;
+}
+
+ .contact button:after {
+   content: " ";
+   width: 10%;
+   height: 100%;
+   background: var(--clr-accent);
+   position: absolute;
+   transition: all 0.4s ease-in-out;
+   left: 0;
+}
+
+ .contact button:hover::after {
+   right: auto;
+   left: 0;
+   width: 100%;
+}
+
+.contact button span {
+   text-align: center;
+   text-decoration: none;
+   width: 100%;
+   padding: 18px 25px;
+   color: var(--secondary-color);
+   font-size: 1.125em;
+   font-weight: 700;
+   z-index: 1;
+   transition: all 0.3s ease-in-out;
+}
+
+ .contact button:hover span {
+   color: var(--primary-color);
+   animation: scaleUp 0.3s ease-in-out;
+}
+
+@keyframes scaleUp {
+   0% {
+       transform: scale(1);
+   }
+
+   50% {
+       transform: scale(0.95);
+   }
+
+   100% {
+       transform: scale(1);
+   }
+}
 /* contact */
 /* preloader */
 .container {

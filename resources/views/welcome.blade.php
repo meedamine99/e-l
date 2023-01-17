@@ -59,9 +59,10 @@
                             @endauth
                         </div>
                     @endif
+                    
                 </div>
             </nav>
-        
+            
         <main>
             <section class="hero" id="hero">
                 <div>
@@ -70,7 +71,13 @@
                         START LEARNING NOW
                     </h1>
                     <div class="image">
-                        <button class="links"><span>begin now <i <i class="bi bi-caret-right-fill"></i></i></span></button>
+                        @auth
+                            <a style="text-decoration: none" href="{{ url('/home') }}"><button class="links custom-btn btn-5"><span>begin now</span></button></a>
+                            @else
+                            @if (Route::has('register'))
+                            <a style="text-decoration: none" href="{{ route('register') }}"><button class="links custom-btn btn-5"><span>begin now</span></button></a>
+                        @endif
+                        @endauth
                         <div class="bg1"></div>
                     </div>
                 </div>
