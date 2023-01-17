@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class leçon_pdf extends Model
+class pdf extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        'pdffile'
+        'title', 'path'
     ];
 }
