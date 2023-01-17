@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('lessons', function (Blueprint $table) {
+        Schema::create('leçon_pdfs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('matiere_id');
-            $table->foreignId('pdf_id');
-            $table->foreignId('video_id');
-            $table->string('nom');
+            $table->string('pdffile');
             $table->timestamps();
+
         });
     }
 
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lessons');
+        Schema::dropIfExists('leçon_pdfs');
     }
 };

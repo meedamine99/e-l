@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\lesson;
+use App\Models\leçon_pdf;
 use Illuminate\Http\Request;
-    
-class lessonController extends Controller
+
+class leçonpdfController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class lessonController extends Controller
      */
     public function index()
     {
-        $lesson = lesson::all();
-        return view('lesson.index', [ 'lesson' => $lesson ]);
+        $leçonpdf = leçon_pdf::all();
+        return view('leçonpdf.index', [ 'leçonpdf' => $leçonpdf ]);
     }
 
     /**
@@ -25,7 +25,7 @@ class lessonController extends Controller
      */
     public function create()
     {
-        return view('lesson.create');
+        return view('leçonpdf.create');
     }
 
     /**
@@ -36,16 +36,13 @@ class lessonController extends Controller
      */
     public function store(Request $request)
     {
-         $request->validate([
+        $request->validate([
             'id' => 'required',
-            'nom' => 'required',
-            'id_matiere' => 'required',
-            'id_pdf' => 'required',
-            'id_video' => 'required',
+            'pdffile' => 'required',
             ]);
-        lesson::create($request->post());
-        return redirect()->route('lesson.index')
-            ->with('success','lesson created successfully');
+            leçon_pdf::create($request->post());
+        return redirect()->route('leçonpdf.index')
+            ->with('success','leçonpdf created successfully');
     }
 
     /**
@@ -54,9 +51,9 @@ class lessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(lesson $lesson)
+    public function show(leçon_pdf $leçon_pdf)
     {
-        return view('lesson.show', ['lesson' => $lesson]);
+        return view('leçonpdf.show', ['leçonpdf' => $leçon_pdf]);
     }
 
     /**
@@ -65,9 +62,9 @@ class lessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(lesson $lesson)
+    public function edit(leçon_pdf $leçon_pdf)
     {
-        return view('lesson.edit', ['lesson' => $lesson]); 
+        return view('leçonpdf.edit', ['leçonpdf' => $leçon_pdf]);
     }
 
     /**
@@ -77,19 +74,16 @@ class lessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, lesson $lesson)
+    public function update(Request $request, leçon_pdf $leçon_pdf)
     {
         $request->validate([
             'id' => 'required',
-            'nom' => 'required',
-            'id_matiere' => 'required',
-            'id_pdf' => 'required',
-            'id_video' => 'required',
+            'pdffile' => 'required',
         ]);   
 
-            $lesson->fill($request->post())->save();
-            return redirect()->route('lesson.index')
-                ->with('success','lesson edited successfully');
+            $leçon_pdf->fill($request->post())->save();
+            return redirect()->route('leçonpdf.index')
+                ->with('success','leçonpdf edited successfully');
     }
 
     /**
@@ -98,10 +92,10 @@ class lessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(lesson $lesson)
+    public function destroy(leçon_pdf $leçon_pdf)
     {
-        $lesson->delete();
-        return redirect()->route('lesson$lesson.index')
-            ->with('success','lesson$lesson destroyed successfully');
+        $leçon_pdf->delete();
+        return redirect()->route('leçonpdf$leçonpdf.index')
+            ->with('success','pdf destroyed successfully');
     }
 }

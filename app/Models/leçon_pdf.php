@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class lesson_pdf extends Model
+class leçon_pdf extends Model
 {
     use HasFactory;
     protected $fillable = [
