@@ -17,11 +17,12 @@ class pdfController extends Controller
    {
         $this->validate($request, [
             'title' => 'required|string|max:255',
-            'pdf' => 'required|file',
+            'pdf' => 'required|file|mimes:pdf',
         ]);
  
         $fileName = $request->pdf->getClientOriginalName();
-        $filePath = 'pdfs/' . $fileName;
+        $file = md5(rand(0,1000)). $fileName  ;
+        $filePath = 'pdfs/' . $file;
  
         $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->pdf));
  
