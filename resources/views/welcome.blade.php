@@ -229,9 +229,10 @@
                 <div class="contact-info">
                     <ul>
                         <h4>contact informations</h4>
-                        <li>e-mail : bellearningpro@gmail.com</li>
-                        <li>telephone : 06 68 76 21 70</li>
-                        <li>adress : Café Paradise, Rue Mouahidines, Oujda 60000</li>
+                        <li><strong>adress</strong> : Rue Ibn rochd residence Rania <br>
+                             4eme etage appt 16, OUJDA</li>
+                        <li><strong>e-mail </strong>: bellearningpro@gmail.com</li>
+                        <li><strong>telephone </strong>: 06 68 76 21 70 - 07 67 19 55 88</li>
                     </ul>
                 </div>
                 <div class="menu">

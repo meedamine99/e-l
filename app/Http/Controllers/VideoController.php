@@ -17,11 +17,12 @@ namespace App\Http\Controllers;
     {
             $this->validate($request, [
                 'title' => 'required|string|max:255',
-                'video' => 'required|file',
+                'video' => 'required|file|mimes:mp4,mov,wmv,avi',
             ]);
     
             $fileName = $request->video->getClientOriginalName();
-            $filePath = 'videos/' . $fileName;
+            $file = md5(rand(0,1000)). $fileName ;
+            $filePath = 'videos/' . $file;
     
             $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->video));
     
