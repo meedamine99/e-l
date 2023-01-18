@@ -1,12 +1,6 @@
 @extends('layouts.app')
 @section('content')
-
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card shadow">
-        <div class="card-header">{{__('leçon')}}</div>
-          <div class="card-body">
+<h2>leçon</h2>
 
             
      {{--        <form  action="{{url('/search')}}">
@@ -25,31 +19,28 @@
     <a id="create" href="{{route('leçon.create')}}">creer</a>
     <tr class="bg-info">
       <th>ID</th>
-      <th>nom_leçon</th>
+      <th>nom leçon</th>
       <th>type</th>
     </tr>
     @foreach ($leçon as $leçon)
+    @if($matiere == $leçon->matiere_id)
     <tr>
       <th>{{ $leçon->id }}</th>
-      <td>{{ $leçon->nom_leçon }}</td>
+      <td>{{ $leçon->nom }}</td>
       <td>{{ $leçon->type }}</td>
       <td>
+        @if (Auth::user()->role == "admin")
         <a class="btn btn-primary" href="{{ route('leçon.edit', $leçon->id) }}">Modifier</a>
-        <a class="btn btn-primary" href="{{ route('matieres.index', ['leçon' => $leçon->id]) }}">matieres</a>
-        <a class="btn btn-primary" href="{{ route('leçon.show', $leçon->id) }}">show</a>
         <form style="display: inline-block" action="{{ route('leçon.destroy', $leçon->id) }}" method="Post">
           @csrf
           @method('DELETE')
           <button class="btn btn-danger" onclick="return confirm('do u really want to delete this leçon?')" type="submit">Supprimer</button>
         </form>
+        @endif
+        <a class="btn btn-primary" href="{{ route('leçon.show', $leçon->id) }}">show</a>
       </td>
     </tr>
+    @endif
     @endforeach
   </table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 @endsection

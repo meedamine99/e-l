@@ -26,7 +26,7 @@
                             {{ $matiere->id }}
                            {{ $matiere->nom_matiere }}
                            {{ $matiere->formation->nom_formation }}
-                          
+                             <a class="btn btn-primary" href="{{ route('leçon.index', ['matiere' => $matiere->id]) }}">les leçons</a>
                           @endif
                           @endforeach
                         {{-- </tbody>

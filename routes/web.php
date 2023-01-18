@@ -34,8 +34,8 @@ Route::resource('users', userController::class)->middleware(['auth', 'verified',
 Route::resource('formation', formationController::class)->middleware(['auth', 'verified']);
 Route::resource('leçon', leçonController::class)->middleware(['auth', 'verified']);
 
-Route::get('video-upload', [ VideoController::class, 'getVideoUploadForm' ])->name('get.video.upload');
-Route::post('video-upload', [ VideoController::class, 'uploadVideo' ])->name('store.video');
+Route::get('video-upload', [ VideoController::class, 'getVideoUploadForm' ])->middleware(['auth', 'verified', 'role']);
+Route::post('video-upload', [ VideoController::class, 'uploadVideo' ])->middleware(['auth', 'verified', 'role']);
 
-Route::get('pdf-upload', [ PdfController::class, 'getpdfUploadForm' ])->name('get.pdf.upload');
-Route::post('pdf-upload', [ PdfController::class, 'uploadpdf' ])->name('store.pdf');
+Route::get('pdf-upload', [ PdfController::class, 'getpdfUploadForm' ])->name('get.pdf.upload')->middleware(['auth', 'verified', 'role']);
+Route::post('pdf-upload', [ PdfController::class, 'uploadpdf' ])->name('store.pdf')->middleware(['auth', 'verified', 'role']);
