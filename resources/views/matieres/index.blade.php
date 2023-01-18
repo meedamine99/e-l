@@ -1,36 +1,43 @@
 @extends('layouts.app')
 @section('content')
 
-
-                  
-                  {{-- <div class="container ms-0 ps-0">
+<div class="container">
+  <h2>les matiere</h2>
+                  @if (Auth::user()->role == "admin")
+                      <a  href="{{route('matieres.create')}}">create</a>
+                  @endif
                     @if($message = Session::get('success'))
                     <div class="text-success" role="alert">
                       {{$message}}
                     </div>
                   @endif
-                    <table>
+                    <table class="table text-center ">
                       <thead>
                           <tr>
-                            <th>ID</th>
                             <th>nom matiere</th>
                             <th>formation</th>
+                            <th>actions</th>
                           </tr>
                         </thead>
-                        <tbody> --}}
+                        <tbody> 
                           
-                          @foreach ($matieres as $matiere)
-                          {{-- @if({{$formation }} == {{$matiere->formation->id}}) --}}
+                          @foreach ($matieres as $matiere)  
                             @if($formation == $matiere->formation_id)
-                          
-                            {{ $matiere->id }}
-                           {{ $matiere->nom_matiere }}
-                           {{ $matiere->formation->nom_formation }}
-                             <a class="btn btn-primary" href="{{ route('leçon.index', ['matiere' => $matiere->id]) }}">les leçons</a>
+                            <tr>
+                            <td><a class="" href="{{ route('leçon.index', ['matiere' => $matiere->id]) }}">{{ $matiere->nom_matiere }}</a></td>
+                            <td>{{ $matiere->formation->nom_formation }}</td>
+                            <td>
+                              <a class="btn btn-primary" href="{{ route('leçon.index', ['matiere' => $matiere->id]) }}">les leçons</a>
+                              @if (Auth::user()->role == "admin")
+                              <a class="btn btn-primary" href="{{ route('matieres.edit', $matiere->id) }}">Modifier</a>
+                              <a class="btn btn-danger" href="{{ route('matieres.destroy', $matiere->id) }}">supprimer</a>
+                              @endif
+                            </td>
+                          </tr>
                           @endif
                           @endforeach
-                        {{-- </tbody>
+                        </tbody>
                   </table>
-                  </div> --}}
+                  </div> 
                 
 @endsection
