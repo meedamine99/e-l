@@ -37,9 +37,9 @@ class formationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id' => 'required',
             'nom_formation' => 'required',
-            'type' => 'required',
+            'date_début' => 'required',
+            'date_fin' => 'required'
             ]);
         formation::create($request->post());
         return redirect()->route('formation.index')
@@ -77,9 +77,10 @@ class formationController extends Controller
     public function update(Request $request, formation $formation)
     {
         $request->validate([
-            'id' => 'required',
             'nom_formation' => 'required',
-            'type' => 'required',
+            'date_début' => 'required',
+            'date_fin' => 'required'
+
             ]);
 
 
@@ -97,7 +98,7 @@ class formationController extends Controller
     public function destroy(formation $formation)
     {
         $formation->delete();
-        return redirect()->route('formation$formations.index')
-            ->with('success','formation$formation destroyed successfully');
+        return redirect()->route('formation.index')
+            ->with('success','formation destroyed successfully');
     }
 }
