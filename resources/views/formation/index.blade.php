@@ -1,37 +1,35 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card shadow">
-        <div class="card-header">{{__('formation')}}</div>
-          <div class="card-body">
 
-            
-     {{--        <form  action="{{url('/search')}}">
+
+{{--        <form  action="{{url('/search')}}">
   <div style="margin-left: 640px" class="textbox"> 
     <input type="text" name="query" placeholder="search formation" >
   </div> --}}
-</form>
-<div class="table">
-  
-  @if($message = Session::get('success'))
-  <div class="success">
-    <p>{{$message}}</p>
-  </div>
-  @endif
-  <table class="table">
-    <a id="create" href="{{route('formation.create')}}">creer</a>
-    <tr class="bg-info">
-      <th>ID</th>
-      <th>nom_formation</th>
+  <div class="container">
+    <h2>les formations</h2>
+    @if($message = Session::get('success'))
+        <div class="success">
+          <p class="text-success">{{$message}}</p>
+        </div>
+    @endif
+    @if (Auth::user()->role == "admin")
+        <a id="create" href="{{route('formation.create')}}">create formation</a>
+    @endif
+  <table class="table text-center ">
+    <tr class="">
+      <th>nom formation</th>
+      <th>date debut</th>
+      <th>date fin</th>
       <th>type</th>
+      <th>actions</th>
     </tr>
     @foreach ($formation as $formation)
     <tr>
-      <th>{{ $formation->id }}</th>
-      <td>{{ $formation->nom_formation }}</td>
+      <td><a class="" href="{{ route('matieres.index', ['formation' => $formation->id]) }}">{{ $formation->nom_formation }}</a></td>
+      <td>{{ $formation->date_début }}</td>
+      <td>{{ $formation->date_fin }}</td>
       <td>{{ $formation->type }}</td>
       <td>
         @if (Auth::user()->role == "admin")
@@ -43,7 +41,7 @@
         </form>
         @endif
         
-        <a class="btn btn-primary" href="{{ route('matieres.index', ['formation' => $formation->id]) }}">matieres</a>
+        <a class="btn btn-primary" href="{{ route('matieres.index', ['formation' => $formation->id]) }}">les matieres </a>
         
       </td>
     </tr>
