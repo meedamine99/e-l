@@ -15,4 +15,8 @@ class leçon extends Model
         'id_pdf',
         'id_video'
     ];
+
+    public function matiere(){
+         return $this-> belongsTo(matiere::class);
+    }
 }

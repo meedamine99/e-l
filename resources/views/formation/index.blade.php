@@ -34,14 +34,17 @@
       <td>{{ $formation->nom_formation }}</td>
       <td>{{ $formation->type }}</td>
       <td>
+        @if (Auth::user()->role == "admin")
         <a class="btn btn-primary" href="{{ route('formation.edit', $formation->id) }}">Modifier</a>
-        <a class="btn btn-primary" href="{{ route('matieres.index', ['formation' => $formation->id]) }}">matieres</a>
-        <a class="btn btn-primary" href="{{ route('formation.show', $formation->id) }}">show</a>
         <form style="display: inline-block" action="{{ route('formation.destroy', $formation->id) }}" method="Post">
           @csrf
           @method('DELETE')
           <button class="btn btn-danger" onclick="return confirm('do u really want to delete this formation?')" type="submit">Supprimer</button>
         </form>
+        @endif
+        
+        <a class="btn btn-primary" href="{{ route('matieres.index', ['formation' => $formation->id]) }}">matieres</a>
+        
       </td>
     </tr>
     @endforeach

@@ -12,10 +12,11 @@ class leçonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $matiere = $request->matiere;
         $leçon = leçon::all();
-        return view('leçon.index', [ 'leçon' => $leçon ]);
+        return view('leçon.index', [ 'leçon' => $leçon , 'matiere' => $matiere ]);
     }
 
     /**
