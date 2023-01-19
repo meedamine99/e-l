@@ -65,9 +65,9 @@ class matiereController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(matiere $matiere)
+    public function edit($id)
     {
-        return view('matieres.edit', ['matiere' => $matiere]);
+        
     }
 
     /**
@@ -77,17 +77,9 @@ class matiereController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, matiere $matiere)
+    public function update(Request $request)
     {
-        $request->validate([
-            'nom_matiere' => 'required', 
-            'formation_id' => 'required',
-            ]);
 
-
-            $matiere->fill($request->post())->save();
-            return redirect()->route('matieres.index')
-                ->with('success','matiere edited successfully');
     }
 
     /**
