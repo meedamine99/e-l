@@ -29,7 +29,6 @@
                             <td>
                               <a class="btn btn-primary" href="{{ route('leçon.index', ['matiere' => $matiere->id]) }}">les leçons</a>
                               @if (Auth::user()->role == "admin")
-                              <a class="btn btn-primary" href="{{ route('matieres.edit', $matiere->id) }}">Modifier</a>
                               <a class="btn btn-danger" href="{{ route('matieres.destroy', $matiere->id) }}">supprimer</a>
                               @endif
                             </td>
