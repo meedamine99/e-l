@@ -25,7 +25,7 @@
   </div>
   <div class="mb-3">
     <label class="form-label" for="">nom</label>
-    <input class="form-control" type="text" name="nom_matiere" id="" >
+    <input class="form-control" type="text" name="nom_matiere" id="">
   </div>
   <div class="mb-3">
     <button class="btn btn-primary" type="submit">create</button>

@@ -2,44 +2,99 @@
 
 namespace App\Http\Controllers;
 
-    use App\Models\Video;
-    use Illuminate\Http\Request;
-    use Illuminate\Support\Facades\Storage;
-    
-    class VideoController extends Controller
-    {
-        public function getVideoUploadForm()
-        {
-            return view('video-upload');
-        }
-    
-        public function uploadVideo(Request $request)
-    {
-            $this->validate($request, [
-                'title' => 'required|string|max:255',
-                'video' => 'required|file|mimes:mp4,mov,wmv,avi',
-            ]);
-    
-            $fileName = $request->video->getClientOriginalName();
-            $file = md5(rand(0,1000)). $fileName ;
-            $filePath = 'videos/' . $file;
-    
-            $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->video));
-    
-            // File URL to access the video in frontend
-            $url = Storage::disk('public')->url($filePath);
-    
-            if ($isFileUploaded) {
-                $video = new Video();
-                $video->title = $request->title;
-                $video->path = $filePath;
-                $video->save();
-    
-                return back()
-                ->with('success','Video has been successfully uploaded.');
-            }
-    
-            return back()
-                ->with('error','Unexpected error occured');
-        }
+use App\Models\leçon;
+use App\Models\video;
+use Illuminate\Http\Request;
+
+class videoController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {   
+        $videos = video::all();
+        $leçon = $request->leçon;
+        return view('videos.index', [ 'videos' => $videos , 'leçon' => $leçon]);
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $leçons = leçon::all();
+        return view('videos.create', ['leçons' => $leçons]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $videoName = $request->video->hashName();
+
+        $request->video->move(public_path('vids'), $videoName);
+
+        $video = new video();
+        $video->path = $videoName;
+        $video->title = $request->title;
+        $video->leçon_id = $request->leçon_id;
+
+        $video->save();
+        return back()
+            ->with('success','You have successfully upload file.');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+}

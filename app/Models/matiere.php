@@ -15,6 +15,7 @@ class matiere extends Model
      */
     protected $fillable = [
         'nom_matiere',
+        'formation_id'
     ];
     public function formation(){
         return $this-> belongsTo(formation::class);
