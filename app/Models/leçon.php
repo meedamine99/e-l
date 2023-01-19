@@ -19,4 +19,7 @@ class leçon extends Model
     public function matiere(){
          return $this-> belongsTo(matiere::class);
     }
+    public function leçon(){
+         return $this-> hasMany(leçon::class);
+    }
 }

@@ -24,7 +24,7 @@
   </div>
   <div >
     <label for="">nom</label>
-    <input type="text" name="" id="">
+    <input type="text" name="nom_matiere" id="">
   </div>
   <div >
     <button type="submit">create</button>

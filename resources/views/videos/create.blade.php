@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+@extends('layouts.app')
+@section('content')
+    <!DOCTYPE html>
 <html>
    <head>
       <title>Laravel Video Upload Form - ScratchCode.io</title>
@@ -29,11 +31,20 @@
                </div>
                @endif
  
-               <form action="{{ route('store.video') }}" method="POST" enctype="multipart/form-data">
+               <form action="{{ route('videos.store') }}" method="POST" enctype="multipart/form-data">
                   @csrf
                   <div class="row">
  
                      <div class="col-md-12">
+
+                        <div class="col-md-6 form-group">
+                           <label>leçon:</label>
+                           <select name="leçon_id" id="">
+                                @foreach($leçons as $leçon )
+                                    <option value="{{$leçon->id}}">{{$leçon->nom}}</option>
+                                @endforeach
+                           </select>
+                        </div>
                         <div class="col-md-6 form-group">
                            <label>Title:</label>
                            <input type="text" name="title" class="form-control"/>
@@ -54,3 +65,4 @@
       </div>
    </body>
 </html>
+@endsection
