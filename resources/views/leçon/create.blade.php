@@ -2,7 +2,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-<form action="{{ route('matieres.store')}}" method="POST">
+<form action="{{ route('leçon.store')}}" method="POST">
     @if ( $errors->any() )
                   <div class="pb-0 alert alert-danger">
                       <ul>
@@ -18,15 +18,15 @@
       </div>
   <div class="mb-3"> 
     <label class="form-label" for="">select a matiere</label>
-    <select class="form-select" name="matieres_id" id="">
+    <select class="form-select" name="matiere_id" id="">
       @foreach ($matieres as $matiere)
-        <option value="{{ $matiere->id }}">{{$matiere->nom_matieres}}</option>
+        <option value="{{ $matiere->id }}">{{$matiere->nom_matiere}}</option>
       @endforeach
     </select>
   </div>
   <div class="mb-3">
     <label class="form-label" for="">nom</label>
-    <input class="form-control" type="text" name="nom_matiere" id="">
+    <input class="form-control" type="text" name="nom" id="">
   </div>
   <div class="mb-3">
     <button class="btn btn-primary" type="submit">create</button>

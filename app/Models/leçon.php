@@ -11,9 +11,8 @@ class leçon extends Model
 
     protected $fillable = [
         'nom',
-        'id_matiere',
-        'id_pdf',
-        'id_video'
+        'matiere_id',
+
     ];
 
     public function matiere(){

@@ -25,7 +25,7 @@ class leçonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
         $matieres = matiere::all();
         return view('leçon.create', [ 'matieres' => $matieres ]);
@@ -40,11 +40,9 @@ class leçonController extends Controller
     public function store(Request $request)
     {
          $request->validate([
-            'id' => 'required',
+            
             'nom' => 'required',
-            'id_matiere' => 'required',
-            'id_pdf' => 'required',
-            'id_video' => 'required',
+            'matiere_id' => 'required',
             ]);
         leçon::create($request->post());
         return redirect()->route('leçon.index')

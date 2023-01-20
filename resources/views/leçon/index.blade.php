@@ -24,7 +24,7 @@
       <th>type</th>
     </tr>
     @foreach ($leçon as $leçon)
-    @if($matiere == $leçon->matiere_id)
+    @if($matieres == $leçon->matiere_id)
     <tr>
       <th>{{ $leçon->id }}</th>
       <td>{{ $leçon->nom }}</td>
