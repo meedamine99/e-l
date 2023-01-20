@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\leçon;
+use App\Models\matiere;
 use Illuminate\Http\Request;
     
 class leçonController extends Controller
@@ -14,9 +15,9 @@ class leçonController extends Controller
      */
     public function index(Request $request)
     {
-        $matiere = $request->matiere;
+        $matieres = $request->matiere;
         $leçon = leçon::all();
-        return view('leçon.index', [ 'leçon' => $leçon , 'matiere' => $matiere ]);
+        return view('leçon.index', [ 'leçon' => $leçon , 'matieres' => $matieres ]);
     }
 
     /**
@@ -24,9 +25,10 @@ class leçonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('leçon.create');
+        $matieres = matiere::all();
+        return view('leçon.create', [ 'matieres' => $matieres ]);
     }
 
     /**

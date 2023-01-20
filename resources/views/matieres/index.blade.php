@@ -2,9 +2,9 @@
 @section('content')
 
 <div class="container">
-  <h2>les matiere</h2>
+  <h2>les matieres</h2>
                   @if (Auth::user()->role == "admin")
-                      <a  href="{{route('matieres.create')}}">create</a>
+                      <a  href="{{route('matieres.create')}}">create matiere</a>
                   @endif
                     @if($message = Session::get('success'))
                     <div class="text-success" role="alert">
