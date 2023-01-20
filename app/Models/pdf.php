@@ -10,6 +10,6 @@ class pdf extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'path'
+        'title', 'path','leçon_id'
     ];
 }

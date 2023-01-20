@@ -1,3 +1,4 @@
+
 :root {
     --clr-primary: #393943;
     --clr-secondary: #F2F2F3;
@@ -176,7 +177,7 @@ body {
     color: var(--clr-accent);
     text-decoration: none;
     text-transform: uppercase;
-    font-weight: 500;
+
     display: inline-block;
     padding-inline: 0.5em;
     -webkit-transition: all 0.2s ease-in-out;
