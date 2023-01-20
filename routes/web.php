@@ -35,6 +35,7 @@ Route::resource('formation', formationController::class)->middleware(['auth', 'v
 Route::resource('leçon', leçonController::class)->middleware(['auth', 'verified']);
 
 Route::resource('videos', videoController::class)->middleware(['auth', 'verified']);
+Route::resource('pdfs', pdfController::class)->middleware(['auth', 'verified']);
 
 /* Route::get('video-upload', [ VideoController::class, 'getVideoUploadForm' ])->middleware(['auth', 'verified', 'role']);
 Route::post('video-upload', [ VideoController::class, 'uploadVideo' ])->middleware(['auth', 'verified', 'role']);

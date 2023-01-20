@@ -30,6 +30,7 @@
       <td>{{ $leçon->type }}</td>
       <td>
         <a href="{{route("videos.index" , ['leçon' => $leçon->id])}}">videos</a>
+        <a href="{{route("pdfs.index" , ['leçon' => $leçon->id])}}">pdfs</a>
         @if (Auth::user()->role == "admin")
         <a class="btn btn-primary" href="{{ route('leçon.edit', $leçon->id) }}">Modifier</a>
         <form style="display: inline-block" action="{{ route('leçon.destroy', $leçon->id) }}" method="Post">
