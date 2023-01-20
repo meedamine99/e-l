@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
-<h2>leçon</h2>
+<div class="container">
+<h2>les leçons</h2>
 
             
      {{--        <form  action="{{url('/search')}}">
@@ -16,8 +17,8 @@
   </div>
   @endif
   <table class="table">
-    <a id="create" href="{{route('leçon.create')}}">creer</a>
-    <tr class="bg-info">
+    <a id="create" href="{{route('leçon.create')}}">create leçon</a>
+    <tr class="table text-center">
       <th>ID</th>
       <th>nom leçon</th>
       <th>type</th>
@@ -44,4 +45,5 @@
     @endif
     @endforeach
   </table>
+</div>
 @endsection

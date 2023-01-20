@@ -10,7 +10,7 @@
   <div class="container">
     <h2>les formations</h2>
     @if($message = Session::get('success'))
-        <div class="success">
+        <div class="table text-center">
           <p class="text-success">{{$message}}</p>
         </div>
     @endif

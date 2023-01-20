@@ -144,11 +144,11 @@
                             <div class="service-info">
                                 <h3>informatique</h3>
                                 <ul>
-                                    <li>office</li>
-                                    <li>html</li>
-                                    <li>css</li>
-                                    <li>js</li>
-                                    <li>wordpress</li>
+                                    <li><a href=""> office </a></li>
+                                    <li><a href=""> html </a></li>
+                                    <li><a href=""> css </a></li>
+                                    <li><a href=""> js </a></li>
+                                    <li><a href=""> wordpress </a></li>
                                 </ul>
                             </div>
                         </div>
@@ -157,11 +157,11 @@
                             <div class="service-info">
                                 <h3>informatique</h3>
                                 <ul>
-                                    <li>office</li>
-                                    <li>html</li>
-                                    <li>css</li>
-                                    <li>js</li>
-                                    <li>wordpress</li>
+                                    <li><a href=""> office </a></li>
+                                    <li><a href=""> html </a></li>
+                                    <li><a href=""> css </a></li>
+                                    <li><a href=""> js </a></li>
+                                    <li><a href=""> wordpress </a></li>
                                 </ul>
                             </div>
                         </div>
@@ -170,11 +170,11 @@
                             <div class="service-info">
                                 <h3>informatique</h3>
                                 <ul>
-                                    <li>office</li>
-                                    <li>html</li>
-                                    <li>css</li>
-                                    <li>js</li>
-                                    <li>wordpress</li>
+                                    <li><a href=""> office </a></li>
+                                    <li><a href=""> html </a></li>
+                                    <li><a href=""> css </a></li>
+                                    <li><a href=""> js </a></li>
+                                    <li><a href=""> wordpress </a></li>
                                 </ul>
                             </div>
                         </div>
@@ -183,11 +183,11 @@
                             <div class="service-info">
                                 <h3>informatique</h3>
                                 <ul>
-                                    <li>office</li>
-                                    <li>html</li>
-                                    <li>css</li>
-                                    <li>js</li>
-                                    <li>wordpress</li>
+                                    <li><a href=""> office </a></li>
+                                    <li><a href=""> html </a></li>
+                                    <li><a href=""> css </a></li>
+                                    <li><a href=""> js </a></li>
+                                    <li><a href=""> wordpress </a></li>
                                 </ul>
                             </div>
                         </div>
