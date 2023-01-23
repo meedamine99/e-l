@@ -16,17 +16,17 @@
     <p>{{$message}}</p>
   </div>
   @endif
-  <table class="table">
-    <a id="create" href="{{route('leçon.create')}}">create leçon</a>
-    <tr class="table text-center">
-      <th>ID</th>
+  <a id="create" href="{{route('leçon.create')}}">create leçon</a>
+  <table class="table text-center">
+    <tr class="">
+      
       <th>nom leçon</th>
       <th>type</th>
+      <th>pdfs and videos</th>
     </tr>
     @foreach ($leçon as $leçon)
     @if($matieres == $leçon->matiere_id)
     <tr>
-      <th>{{ $leçon->id }}</th>
       <td>{{ $leçon->nom }}</td>
       <td>{{ $leçon->type }}</td>
       <td>
@@ -40,7 +40,6 @@
           <button class="btn btn-danger" onclick="return confirm('do u really want to delete this leçon?')" type="submit">Supprimer</button>
         </form>
         @endif
-        <a class="btn btn-primary" href="{{ route('leçon.show', $leçon->id) }}">show</a>
       </td>
     </tr>
     @endif

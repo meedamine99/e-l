@@ -7,6 +7,9 @@
         display: inline-block;
     }
 </style>
+@if (Auth::user()->role == "admin")
+    <a href="{{route('pdfs.create')}}">upload leçon</a>
+@endif
     @foreach ($pdfs as $pdf)  
         @if($leçon == $pdf->leçon_id)
 
