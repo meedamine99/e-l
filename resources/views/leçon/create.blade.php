@@ -20,7 +20,7 @@
     <label class="form-label" for="">select a matiere</label>
     <select class="form-select" name="matieres_id" id="">
       @foreach ($matieres as $matiere)
-        <option value="{{ $matiere->id }}">{{$matiere->nom_matieres}}</option>
+        <option value="{{ $matiere->id }}">{{$matiere->nom_matiere}}</option>
       @endforeach
     </select>
   </div>
