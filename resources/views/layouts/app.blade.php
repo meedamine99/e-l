@@ -14,146 +14,9 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/css/app.css', 'resources/js/app.js'])
     <style>
-        <style>
-        :root {
-    --clr-primary: #393943;
-    --clr-secondary: #F2F2F3;
-    --clr-accent: #24acdc;
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-        .logo {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    width: 50px;
-    height: 50px;
-    animation: wi 2s infinite;
-}
-body{
-    background-color: var(--clr-secondary)
-}
-
-.closed-sq,
-.opened-sq {
-    border-radius: 2px;
-    position: absolute;
-    animation: ro 2s infinite;
-}
-
-.closed-sq {
-    background-color: #24acdc;
-    width: 20px;
-    height: 20px;
-}
-
-.opened-sq {
-    border: 3px solid #24acdc;
-    width: 25px;
-    height: 25px;
-}
-
-.c1 {
-    left: 3px;
-    top: 3px;
-}
-
-.o1 {
-    right: 0;
-    top: 0;
-}
-
-.o2 {
-    bottom: 0;
-    left: 0;
-}
-
-.c2 {
-    bottom: 3px;
-    right: 3px;
-}
-
-@-webkit-keyframes wi {
-
-    0%,
-    30% {
-        width: 50px;
-        height: 50px;
-    }
-
-    70% {
-        height: 70px;
-        width: 70px;
-    }
-
-    100% {
-        height: 50px;
-        width: 50px;
-    }
-}
-
-@-webkit-keyframes ro {
-
-    0%,
-    30% {
-        transform: rotate(0);
-    }
-
-    70% {
-        transform: rotate(180deg);
-    }
-
-    100% {
-        transform: rotate(-90deg);
-    }
-}
-        .navMenu {
-    margin-bottom: 5em;
-    background-color: var(--clr-secondary);
-
-    
-    width: 100%;
-    padding:1em  4em;
-    
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-}
-
-.navMenu a {
-    padding: .5em .5em;
-    color: var(--clr-accent);
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 500;
-    display: inline-block;
-    padding-inline: 0.5em;
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-}
-
-.navMenu a:hover {
-    color: var(--clr-primary);
-    /* transform: scale(1.1); */
-    letter-spacing: 2px;
-
-}
-
-.auth {
-    display: inline-block;
-    text-decoration: underline;
-
-    padding-inline: 1em;
-}
+        
     </style>
 </head>
 <body>
@@ -167,7 +30,7 @@ body{
             </div>
         </a>
         <div>
-            <a class="links" href="#hero">Home</a>
+            <a class="links" href=" {{route('formation.index')}} ">Les formation</a>
             <a class="links" href="#about">about</a>
             <a class="links" href="#service">services</a>
             <a class="links" href="#contact">contact</a>

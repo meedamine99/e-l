@@ -6,9 +6,8 @@ use App\Models\access;
 use App\Models\matiere;
 use App\Models\formation;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class matiereController extends Controller
+class accessController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +16,17 @@ class matiereController extends Controller
      */
     public function index(Request $request)
     {
-        $formation = $request->formation;
+        $user = $request->user;
+        $userName = $request->userName;
+        $formations = formation::all();
         $matieres = matiere::all();
-        $accesses = access::all();
         
-        return view('matieres.index', [ 'matieres' => $matieres , 'formation' => $formation, 'accesses' => $accesses]);
+        return view('access.index', [
+            'user' => $user,
+            'formations' => $formations, 
+            'matieres' => $matieres, 
+            'userName' => $userName,
+        ]);
     }
 
     /**
@@ -29,10 +34,21 @@ class matiereController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {   
-        $formations = formation::all();
-        return view('matieres.create',['formations' => $formations]);
+    public function create(Request $request)
+    {
+        $input = $request->all();
+        $input['matiere'] = $request->input('matiere');
+        foreach($input['matiere'] as $matiere){
+            $found = access::where('user_id', $request->user_id)->where('matiere_id', $matiere)->count();
+            if($found == 0) {
+                    $access = new access();
+                    $access->matiere_id = $matiere;
+                    $access->user_id = $request->user_id;
+
+                    $access->save();
+           }
+        }
+        return redirect()->route('users.index');
     }
 
     /**
@@ -43,13 +59,7 @@ class matiereController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nom_matiere' => 'required', 
-            'formation_id' => 'required',
-            ]);
-        matiere::create($request->post());
-        return redirect()->route('matieres.index')
-            ->with('success','matiere created successfully');
+
     }
 
     /**
@@ -58,9 +68,9 @@ class matiereController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(matiere $matiere)
+    public function show($id)
     {
-        return view('matieres.show', ['matiere' => $matiere]);
+        //
     }
 
     /**
@@ -71,7 +81,7 @@ class matiereController extends Controller
      */
     public function edit($id)
     {
-        
+        //
     }
 
     /**
@@ -81,9 +91,9 @@ class matiereController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-
+        //
     }
 
     /**
@@ -92,10 +102,8 @@ class matiereController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(matiere $matiere)
+    public function destroy($id)
     {
-        $matiere->delete();
-        return redirect()->route('matieres.index')
-            ->with('success','commande deleted successfully');
+        //
     }
 }

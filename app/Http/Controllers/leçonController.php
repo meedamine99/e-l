@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\leçon;
+use App\Models\access;
 use App\Models\matiere;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
     
 class leçonController extends Controller
 {
@@ -17,7 +19,12 @@ class leçonController extends Controller
     {
         $matieres = $request->matiere;
         $leçon = leçon::all();
-        return view('leçon.index', [ 'leçon' => $leçon , 'matieres' => $matieres ]);
+        $found = access::where('user_id', Auth::user()->id)->where('matiere_id', $matieres)->count();
+        if($found == 1 || Auth::user()->role == 'admin') {
+            return view('leçon.index', [ 'leçon' => $leçon , 'matieres' => $matieres ]);
+        }else {
+            return 'not welcome here';
+        }
     }
 
     /**

@@ -53,8 +53,8 @@
                                 
                             <tr>
                                 <th scope="row">{{ $user->CIN }}</th>
-                              <td>{{ $user->nom }}</td>
-                              <td>{{ $user->prenom }}</td>
+                              <td><a href=" {{route('access.index', ['user' => $user->id, 'userName' => $user->nom])}} ">{{ $user->nom }}</a></td>
+                              <td><a href=" {{route('access.index', ['user' => $user->id, 'userName' => $user->nom])}} ">{{ $user->prenom }}</a></td>
                               <td>{{ $user->role }}</td>
                               {{-- <td>{{ $user->ville }}</td> --}}
                               <td>
