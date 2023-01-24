@@ -9,6 +9,8 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/css/welcome.css',
                 'resources/js/app.js',
+                'resources/js/accesses.js',
+                'resources/js/selectOptions.js',
             ],
             refresh: true,
         }),
