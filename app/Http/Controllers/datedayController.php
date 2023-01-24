@@ -18,9 +18,8 @@ class datedayController extends Controller
      */
     public function index()
     {
-        $dateday = dateday::all();
         $contenu = contenu::all();
-        return view('dateday.index', [ 'dateday' => $dateday , 'contenu' => $contenu ]);
+        return view('dateday.index', [ 'contenu' => $contenu ]);
     }
 
     /**
@@ -30,11 +29,15 @@ class datedayController extends Controller
      */
     public function create()
     {
-        $datedays = dateday::all();
         $formateurs =  User::all()-> where('role' ,"formateur");
         $formations = formation::all();
         $matieres = matiere::all(); 
-        return view('dateday.create');
+        return view('dateday.create',
+        [
+            'formations' => $formations,
+            'formateurs' => $formateurs,
+            'matieres' => $matieres,
+        ]);
     }
 
     /**
@@ -45,11 +48,8 @@ class datedayController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'date' => 'required',
-            'day' => 'required'
-            ]);
-        dateday::create($request->post());
+       
+        contenu::create($request->post());
         return redirect()->route('dateday.index')
             ->with('success','dateday created successfully');
     }

@@ -15,9 +15,8 @@ class contenuController extends Controller
      */
     public function index()
     {
-        $dateday = dateday::all();
         $contenu = contenu::all();
-        return view('contenu.index', [ 'contenu' => $contenu , 'dateday' =>$dateday]);
+        return view('contenu.index', [ 'contenu' => $contenu]);
     }
 
     /**

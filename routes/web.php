@@ -43,7 +43,7 @@ Route::resource('videos', videoController::class)->middleware(['auth', 'verified
 Route::resource('pdfs', pdfController::class)->middleware(['auth', 'verified']);
 
 Route::resource('dateday', datedayController::class)->middleware(['auth', 'verified', 'role']);
-Route::resource('contanu', contenuController::class)->middleware(['auth', 'verified']);
+Route::resource('contenu', contenuController::class)->middleware(['auth', 'verified']);
 
 
 

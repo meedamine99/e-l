@@ -45,13 +45,13 @@ section:not(.hero) {
 }
 
 .closed-sq {
-    background-color: #24acdc;
+    background-color: var(--clr-accent);
     width: 20px;
     height: 20px;
 }
 
 .opened-sq {
-    border: 3px solid #24acdc;
+    border: 3px solid var(--clr-accent);
     width: 25px;
     height: 25px;
 }
