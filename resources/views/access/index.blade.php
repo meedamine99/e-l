@@ -1,13 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<style>
-    .active{
-        display: block;
-    }
-    .inactive{
-        display: none;
-    }
-</style>
+
     hi {{$userName}}
     
     <form action=" {{route('access.create')}} " enctype="multipart/form-data">
@@ -28,21 +21,6 @@
         @endforeach
         <button type="submit">add</button>
     </form>
-    <script>
-        const formationSelect = document.getElementById('formation');
-        const checkMatiere = document.querySelectorAll('.matiere');
-        function inactive(item){
-            item.forEach(e=>{
-                e.classList.add("inactive");
-            });
-        };
-        inactive(checkMatiere);
-        formationSelect.addEventListener('change', item => {
-            inactive(checkMatiere);
-            checkMatiere.forEach(e=>{
-                if(parseInt(e.dataset.matiere)===parseInt(item.target.value))
-                    e.classList.remove("inactive");
-            })
-        })
-    </script>
+        @vite(['resources/js/accesses.js',])
+
 @endsection

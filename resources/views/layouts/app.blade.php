@@ -14,10 +14,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/css/app.css'])
-    <style>
-        
-    </style>
+    @vite(['resources/sass/app.scss', 'resources/css/app.css',])
 </head>
 <body>
     <nav class="navMenu">
@@ -30,9 +27,12 @@
             </div>
         </a>
         <div>
+            <a class="links" href=" {{route('home')}} ">home</a>
             <a class="links" href=" {{route('formation.index')}} ">Les formation</a>
-            <a class="links" href="#about">about</a>
-            <a class="links" href="#service">services</a>
+            {{-- <a class="links" href=" {{route('contenu.index')}} ">emloi du temps</a> --}}
+            @if( Auth::user()->role == "admin" )
+                <a class="links" href=" {{route('users.index')}} ">users</a>
+            @endif
             <a class="links" href="#contact">contact</a>
         </div>
         <div>
