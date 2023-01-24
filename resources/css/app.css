@@ -142,3 +142,12 @@
 
      padding-inline: 1em;
  }
+
+
+ .active {
+     display: block;
+ }
+
+ .inactive {
+     display: none;
+ }
