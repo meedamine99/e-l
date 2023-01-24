@@ -1,20 +1,26 @@
 @extends('layouts.app')
 @section('content')
+
     hi {{$userName}}
     
     <form action=" {{route('access.create')}} " enctype="multipart/form-data">
         <input type="hidden" name="user_id" value=" {{$user}} ">
-        <select name="" id="">
+        <select name="" id="formation" >
+            <option value=""></option>
             @foreach($formations as $formation)
-            <option value=" {{$formation->id}} ">{{$formation->nom_formation}}</option>
+                <option value=" {{$formation->id}} ">{{$formation->nom_formation}}</option>
             @endforeach
         </select> 
         
         @foreach($matieres as $matiere)
             
-            <label for=""> {{$matiere->nom_matiere}} </label>
-            <input type="checkbox" name="matiere[]" id="" value=" {{$matiere->id}} ">
+            <div class="matiere" data-matiere="{{$matiere->formation->id}}">
+                <label for=""> {{$matiere->nom_matiere}} </label>
+                <input type="checkbox" name="matiere[]" id="" value=" {{$matiere->id}} ">
+            </div>
         @endforeach
         <button type="submit">add</button>
     </form>
+        @vite(['resources/js/accesses.js',])
+
 @endsection
