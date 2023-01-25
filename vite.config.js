@@ -11,6 +11,7 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/accesses.js',
                 'resources/js/selectOptions.js',
+                'resources/js/tableHours.js',
             ],
             refresh: true,
         }),

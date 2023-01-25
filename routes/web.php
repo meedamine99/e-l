@@ -9,7 +9,7 @@ use App\Http\Controllers\VideoController;
 use App\Http\Controllers\accessController;
 use App\Http\Controllers\matiereController;
 use App\Http\Controllers\formationController;
-use App\Http\Controllers\datedayController;
+use App\Http\Controllers\adminTimeTableController;
 use App\Http\Controllers\contenuController;
 
 
@@ -42,8 +42,7 @@ Route::resource('leçon', leçonController::class)->middleware(['auth', 'verifie
 Route::resource('videos', videoController::class)->middleware(['auth', 'verified']);
 Route::resource('pdfs', pdfController::class)->middleware(['auth', 'verified']);
 
-Route::resource('dateday', datedayController::class)->middleware(['auth', 'verified', 'role']);
-Route::resource('contenu', contenuController::class)->middleware(['auth', 'verified']);
+Route::resource('adminTimeTable', adminTimeTableController::class)->middleware(['auth', 'verified', 'role']);
 
 
 

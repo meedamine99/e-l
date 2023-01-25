@@ -1,12 +1,14 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
-    @vite(['resources/js/selectOptions.js'])
-    <form action=" {{route('dateday.store')}} ">
+     @vite(['resources/js/selectOptions.js'])
+    @vite(['resources/js/select.js'])
+    <form action=" {{route('adminTimeTable.update', $adminTimeTable->id)}} " method="POST">
+        @csrf
+        <input type="hidden" name="_method" value="put">
         <div>
             
             <label for="">formateur</label>
-            <select name="" id="" >
+            <select name="user_id" id="" >
                 <option value=""></option>
                 @foreach ($formateurs as $formateur)
                     <option value=" {{$formateur->id}}">{{$formateur->nom}} {{$formateur->prenom}}</option>  
@@ -16,14 +18,14 @@
             
             
             <label for="">heure debut</label>
-            <select name="" id="hourStart"  style="width:150px;">
+            <select name="heur_start" id="hourStart"  style="width:150px;">
                 <option value=""></option>
             </select>
             
         
             
             <label for="">heure fin</label>
-            <select name="" id="hourEnd" >
+            <select name="heur_end" id="hourEnd" >
                 <option value=""></option>
             </select>
             
@@ -39,7 +41,7 @@
             
             
             <label for="">matiere</label>
-            <select name="" id="" >
+            <select name="matiere_id" id="" >
                 <option value=""></option>
                 @foreach ($matieres as $matiere)
                     <div >
@@ -51,7 +53,7 @@
             
             
             <label for="">jour</label>
-            <select name="" id="" >
+            <select name="day" id="" >
                 <option value=""></option>
                 <option value="lundi">lundi</option>
                 <option value="mardi">mardi</option>
@@ -69,18 +71,5 @@
 <script>
     const formationSelect = document.getElementById('formation');
     const selectMatiere = document.querySelectorAll('.matiere');
-    function inactive(item) {
-        item.forEach(e => {
-            e.classList.add("inactive");
-        });
-    };
-    inactive(selectMatiere);
-    formationSelect.addEventListener('change', item => {
-        inactive(selectMatiere);
-        selectMatiere.forEach(e => {
-            if (parseInt(e.dataset.matiere) === parseInt(item.target.value))
-                e.classList.remove("inactive");
-        })
-    })
 </script>
 @endsection

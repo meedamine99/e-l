@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
+@vite(['resources/js/select.js',])
     hi {{$userName}}
     
     <form action=" {{route('access.create')}} " enctype="multipart/form-data">
@@ -21,6 +22,5 @@
         @endforeach
         <button type="submit">add</button>
     </form>
-        @vite(['resources/js/accesses.js',])
 
 @endsection
