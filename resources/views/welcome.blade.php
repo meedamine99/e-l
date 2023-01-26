@@ -25,7 +25,7 @@
                 <h2>get to know us</h2>
                 <div class="about-container">
                     <div class="about-card ">
-                        <div class="about-image about-image1 "></div>
+                        <div class="about-image about-image1 "><div class="before"></div></div>
                         <div class="about-info ">
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Officiis molestias iste nesciunt, dicta
@@ -50,10 +50,10 @@
                             perferendis ex blanditiis voluptate ab. Itaque
                             molestiae earum nostrum.
                         </div>
-                        <div class="about-image about-image2"></div>
+                        <div class="about-image about-image2"><div class="before"></div></div>
                     </div>
                     <div class="about-card">
-                        <div class="about-image about-image3"></div>
+                        <div class="about-image about-image3"><div class="before"></div></div>
                         <div class="about-info">
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Officiis molestias iste nesciunt, dicta

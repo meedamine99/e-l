@@ -299,7 +299,7 @@ body {
     position: relative;
 }
 
-.about-image::before {
+.about-image .before {
     content: "";
     border-radius: 3px;
     position: absolute;
@@ -308,18 +308,18 @@ body {
     background-color: #24abdc5a;
 }
 
-.about-image1::before {
-    top: -50px;
+.about-image1 .before {
+    top: -150px;
     left: -30px;
 }
 
-.about-image2::before {
-    top: -50px;
+.about-image2 .before {
+    top: -150px;
     right: -30px;
 }
 
-.about-image3::before {
-    top: -50px;
+.about-image3 .before {
+    top: -150px;
     left: -30px;
 }
 
