@@ -62,14 +62,21 @@ function reverseColor() {
 /* parallax */
 
 window.addEventListener('scroll', function () {
-    const Bg = document.querySelector('.bg1');
-    /*   const aBg = document.querySelectorAll('.about-image'); */
     let WinPos = window.pageYOffset;
-
+    const Bg = document.querySelector('.bg1');
     Bg.style.transform = "translateY(" + WinPos * .15 + "px)";
-    [...document.getElementsByClassName('about-image')].forEach(el => {
-        el.style.transform = "translateY(" + WinPos * .1 + "px)";
-    })
+
+
+    const images = document.querySelectorAll('.about-image');
+    images.forEach(e => {
+        e.style.transform = "translateY(" + WinPos * .1 + "px)"
+    });
+
+    const befores = document.querySelectorAll('.before');
+    befores.forEach(e => {
+        e.style.transform = "translateY(" + WinPos * .05 + "px)"
+    });
+
 });
 
 
