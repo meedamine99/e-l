@@ -6,15 +6,15 @@
             <section class="hero" id="hero">
                 <div>
                     <h1 class="">
-                        DON'T JUST WATCH <br />
-                        START LEARNING NOW
+                        JE NE PERDS JAMAIS  <br />
+                        <h3>SOIT JE GAGNE SOIT J’APPRENDS</h3>
                     </h1>
                     <div class="image">
                         @auth
-                            <a style="text-decoration: none" href="{{ url('/home') }}"><button class="links custom-btn btn-5"><span>begin now</span></button></a>
+                            <a style="text-decoration: none" href="{{ url('/home') }}"><button class="links custom-btn btn-5"><span>registre</span></button></a>
                             @else
                             @if (Route::has('register'))
-                            <a style="text-decoration: none" href="{{ route('register') }}"><button class="links custom-btn btn-5"><span>begin now</span></button></a>
+                            <a style="text-decoration: none" href="{{ route('register') }}"><button class="links custom-btn btn-5"><span>registre</span></button></a>
                         @endif
                         @endauth
                         <div class="bg1"></div>
@@ -22,54 +22,30 @@
                 </div>
             </section>
             <section class="about" id="about">
-                <h2>get to know us</h2>
+                <h2>APPRENDRE A NOUS CONNAITRE</h2>
                 <div class="about-container">
                     <div class="about-card ">
                         <div class="about-image about-image1 "></div>
                         <div class="about-info ">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Officiis molestias iste nesciunt, dicta
-                            excepturi tempora sit doloremque? Magni praesentium
-                            dolore asperiores recusandae esse deleniti doloribus
-                            totam sed. Repudiandae tempore vitae voluptatem
-                            magnam voluptatibus magni quae suscipit
-                            consequuntur, nesciunt obcaecati sequi officia
-                            perferendis ex blanditiis voluptate ab. Itaque
-                            molestiae earum nostrum.
+                            Bel Learning Pro est un cabinet qui œuvre dans les domaines d’entreprenariat,d’Economie Solidaire, de Gestion, de Marketing, de Formation et de Management au profit des sociétés privées, des coopératives et associations, des particuliersainsi que des administrations publiques.
                         </div>
                     </div>
                     <div class="about-card">
                         <div class="about-info">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Officiis molestias iste nesciunt, dicta
-                            excepturi tempora sit doloremque? Magni praesentium
-                            dolore asperiores recusandae esse deleniti doloribus
-                            totam sed. Repudiandae tempore vitae voluptatem
-                            magnam voluptatibus magni quae suscipit
-                            consequuntur, nesciunt obcaecati sequi officia
-                            perferendis ex blanditiis voluptate ab. Itaque
-                            molestiae earum nostrum.
+                            Le cabinet dispose également de plusieurs plateformes personnalisées d’enseignement à distance sans oublier que chaque bénéficiaire aura son propre espace sur la plateforme choisie selon le thème de formation.
                         </div>
                         <div class="about-image about-image2"></div>
                     </div>
                     <div class="about-card">
                         <div class="about-image about-image3"></div>
                         <div class="about-info">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Officiis molestias iste nesciunt, dicta
-                            excepturi tempora sit doloremque? Magni praesentium
-                            dolore asperiores recusandae esse deleniti doloribus
-                            totam sed. Repudiandae tempore vitae voluptatem
-                            magnam voluptatibus magni quae suscipit
-                            consequuntur, nesciunt obcaecati sequi officia
-                            perferendis ex blanditiis voluptate ab. Itaque
-                            molestiae earum nostrum.
+                            Notre cabinet offre des formations de soutien pour tous les niveaux, les séances sont enregistrées dans des moocs et consultables à tout moment.
                         </div>
                     </div>
                 </div>
             </section>
             <section class="service" id="service">
-                <h2>the services we provide</h2>
+                <h2>LES SERVICES QUE NOUS OFFRONS</h2>
                 <div>
                     <div class="btns">
                         <div class="pre-btn links"></div>
@@ -134,7 +110,7 @@
                 </div>
             </section>
             <section id="contact" class="contact">
-                <h2>contact us</h2>
+                <h2>contactez-nous</h2>
                 <div class="contact-form">
                     <div class="icons">
                         
@@ -158,7 +134,7 @@
                             <textarea class="input" name="" id="" cols="30" rows="4"></textarea>
                             <span class="label">massage</span>
                         </label>
-                        <button class="links"><span>send</span></button>
+                        <button class="links"><span>envoyer</span></button>
                     </form>
                 </div>
             </section>

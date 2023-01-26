@@ -13,7 +13,7 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             
-                            <div class="row mb-3">
+                            <div class="row mb-3">  
                                 <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
                                 
                                 <div class="form-outline mb-4">
@@ -57,7 +57,7 @@
                             </div>
 
                             <div class="pt-1 mb-4">
-                                <button class="btn btn-info btn-lg btn-block" type="button">Login</button>
+                                <button class="btn btn-info btn-lg btn-block" type="submit">Login</button>
                             </div>
                             
                             <p>Don't have an account? <a href="#!" class="link-info">Register here</a></p>
