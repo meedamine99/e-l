@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-@vite(['resources/js/tableHours.js'])
 <a href=" {{route('adminTimeTable.create')}} ">create</a>
     hi this is time table
 
