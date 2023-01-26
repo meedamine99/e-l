@@ -33,6 +33,9 @@
             @if( Auth::user()->role == "admin" )
                 <a class="links" href=" {{route('adminTimeTable.index')}} ">Time Table</a>
                 <a class="links" href=" {{route('users.index')}} ">users</a>
+            
+                @else
+                    <a class="links" href=" {{route('timeTable.index')}} ">Time Table</a>
             @endif
         </div>
         <div>

@@ -116,6 +116,6 @@ class adminTimeTableController extends Controller
     {
         $adminTimeTable->delete();
         return redirect()->route('adminTimeTable.index')
-            ->with('success','adminTimeTable destroyed successfully');
+            ->with('success','session deleted successfully');
     }
 }
