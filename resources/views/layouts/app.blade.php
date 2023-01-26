@@ -14,7 +14,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/css/app.css',])
+    @vite(['resources/sass/app.scss', 'resources/css/app.css','resources/js/app.js',])
 </head>
 <body>
     <nav class="navMenu">
@@ -31,13 +31,16 @@
             <a class="links" href=" {{route('formation.index')}} ">Les formation</a>
             {{-- <a class="links" href=" {{route('contenu.index')}} ">emloi du temps</a> --}}
             @if( Auth::user()->role == "admin" )
+                <a class="links" href=" {{route('adminTimeTable.index')}} ">Time Table</a>
                 <a class="links" href=" {{route('users.index')}} ">users</a>
+            
+                @else
+                    <a class="links" href=" {{route('timeTable.index')}} ">Time Table</a>
             @endif
-            <a class="links" href="#contact">contact</a>
         </div>
         <div>
             <div class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->nom }}
                 </a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

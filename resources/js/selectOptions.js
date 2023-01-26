@@ -11,8 +11,8 @@ let hours =dataHours.hours;
 let hourStart = document.getElementById('hourStart');
 let hourEnd = document.querySelector('#hourEnd');
 for (const key in hours) {
-    hours[key].twenty_four_hour_format !="21:00" ? addOptions(hours[key].twenty_four_hour_format + " "+hours[key].time_of_day, hourStart) : "";
+    hours[key].twenty_four_hour_format !="21:00" ? addOptions(hours[key].twenty_four_hour_format + " " + hours[key].time_of_day, hourStart) : "";
         
-    hours[key].twenty_four_hour_format !="09:00" ? addOptions(hours[key].twenty_four_hour_format + " "+hours[key].time_of_day, hourEnd): "";
+    hours[key].twenty_four_hour_format !="09:00" ? addOptions(hours[key].twenty_four_hour_format + " " + hours[key].time_of_day, hourEnd): "";
     
 }

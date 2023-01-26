@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('datedays', function (Blueprint $table) {
+        Schema::create('admin_time_tables', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
+            $table->foreignId('user_id')->constrained(); 
+            $table->string('heur_start');
+            $table->string('heur_end');
+            $table->foreignId('matiere_id')->constrained();
             $table->string('day');
             $table->timestamps();
         });
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('datedays');
+        Schema::dropIfExists('admin_time_tables');
     }
 };

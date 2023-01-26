@@ -3,25 +3,36 @@
 namespace App\Http\Controllers;
 
 use App\Models\access;
-use App\Models\matiere;
-use App\Models\formation;
 use Illuminate\Http\Request;
+use App\Models\adminTimeTable;
 use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Expr\Cast\Object_;
 
-class matiereController extends Controller
+class timeTableController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $formation = $request->formation;
-        $matieres = matiere::all();
+        $timeTables = adminTimeTable::all();
         $accesses = access::all();
+        $sessions = [];
+        foreach($accesses as $access){
+        foreach($timeTables as $timeTable){
+                if( $timeTable->matiere_id == $access->matiere_id && Auth::user()->id == $access->user_id){
+                    $sessions[] = adminTimeTable::find($timeTable->id); 
+                }
+            }
+        }
+        return view('timeTable.index', ['sessions' => $sessions]);
         
-        return view('matieres.index', [ 'matieres' => $matieres , 'formation' => $formation, 'accesses' => $accesses]);
+
+            
+        
+        /* return view('timeTable.index'); */
     }
 
     /**
@@ -30,9 +41,8 @@ class matiereController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
-        $formations = formation::all();
-        return view('matieres.create',['formations' => $formations]);
+    {
+        //
     }
 
     /**
@@ -43,24 +53,18 @@ class matiereController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nom_matiere' => 'required', 
-            'formation_id' => 'required',
-            ]);
-        matiere::create($request->post());
-        return redirect()->route('matieres.index')
-            ->with('success','matiere created successfully');
+        //
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response 
+     * @return \Illuminate\Http\Response
      */
-    public function show(matiere $matiere)
+    public function show($id)
     {
-        return view('matieres.show', ['matiere' => $matiere]);
+        //
     }
 
     /**
@@ -71,7 +75,7 @@ class matiereController extends Controller
      */
     public function edit($id)
     {
-        
+        //
     }
 
     /**
@@ -81,9 +85,9 @@ class matiereController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-
+        //
     }
 
     /**
@@ -92,10 +96,8 @@ class matiereController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(matiere $matiere)
+    public function destroy($id)
     {
-        $matiere->delete();
-        return redirect()->route('matieres.index')
-            ->with('success','commande deleted successfully');
+        //
     }
 }
