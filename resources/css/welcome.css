@@ -16,8 +16,10 @@
 section {
     padding-inline: 15%;
 }
-
-section:not(.hero) {
+.register {
+    padding-top: 5em;
+}
+section:not(.hero, .login, .register) {
     padding-block: 150px;
 }
 
@@ -727,3 +729,31 @@ strong {
 }
 /* footer */
 /* page */
+
+/* login */
+.container-fluid{
+    background-color: #F2F2F3;
+  }
+  
+  .bg-image-vertical {
+position: relative;
+overflow: hidden;
+background-repeat: no-repeat;
+background-position: right center;
+background-size:  100%;
+}
+
+@media (min-width: 1025px) {
+.h-custom-2 {
+height: 100%;
+}
+}
+.btn-block{
+  background-color: #0d6efd;
+  border-radius: 30px;
+  width: 100%;
+
+}
+/* registre */
+
+

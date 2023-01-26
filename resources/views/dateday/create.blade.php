@@ -1,11 +1,10 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    {{-- @vite(['resources/js/selectOptions.js']) --}}
+    @vite(['resources/js/selectOptions.js'])
     <form action=" {{route('dateday.store')}} ">
         <div>
-            <script src="http://[::1]:5174/resources/js/selectOptions.js" type="module" defer>
-            </script>
+           
             <label for="">formateur</label>
             <select name="" id="" >
                 <option value=""></option>
