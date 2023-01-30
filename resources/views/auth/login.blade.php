@@ -1,24 +1,22 @@
 @extends('layouts.welcome')
-
 @section('content')
+
 @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 <section class="login">
     <div class="container-fluid">
         <div class="row">
 
             <div class="col-sm-6 text-black">
-                <div class="px-5 ms-xl-4">
-                </div>
-                    <div class="d-flex align-items-center h-custom-2 ">
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
-                            
+                <div class="d-flex align-items-center h-custom-2 ">
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+                        
                             <div class="row mb-3">  
                                 <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
                                 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form2Example18">Adresse Email :</label>
-                                    <input type="email" id="form2Example18" class="form-control form-control-lg" placeholder="entrer votre email" />
+                                    <input type="email" id="form2Example18" class="form-control form-control-lg" placeholder="entrer votre email" name="email"/>
                                     
                                 </div>
 
@@ -32,7 +30,7 @@
 
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="form2Example28">Mot de passe :</label>
-                                <input type="password" id="form2Example28" class="form-control form-control-lg" placeholder="entrer votre mot de passe"/>
+                                <input type="password" id="form2Example28" class="form-control form-control-lg" placeholder="entrer votre mot de passe" name="password"/>
                                 
                             </div>
 
@@ -57,22 +55,24 @@
                             </div>
 
                             <div class="pt-1 mb-4">
-                                <button class="btn btn-info btn-lg btn-block" type="submit">Login</button>
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Login') }}
+                                </button>
                             </div>
-                            
-                            <p>Don't have an account? <a href="#!" class="link-info">Register here</a></p>
+                            <p>Don't have an account? <a href=" {{route('register')}} " class="link-info">Register here</a></p>
 
                                     @if (Route::has('password.request'))
                                         <a class="btn btn-link" href="{{ route('password.request') }}">
                                             {{ __('Forgot Your Password?') }}
                                         </a>
                                     @endif
-                                
-                            </div>
                             
+                                
+                                    
                         </form>
-        
+                                
                     </div>
+                </div>
 
             
 
@@ -82,9 +82,9 @@
             </div>
             
         </div>
-    </div>
+    
     
 </section>
 
-</div>
+
 @endsection

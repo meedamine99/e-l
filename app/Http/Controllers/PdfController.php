@@ -40,6 +40,7 @@ class pdfController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'leçon_id' => 'required',
             'title' => 'required|string|max:255',
             'pdf' => 'required|file|mimes:pdf',
         ]);

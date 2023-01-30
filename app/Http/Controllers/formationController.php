@@ -37,9 +37,9 @@ class formationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nom_formation' => 'required',
-            'date_début' => 'required',
-            'date_fin' => 'required'
+            'nom_formation' => 'required|string',
+            'date_début' => 'required|date',
+            'date_fin' => 'required|date'
             ]);
         formation::create($request->post());
         return redirect()->route('formation.index')
