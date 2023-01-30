@@ -44,7 +44,7 @@ class matiereController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nom_matiere' => 'required', 
+            'nom_matiere' => 'required|string', 
             'formation_id' => 'required',
             ]);
         matiere::create($request->post());

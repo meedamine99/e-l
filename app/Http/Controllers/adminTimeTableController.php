@@ -29,6 +29,7 @@ class adminTimeTableController extends Controller
      */
     public function create()
     {
+        
         $formateurs =  User::all()-> where('role' ,"formateur");
         $formations = formation::all();
         $matieres = matiere::all(); 
@@ -48,6 +49,13 @@ class adminTimeTableController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([ 
+            'formateur' =>'required',
+            'heur_start' =>'required',
+            'heur_end' =>'required',
+            'matiere' =>'required',
+            'day' =>'required',
+        ]);
         $adminTimeTable = new adminTimeTable();
         $adminTimeTable->user_id = $request->formateur;
         $adminTimeTable->heur_start = $request->heur_start;

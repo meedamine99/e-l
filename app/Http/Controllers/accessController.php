@@ -36,6 +36,10 @@ class accessController extends Controller
      */
     public function create(Request $request)
     {
+        $this->validate($request, [
+            'user_id' => 'required',
+            'matiere' => 'required'
+        ]);
         $input = $request->all();
         $input['matiere'] = $request->input('matiere');
         foreach($input['matiere'] as $matiere){

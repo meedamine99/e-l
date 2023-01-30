@@ -18,6 +18,7 @@ section {
 }
 .register {
     padding-top: 5em;
+    height: 80vh;
 }
 section:not(.hero, .login, .register) {
     padding-block: 150px;

@@ -39,6 +39,11 @@ class videoController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'leçon_id' => 'required',
+            'title' => 'required|string|max:255',
+            'video' => 'required|file|mimes:mp4,mov',
+        ]);
         $videoName = $request->video->hashName();
 
         $request->video->move(public_path('vids'), $videoName);

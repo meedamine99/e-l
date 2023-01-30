@@ -47,8 +47,7 @@ class leçonController extends Controller
     public function store(Request $request)
     {
          $request->validate([
-            
-            'nom' => 'required',
+            'nom' => 'required|string',
             'matiere_id' => 'required',
             ]);
         leçon::create($request->post());
@@ -88,12 +87,9 @@ class leçonController extends Controller
     public function update(Request $request, leçon $leçon)
     {
         $request->validate([
-            'id' => 'required',
-            'nom' => 'required',
-            'id_matiere' => 'required',
-            'id_pdf' => 'required',
-            'id_video' => 'required',
-        ]);   
+            'nom' => 'required|string',
+            'matiere_id' => 'required',
+            ]);  
 
             $leçon->fill($request->post())->save();
             return redirect()->route('leçon.index')
