@@ -2,6 +2,40 @@ import './bootstrap';
 
 import './bootstrap';
 
+var forms = document.querySelectorAll('form');
+var inputs = document.querySelectorAll('.form-control');
+var selects = document.querySelectorAll('select');
+
+
+forms.forEach(function (form) {
+
+    form.addEventListener('submit', function (event) {
+        inputs.forEach(e => {
+            if (e.value == "") {
+                event.preventDefault()
+                event.stopPropagation()
+
+                e.style.borderColor = "red";
+
+            } else if (e.value != "") {
+                e.style.borderColor = "green"
+            }
+        });
+        selects.forEach(e => {
+            if (e.value == "") {
+                event.preventDefault()
+                event.stopPropagation()
+
+                e.style.borderColor = "red";
+
+            } else if (e.value != "") {
+                e.style.borderColor = "green"
+            }
+        });
+
+
+    })
+})
 
 var shine = document.querySelector('.shine');
 var links = document.querySelectorAll('.links');
@@ -41,24 +75,6 @@ serviceContainers.forEach((item, i) => {
 
 
 
-/* window.onscroll = function () {
-  reverseColor();
-};
-
-var contact = document.getElementById("contact");
-var contactPos = contact.offsetTop;
-const body = document.querySelector("body");
-function reverseColor() {
-  if (window.pageYOffset >= contactPos - 600) {
-    body.style.setProperty("background-color", " #24acdc");
-    body.style.setProperty("color", "#f2f2f2");
-    body.style.transition = '2s ease-in-out'
-  } else {
-    body.style.setProperty("background-color", "#f2f2f2");
-    body.style.setProperty("color", " #24acdc");
-    body.style.transition = '2s'
-  }
-} */
 /* parallax */
 
 window.addEventListener('scroll', function () {
@@ -89,3 +105,5 @@ window.addEventListener('load', function () {
     page.style.display = "block"
     preloder.style.transition = "1s"
 })
+
+
