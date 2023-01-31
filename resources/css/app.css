@@ -136,9 +136,6 @@
 
  }
 
-
-
-
  .active {
      display: block;
  }
@@ -146,4 +143,37 @@
  .inactive {
      display: none;
  }
- 
+
+
+
+
+ /* table style */
+table{
+    margin: auto;
+    min-width: 800px;
+    max-width: 800px;
+    text-align: center;
+ }
+ table th {
+    border-top: none;
+    background: var(--clr-accent);
+    color: var(--clr-secondary);
+  }
+  
+table {
+    border-radius: .4em;
+    overflow: hidden;
+  }
+table th,
+table td {
+    padding: .5em 1em;
+  }
+table th,
+table td {
+    padding: 1em !important;
+  }
+
+    h2 {
+        text-align: center;
+        font-size: 2.4em;
+    }

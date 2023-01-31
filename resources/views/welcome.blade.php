@@ -121,6 +121,7 @@
                             <a class="links contact-links" target="_blank" href="https://www.google.com/maps/place/Bel+Learning+Pro/@34.684458,-1.916194,19z/data=!4m12!1m6!3m5!1s0x0:0xe87db6d5a82d5143!2sBel+Learning+Pro!8m2!3d34.6844619!4d-1.9161925!3m4!1s0x0:0xe87db6d5a82d5143!8m2!3d34.6844619!4d-1.9161925?hl=en-GB"><i class="bi bi-geo-alt"></i></a>
                         
                     </div>
+
                     <form action=" {{route('contact.submit')}} " method="POST">
                         @csrf
                         <label class="float-label">
@@ -135,7 +136,7 @@
                             <textarea name="content" class="input" name="" id="" cols="30" rows="4"></textarea>
                             <span class="label">massage</span>
                         </label>
-                        <button class="links"><span>envoyer</span></button>
+                        <button class="links" ><span>envoyer</span></button>
                     </form>
                 </div>
             </section>

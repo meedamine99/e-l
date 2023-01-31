@@ -1,10 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card shadow">
-                <div class="card-header">{{ __('users') }}</div>
+                <h2> {{ __('users') }}</h2>
    
                 <div class="card-body">
                   {{-- <form class="mb-3"  action="{{url('admin/search')}}">
@@ -34,8 +31,7 @@
                         {{$message}}
                       </div>
                     @endif
-                    <a class="link-primary mb-3 d-inline-block" href=" {{route('users.create')}} "><i class="fa-solid fa-plus"></i> {{ __('Add a user')}}</a>
-                    <table class="table table-striped table-hover {{-- table-bordered --}} text-center align-middle ">
+                    <table class="rwd-table">
                         <thead>
                             <tr>
                               <th scope="col">CIN</th>
@@ -52,7 +48,7 @@
                             @if ($user->role != 'admin')
                                 
                             <tr>
-                                <th scope="row">{{ $user->CIN }}</th>
+                                <td scope="row">{{ $user->CIN }}</td>
                               <td><a href=" {{route('access.index', ['user' => $user->id, 'userName' => $user->nom])}} ">{{ $user->nom }}</a></td>
                               <td><a href=" {{route('access.index', ['user' => $user->id, 'userName' => $user->nom])}} ">{{ $user->prenom }}</a></td>
                               <td>{{ $user->role }}</td>
@@ -73,9 +69,6 @@
                     <div>
                       {{ $users->links() }}
                     </div>
-                </div>
-            </div>
-        </div>
     </div>
   </div>
 @endsection
