@@ -55,14 +55,14 @@
                             </div>
 
                             <div class="pt-1 mb-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary w-100" style="background-color: #24acdc; border: none">
                                     {{ __('Login') }}
                                 </button>
                             </div>
-                            <p>Don't have an account? <a href=" {{route('register')}} " class="link-info">Register here</a></p>
+                            <p>Don't have an account? <a href=" {{route('register')}} " style="color: #24acdc">Register here</a></p>
 
                                     @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        <a class="btn btn-link" style="color: #24acdc" href="{{ route('password.request') }}">
                                             {{ __('Forgot Your Password?') }}
                                         </a>
                                     @endif

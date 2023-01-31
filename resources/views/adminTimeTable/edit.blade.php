@@ -8,62 +8,98 @@
         <div>
             
             <label for="">formateur</label>
-            <select name="user_id" id="" >
-                <option value=""></option>
+            <select name="user_id" id="" class=" @error('user_id') is-invalid @enderror">
+                
                 @foreach ($formateurs as $formateur)
                     <option value=" {{$formateur->id}}">{{$formateur->nom}} {{$formateur->prenom}}</option>  
                 @endforeach
             </select>
+            @error('user_id')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         
             
             
-            <label for="">heure debut</label>
-            <select name="heur_start" id="hourStart"  style="width:150px;">
-                <option value=""></option>
-            </select>
-            
+            <div>
+                <label for="">heure debut</label>
+                <select name="heur_start" id="hourStart"  style="width:150px;" class=" @error('heur_debut') is-invalid @enderror">
+                
+                </select>
+                @error('heur_start')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
         
             
-            <label for="">heure fin</label>
-            <select name="heur_end" id="hourEnd" >
-                <option value=""></option>
-            </select>
+            <div>
+                <label for="">heure fin</label>
+                <select name="heur_end" id="hourEnd" class=" @error('heur_end') is-invalid @enderror">
+                
+                </select>
+                @error('heur_end')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
             
             
+            <div>
+                <label for="">formation</label>
+                <select name="" id="formation" class=" @error('formation') is-invalid @enderror">
+                
+                    @foreach ($formations as $formation)
+                        <option value=" {{$formation->id}} ">{{$formation->nom_formation}}</option>
+                    @endforeach
+                </select>
+                @error('formation')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
             
-            <label for="">formation</label>
-            <select name="" id="formation" >
-                <option value=""></option>
-                @foreach ($formations as $formation)
-                    <option value=" {{$formation->id}} ">{{$formation->nom_formation}}</option>
-                @endforeach
-            </select>
+            <div>
+                <label for="">matiere</label>
+                <select name="matiere_id" id="" class=" @error('matiere_id') is-invalid @enderror">
+                
+                    @foreach ($matieres as $matiere)
+                        <div >
+                            <option class="matiere" data-matiere="{{$matiere->formation->id}}" value=" {{$matiere->id}} ">{{$matiere->nom_matiere}}</option>
+                        </div>
+                    @endforeach
+                </select>
+                @error('matiere_id')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
             
             
-            <label for="">matiere</label>
-            <select name="matiere_id" id="" >
-                <option value=""></option>
-                @foreach ($matieres as $matiere)
-                    <div >
-                        <option class="matiere" data-matiere="{{$matiere->formation->id}}" value=" {{$matiere->id}} ">{{$matiere->nom_matiere}}</option>
-                    </div>
-                @endforeach
-            </select>
-            
-            
-            
-            <label for="">jour</label>
-            <select name="day" id="" >
-                <option value=""></option>
-                <option value="lundi">lundi</option>
-                <option value="mardi">mardi</option>
-                <option value="mercredi">mercredi</option>
-                <option value="jeudi">jeudi</option>
-                <option value="vendredi">vendredi</option>
-                <option value="samedi">samedi</option>
-                <option value="dimanch">dimanch</option>
-            </select>
-        <button type="submit">ajouter</button>
+            <div>
+                <label for="">jour</label>
+                <select name="day" id="" class=" @error('day') is-invalid @enderror">
+                
+                    <option value="lundi">lundi</option>
+                    <option value="mardi">mardi</option>
+                    <option value="mercredi">mercredi</option>
+                    <option value="jeudi">jeudi</option>
+                    <option value="vendredi">vendredi</option>
+                    <option value="samedi">samedi</option>
+                    <option value="dimanch">dimanch</option>
+                </select>
+                @error('day')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        <div><button type="submit">ajouter</button></div>   
     </div>
     
 </form>

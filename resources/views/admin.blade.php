@@ -3,6 +3,10 @@
 
 hi admin
     {{ $userCount}}
-
-    in the last week {{$userCountLastWeek}}
+    {{$date}} <br>
+    in the last week {{$userCountLastWeek}}<br>
+    les formateur {{$formateurCount}}<br>
+    les etud {{$etudCount}}<br>
+    les users non access {{$usersNonAccess}}<br>
+    les users with access {{$usersAccess}}<br>
 @endsection
