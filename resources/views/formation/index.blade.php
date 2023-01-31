@@ -10,14 +10,14 @@
   <div class="container">
     <h2>les formations</h2>
     @if($message = Session::get('success'))
-        <div class="table text-center">
-          <p class="text-success">{{$message}}</p>
+        <div>
+          <p >{{$message}}</p>
         </div>
     @endif
     @if (Auth::user()->role == "admin")
-        <a id="create" href="{{route('formation.create')}}">create formation</a>
+        <a id="create" href="{{route('formation.create')}}"class="text-center d-block">create formation</a>
     @endif
-  <table class="table text-center ">
+  <table >
     <tr class="">
       <th>nom formation</th>
       <th>date debut</th>

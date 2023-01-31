@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use app\Mail\hellomail;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\leçonController;
@@ -11,6 +13,7 @@ use App\Http\Controllers\matiereController;
 use App\Http\Controllers\formationController;
 use App\Http\Controllers\adminTimeTableController;
 use App\Http\Controllers\timeTableController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -45,7 +48,10 @@ Route::resource('timeTable', timeTableController::class)->middleware(['auth', 'v
 
 Route::resource('adminTimeTable', adminTimeTableController::class)->middleware(['auth', 'verified', 'role']);
 
-
+Route::get('mail', function(){
+    Mail::to('medaminerouibeh99@gmail.com')
+        ->send(new hellomail());
+});
 
 /* Route::get('video-upload', [ VideoController::class, 'getVideoUploadForm' ])->middleware(['auth', 'verified', 'role']);
 Route::post('video-upload', [ VideoController::class, 'uploadVideo' ])->middleware(['auth', 'verified', 'role']);

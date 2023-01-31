@@ -1,11 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <a href=" {{route('adminTimeTable.create')}} ">create</a>
-    hi this is time table
 
-<style>
-    td , th {border: 1px solid black;}
-</style>
     <div>
         {{-- <table border="2">
             <tr id="time">
