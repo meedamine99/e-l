@@ -50,8 +50,9 @@ class leçonController extends Controller
             'nom' => 'required|string',
             'matiere_id' => 'required',
             ]);
+            $matiere = $request->matiere_id;
         leçon::create($request->post());
-        return redirect()->route('leçon.index')
+        return redirect()->route('leçon.index', ['matiere' => $matiere])
             ->with('success','leçon created successfully');
     }
 
@@ -102,10 +103,12 @@ class leçonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(leçon $leçon)
+    public function destroy($id, Request $request)
     {
+        $matiere = $request->matiere;
+        $leçon = leçon::find($id);
         $leçon->delete();
-        return redirect()->route('leçon$leçon.index')
+        return redirect()->route('leçon.index', ['matiere' => $matiere])
             ->with('success','leçon destroyed successfully');
     }
 }

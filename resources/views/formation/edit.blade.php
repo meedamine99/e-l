@@ -3,6 +3,7 @@
 <div class="container">
     <a class="link" href="{{route('formation.index')}}"><i class="fa-solid fa-arrow-left"></i> back</a>
             <form  action="{{ route('formation.update', $formation->id)}}" method="POST">
+              @method('POST')
         @if ( $errors->any() )
                       <div class="pb-0 alert alert-danger">
                           <ul>

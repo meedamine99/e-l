@@ -29,7 +29,12 @@
         <td>
           <a class="btn btn-primary" href="{{ route('leçon.index', ['matiere' => $matiere->id]) }}">les leçons</a>
           @if (Auth::user()->role == "admin")
-          <a class="btn btn-danger" href="{{ route('matieres.destroy', $matiere->id) }}">supprimer</a>
+          <form style="display: inline-block" action="{{ route('matieres.destroy', $matiere->id) }}" method="Post">
+          @csrf
+          @method('DELETE')
+          <input type="hidden" name="formation" id="" value=" {{$matiere->formation_id}} ">
+          <button class="btn btn-danger" onclick="return confirm('do u really want to delete this leçon?')" type="submit">Supprimer</button>
+        </form>
           @endif
         </td>
       </tr>

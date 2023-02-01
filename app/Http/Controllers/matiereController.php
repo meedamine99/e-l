@@ -46,9 +46,11 @@ class matiereController extends Controller
         $request->validate([
             'nom_matiere' => 'required|string', 
             'formation_id' => 'required',
-            ]);
+            ]); 
+            $formation = $request->formation_id;
+            
         matiere::create($request->post());
-        return redirect()->route('matieres.index')
+        return redirect()->route('matieres.index', ['formation' => $formation])
             ->with('success','matiere created successfully');
     }
 
@@ -92,10 +94,12 @@ class matiereController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(matiere $matiere)
+    public function destroy($id, Request $request)
     {
+        $matiere = matiere::find($id);
         $matiere->delete();
-        return redirect()->route('matieres.index')
+        $formation = $request->formation;
+        return redirect()->route('matieres.index', ['formation' => $formation])
             ->with('success','commande deleted successfully');
     }
 }

@@ -54,8 +54,10 @@ class videoController extends Controller
         $video->leçon_id = $request->leçon_id;
 
         $video->save();
-        return back()
-            ->with('success','You have successfully upload file.');
+
+        $leçon = $request->leçon_id;
+        return redirect()->route('videos.index', ['leçon' => $leçon])
+            ->with('success','video uploaded successfully');
     }
 
     /**

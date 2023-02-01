@@ -62,8 +62,9 @@ class formationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(formation $formation)
+    public function edit($id)
     {
+        $formation = formation::find($id);
         return view('formation.edit', ['formation' => $formation]);
     }
 
@@ -74,7 +75,7 @@ class formationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, formation $formation)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'nom_formation' => 'required',
@@ -83,7 +84,7 @@ class formationController extends Controller
 
             ]);
 
-
+            $formation = formation::find($id);
             $formation->fill($request->post())->save();
             return redirect()->route('formation.index')
                 ->with('success','formation edited successfully');
@@ -95,8 +96,9 @@ class formationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(formation $formation)
+    public function destroy($id)
     {
+        $formation = formation::find($id);
         $formation->delete();
         return redirect()->route('formation.index')
             ->with('success','formation destroyed successfully');
