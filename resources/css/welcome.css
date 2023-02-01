@@ -217,6 +217,9 @@ body {
     /* padding-bottom: 150px; */
     /* height: 100vh; */
 }
+#p{
+    font-size: 3rem;
+}
 .custom-btn {
     /* width: 200px;
     height: 50px; */
@@ -699,8 +702,8 @@ h2 {
 /* footer */
 footer {
     border-top: 1px solid var(--clr-accent);
-    background-color: var(--clr-secondary);
-    color: var(--clr-accent);
+    background-color: var(--clr-primary);
+    color:var(--clr-secondary);
     padding: 2em 3em;
     width: 100%;
     display: flex;

@@ -9,7 +9,7 @@
     <input type="text" name="query" placeholder="search leçon" >
   </div> --}}
 </form>
-<div class="table">
+<div>
   
   @if($message = Session::get('success'))
   <div class="success">
@@ -17,7 +17,7 @@
   </div>
   @endif
   <a id="create" href="{{route('leçon.create')}}">create leçon</a>
-  <table class="table text-center">
+  <table >
     <tr class="">
       
       <th>nom leçon</th>

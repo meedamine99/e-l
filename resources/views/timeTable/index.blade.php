@@ -1,8 +1,5 @@
 @extends('layouts.app')
 @section('content')
-        <style>
-            td , th {border: 1px solid black;}
-        </style>
     <table border="2">
             <tr>
                 <th>matiere</th>

@@ -11,7 +11,7 @@
     {{$message}}
   </div>
   @endif
-  <table class="table text-center ">
+  <table>
     <thead>
       <tr>
         <th>nom matiere</th>
