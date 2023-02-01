@@ -7,7 +7,7 @@
                 <div>
                     <h1 class="">
                         JE NE PERDS JAMAIS  <br />
-                        <h3>SOIT JE GAGNE SOIT J’APPRENDS</h3>
+                        <p id="p">SOIT JE GAGNE SOIT J’APPRENDS</p>
                     </h1>
                     <div class="image">
                         @auth

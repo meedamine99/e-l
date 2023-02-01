@@ -4,8 +4,6 @@ use App\Mail\hellomail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
-use app\Mail\hellomail;
-use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\leçonController;
