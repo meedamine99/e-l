@@ -37,6 +37,7 @@
         <form style="display: inline-block" action="{{ route('leçon.destroy', $leçon->id) }}" method="Post">
           @csrf
           @method('DELETE')
+          <input type="hidden" name="matiere" id="" value=" {{$leçon->matiere_id}} ">
           <button class="btn btn-danger" onclick="return confirm('do u really want to delete this leçon?')" type="submit">Supprimer</button>
         </form>
         @endif
