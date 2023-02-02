@@ -42,13 +42,16 @@ class HomeController extends Controller
         $usersAccess = 0;
         foreach ($users as $user ) {
             $found = access::where('user_id', $user->id)->count();
-            if($found = 0){
+            if($found == 0 && $user->role == 'user'){
+                
                 $usersNonAccess += 1;
             }
         }
+
+
         foreach ($users as $user ) {
             $found = access::where('user_id', $user->id)->count();
-            if($found != 0){
+            if($found != 0 && $user->role == 'user'){
                 $usersAccess += 1;
             }
         }

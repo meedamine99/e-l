@@ -11,7 +11,13 @@ class emailController extends Controller
 {
     public function submit(emailRequest $request)
     {
-        Mail::to('medaminerouibeh99@gmail.com')->send(new emailMail($request->name, $request->email, $request->content));
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email:filter',
+            'content' => 'required',
+            ]);  
+            
+        Mail::to('medaminerouibeh99@gmail.com')->send(new emailMail(strip_tags($request->name), strip_tags($request->email), strip_tags($request->content)));
         return redirect('/');
     }
 }

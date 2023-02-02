@@ -1,10 +1,12 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\emailController;
 use App\Http\Controllers\leçonController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\accessController;
@@ -12,7 +14,7 @@ use App\Http\Controllers\matiereController;
 use App\Http\Controllers\formationController;
 use App\Http\Controllers\timeTableController;
 use App\Http\Controllers\adminTimeTableController;
-use App\Http\Controllers\emailController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 
 /*
@@ -30,7 +32,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes([
+    'verify' => true
+]);
 
 Route::group(['middleware' => ['auth', 'verified', 'role']], function () {
     Route::resource('users', userController::class);
@@ -81,9 +85,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::get('/pdfs', [pdfController::class, 'index'])->name('pdfs.index');
 
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 
@@ -98,3 +102,21 @@ Route::resource('timeTable', timeTableController::class)->middleware(['auth', 'v
 
 
 Route::post('/contact', [emailController::class, 'submit'])->name('contact.submit');
+
+
+
+/* Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+ 
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+ 
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send'); */

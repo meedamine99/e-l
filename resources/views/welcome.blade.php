@@ -133,7 +133,7 @@
                             <span class="label">Email</span>
                         </label>
                         <label class="float-label">
-                            <textarea name="content" class="input" name="" id="" cols="30" rows="4"></textarea>
+                            <textarea name="content" class="input" name="" id="" cols="30" rows="4" required></textarea>
                             <span class="label">massage</span>
                         </label>
                         <button class="links" ><span>envoyer</span></button>
