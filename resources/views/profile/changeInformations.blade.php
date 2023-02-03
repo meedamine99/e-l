@@ -37,6 +37,38 @@
                       <p class="text-danger">{{ $message }}</p>
                     @enderror
 
+                    <div class="mb-3">
+                      <label for="" >ville</label>
+                      <input type="text" name="ville"  id="" placeholder="ville" value="{{auth()->user()->ville}}">
+                    </div>
+                    @error('ville')
+                      <p class="text-danger">{{ $message }}</p>
+                    @enderror
+
+                    <div class="mb-3">
+                      <label for="" >address</label>
+                      <input type="text" name="address"  id="" placeholder="address" value="{{auth()->user()->address}}">
+                    </div>
+                    @error('address')
+                      <p class="text-danger">{{ $message }}</p>
+                    @enderror
+
+                    <div class="mb-3">
+                      <label for="" >cin</label>
+                      <input type="text" name="cin"  id="" placeholder="cin" value="{{auth()->user()->cin}}">
+                    </div>
+                    @error('cin')
+                      <p class="text-danger">{{ $message }}</p>
+                    @enderror
+
+                    <div class="mb-3">
+                      <label for="" >telephone</label>
+                      <input type="text" name="telephone"  id="" placeholder="telephone" value="{{auth()->user()->telephone}}">
+                    </div>
+                    @error('telephone')
+                      <p class="text-danger">{{ $message }}</p>
+                    @enderror
+
                     
                     <div class="mb-3">
                       <label for="" >password</label>
@@ -47,7 +79,7 @@
                     </div>
 
                     <div>
-                      <button type="submit"><i class="fa-solid fa-pen"></i> save</button>
+                      <button type="submit"><i></i> save</button>
                     </div>
                   </form>
                 
