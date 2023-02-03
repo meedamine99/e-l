@@ -11,6 +11,7 @@ use App\Http\Controllers\leçonController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\accessController;
 use App\Http\Controllers\matiereController;
+use App\Http\Controllers\profileController;
 use App\Http\Controllers\formationController;
 use App\Http\Controllers\timeTableController;
 use App\Http\Controllers\adminTimeTableController;
@@ -75,6 +76,12 @@ Route::group(['middleware' => ['auth', 'verified', 'role']], function () {
 });
 Route::group(['middleware' => ['auth', 'verified']], function () {
 
+    Route::get('/profile/{id}/changeInformations', [profileController::class, 'edit_informations'])->name('profile.changeInformations');
+    Route::put('/profile/update_informations', [profileController::class, 'update_informations'])->name('profile.update_informations');
+    
+    Route::get('/profile/{id}/changePassword', [profileController::class, 'edit_Password'])->name('profile.changePassword');
+    Route::put('/profile/update_password', [profileController::class, 'update_password'])->name('profile.update_password');
+
     Route::get('/matieres', [matiereController::class, 'index'])->name('matieres.index');
 
     Route::get('/formation', [formationController::class, 'index'])->name('formation.index');
@@ -86,37 +93,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/pdfs', [pdfController::class, 'index'])->name('pdfs.index');
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    Route::resource('timeTable', timeTableController::class);
 });
 
-
-
-
-/* Route::resource('matieres', matiereController::class)->middleware(['auth', 'verified']); */
-
-// Route::resource('formation', formationController::class)->middleware(['auth', 'verified']);
-// Route::resource('leçon', leçonController::class)->middleware(['auth', 'verified']);
-// Route::resource('videos', videoController::class)->middleware(['auth', 'verified']);
-// Route::resource('pdfs', pdfController::class)->middleware(['auth', 'verified']);
-Route::resource('timeTable', timeTableController::class)->middleware(['auth', 'verified']);
-
-
-
 Route::post('/contact', [emailController::class, 'submit'])->name('contact.submit');
-
-
-
-/* Route::get('/email/verify', function () {
-    return view('auth.verify-email');
-})->middleware('auth')->name('verification.notice');
-
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
- 
-    return redirect('/home');
-})->middleware(['auth', 'signed'])->name('verification.verify');
-
-Route::post('/email/verification-notification', function (Request $request) {
-    $request->user()->sendEmailVerificationNotification();
- 
-    return back()->with('message', 'Verification link sent!');
-})->middleware(['auth', 'throttle:6,1'])->name('verification.send'); */

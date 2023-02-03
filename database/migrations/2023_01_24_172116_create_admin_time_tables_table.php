@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('admin_time_tables', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained(); 
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); 
             $table->string('heur_start');
             $table->string('heur_end');
-            $table->foreignId('matiere_id')->constrained();
+            $table->foreignId('matiere_id')->constrained()->onDelete('cascade');
             $table->string('day');
             $table->timestamps();
         });

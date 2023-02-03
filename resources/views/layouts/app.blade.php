@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'e-learning') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -30,6 +30,8 @@
         <div>
             <a class="links" href=" {{route('home')}} ">home</a>
             <a class="links" href=" {{route('formation.index')}} ">Les formation</a>
+            <a class="links" href=" {{route('profile.changeInformations', auth()->user()->id)}} ">change informations</a>
+            <a class="links" href=" {{route('profile.changePassword', auth()->user()->id)}} ">change password</a>
             {{-- <a class="links" href=" {{route('contenu.index')}} ">emloi du temps</a> --}}
             @if( Auth::user()->role == "admin" )
                 <a class="links" href=" {{route('adminTimeTable.index')}} ">Time Table</a>
