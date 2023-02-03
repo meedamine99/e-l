@@ -1,8 +1,9 @@
 @extends('layouts.app')
 @section('content')
-@vite(['resources/css/dashboard.css'])
+@vite(['resources/css/dashboard.css' ,'resources/js/mibian.js' ])
 
 <div class="container">
+    
     <h1 class="iname"> DASHBOARD</h1>
         <div class="date">
             {{$date}}
@@ -63,6 +64,12 @@
                 {{$usersNonAccess}}
             </div>
         </div>
+           
     </div>
+    <div>
+        <canvas id="chart"></canvas>
+    </div> 
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    
     
 @endsection
