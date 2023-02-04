@@ -13,6 +13,7 @@ export default defineConfig({
                 'resources/js/accesses.js',
                 'resources/js/selectOptions.js',
                 'resources/js/tableHours.js',
+                'resources/js/nav.js',
             ],
             refresh: true,
         }),
