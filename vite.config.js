@@ -14,6 +14,7 @@ export default defineConfig({
                 'resources/js/selectOptions.js',
                 'resources/js/tableHours.js',
                 'resources/js/nav.js',
+                'resources/js/mibian.js',
             ],
             refresh: true,
         }),

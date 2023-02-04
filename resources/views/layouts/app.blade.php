@@ -17,7 +17,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/css/app.css','resources/js/app.js', 'resources/js/nav.js'])
 </head>
-<body>
+<body>       
     <nav class="navMenu">
         <a href="/">
             <div class="logo">
