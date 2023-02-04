@@ -17,36 +17,31 @@
     @if (Auth::user()->role == "admin")
         <a id="create" href="{{route('formation.create')}}"class="text-center d-block">create formation</a>
     @endif
-  <table >
-    <tr class="">
-      <th>nom formation</th>
-      <th>date debut</th>
-      <th>date fin</th>
-      <th>type</th>
-      <th>actions</th>
-    </tr>
+    <div class="les_card">
     @foreach ($formation as $formation)
-    <tr>
-      <td><a class="" href="{{ route('matieres.index', ['formation' => $formation->id]) }}">{{ $formation->nom_formation }}</a></td>
-      <td>{{ $formation->date_début }}</td>
-      <td>{{ $formation->date_fin }}</td>
-      <td>{{ $formation->type }}</td>
-      <td>
-        @if (Auth::user()->role == "admin")
-        <a class="btn btn-primary" href="{{ route('formation.edit', $formation->id) }}">Modifier</a>
-        <form style="display: inline-block" action="{{ route('formation.destroy', $formation->id) }}" method="Post">
-          @csrf
-          @method('DELETE')
-          <button class="btn btn-danger" onclick="return confirm('do u really want to delete this formation?')" type="submit">Supprimer</button>
-        </form>
-        @endif
+      <div class="une_card">
+        <a class="" href="{{ route('matieres.index', ['formation' => $formation->id]) }}">{{ $formation->nom_formation }}</a>
+        <div>
+          <strong>début: </strong> {{ $formation->date_début }} --
+          <strong>fin: </strong>{{ $formation->date_fin }}
+        </div>
         
-        <a class="btn btn-primary" href="{{ route('matieres.index', ['formation' => $formation->id]) }}">les matieres </a>
-        
-      </td>
-    </tr>
+          <div>
+            @if (Auth::user()->role == "admin")
+            <a class="btn btn-primary" href="{{ route('formation.edit', $formation->id) }}">Modifier</a>
+            <form style="display: inline-block" action="{{ route('formation.destroy', $formation->id) }}" method="Post">
+              @csrf
+              @method('DELETE')
+              <button class="btn btn-danger" onclick="return confirm('do u really want to delete this formation?')" type="submit">Supprimer</button>
+            </form>
+            @endif
+            
+            <a class="btn btn-primary" href="{{ route('matieres.index', ['formation' => $formation->id]) }}">les matieres </a>
+          </div>
+        </div>
+      </div>
     @endforeach
-  </table>
+  </div>
 </div>
 </div>
 </div>

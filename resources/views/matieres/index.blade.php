@@ -11,37 +11,33 @@
     {{$message}}
   </div>
   @endif
-  <table>
-    <thead>
-      <tr>
-        <th>nom matiere</th>
-        <th>formation</th>
-        <th>actions</th>
-      </tr>
-    </thead>
-    <tbody>
-
-      @foreach ($matieres as $matiere)
+  <div class="les_card">
+    @foreach ($matieres as $matiere)
       @if($formation == $matiere->formation_id)
-      <tr>
-        <td><a class="" href="{{ route('leçon.index', ['matiere' => $matiere->id]) }}">{{ $matiere->nom_matiere }}</a></td>
-        <td>{{ $matiere->formation->nom_formation }}</td>
-        <td>
-          <a class="btn btn-primary" href="{{ route('leçon.index', ['matiere' => $matiere->id]) }}">les leçons</a>
-          @if (Auth::user()->role == "admin")
-          <form style="display: inline-block" action="{{ route('matieres.destroy', $matiere->id) }}" method="Post">
-          @csrf
-          @method('DELETE')
-          <input type="hidden" name="formation" id="" value=" {{$matiere->formation_id}} ">
-          <button class="btn btn-danger" onclick="return confirm('do u really want to delete this leçon?')" type="submit">Supprimer</button>
-        </form>
-          @endif
-        </td>
-      </tr>
+        <div class="une_card">
+            <a class="" href="{{ route('leçon.index', ['matiere' => $matiere->id]) }}">{{ $matiere->nom_matiere }}</a>
+        <div>
+            {{ $matiere->formation->nom_formation }}
+        </div>
+        <div>
+            <a class="btn btn-primary" href="{{ route('leçon.index', ['matiere' => $matiere->id]) }}">les leçons</a>
+            @if (Auth::user()->role == "admin")
+              <form style="display: inline-block" action="{{ route('matieres.destroy', $matiere->id) }}" method="Post">
+                @csrf
+                @method('DELETE')
+                <input type="hidden" name="formation" id="" value=" {{$matiere->formation_id}} ">
+                <button class="btn btn-danger" onclick="return confirm('do u really want to delete this leçon?')" type="submit">Supprimer</button>
+              </form>
+            @endif
+        </div>
+
+  
+      </div>
       @endif
-      @endforeach
-    </tbody>
-  </table>
+    @endforeach
+  </div>
+
 </div>
+
 
 @endsection

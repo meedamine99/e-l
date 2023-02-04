@@ -3,7 +3,7 @@
      --clr-secondary: #F2F2F3;
      --clr-accent: #24acdc;
  }
- 
+
  *,
  *::before,
  *::after {
@@ -11,90 +11,96 @@
      padding: 0;
      margin: 0;
  }
+
  body {
      color: var(--clr-primary);
      background-color: #145a73;
      background-repeat: no-repeat;
      background-size: cover;
      height: 100vh;
-     
+
      display: flex;
      font-family: "Montserrat", sans-serif;
  }
- .main{
+
+ .main {
      flex: 8 1;
      backdrop-filter: blur(10px);
-    background-color: var(--clr-secondary);
-    padding-block: 3em;
-    margin-block: auto;
-    margin-right: 10px;
-    height: 98%;
-    border-radius: 25px;
-    box-shadow: -8px -8px 38px -11px rgba(0, 0, 0, 0.56);
-    z-index: 1;
-    overflow-y: scroll;
+     background-color: var(--clr-secondary);
+     padding-block: 3em;
+     margin-block: auto;
+     margin-right: 10px;
+     height: 98%;
+     border-radius: 25px;
+     box-shadow: -8px -8px 38px -11px rgba(0, 0, 0, 0.56);
+     z-index: 1;
+     overflow-y: scroll;
  }
+
  .main::-webkit-scrollbar {
      width: 7px;
-     
+
  }
 
  .main::-webkit-scrollbar-track {
-    border-radius: 50px;
-    margin-block: 25px;
+     border-radius: 50px;
+     margin-block: 25px;
  }
 
  .main::-webkit-scrollbar-thumb {
      background: var(--clr-primary);
      border-radius: 50px;
  }
+
  .navMenu {
-    z-index: 5;
-    backdrop-filter: blur(10px);
-    background-color: var(--clr-primary);
-    width: 5em;
-    flex-direction: column;
-    padding-block: 3em;
-    margin-block: auto;
-    margin-inline: 10px;
-    height: 98%;
-    justify-content: space-between;
-    border-radius: 25px;
-    box-shadow: -8px -8px 38px -11px rgba(0, 0, 0, 0.56);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+     z-index: 5;
+     backdrop-filter: blur(10px);
+     background-color: var(--clr-primary);
+     width: 5em;
+     flex-direction: column;
+     padding-block: 3em;
+     margin-block: auto;
+     margin-inline: 10px;
+     height: 98%;
+     justify-content: space-between;
+     border-radius: 25px;
+     box-shadow: -8px -8px 38px -11px rgba(0, 0, 0, 0.56);
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
 
  }
 
  .options {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1em;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 1em;
  }
 
- .links{
-    position: relative;
+ .links {
+     position: relative;
  }
 
  .menuoptions {
 
-    padding: 5px 15px 5px 20px;
-    position: absolute;
-    width: max-content;
-    left: 34px;
-    background-color: var(--clr-primary);
-    transform: translateY(-20%);
-    border-radius: 0 25px 25px 0;
-    transition: .3s;
-    
- }
- .optiontransition{
+     padding: 5px 15px 5px 20px;
+     position: absolute;
+     width: max-content;
+     left: 34px;
+     background-color: var(--clr-primary);
+     transform: translateY(-20%);
+     border-radius: 0 25px 25px 0;
+     transition: .3s;
 
-    opacity: 0;
-    left: 0px;
  }
+
+ .optiontransition {
+
+     opacity: 0;
+     left: 0px;
+ }
+
  .navMenu a {
      padding: .5em .5em;
      color: var(--clr-accent);
@@ -106,19 +112,22 @@
      transition: all 0.2s ease-in-out;
      transition: .3s;
  }
- .navMenu a:hover{
-    color: var(--clr-secondary);
- }
- .navMenu a i {
-    z-index: 8;
-    font-size: 1.2rem;
- }
- 
-.dropdown-menu.show,.dropdown-item:hover {
-    background-color: var(--clr-primary);
+
+ .navMenu a:hover {
+     color: var(--clr-secondary);
  }
 
- 
+ .navMenu a i {
+     z-index: 8;
+     font-size: 1.2rem;
+ }
+
+ .dropdown-menu.show,
+ .dropdown-item:hover {
+     background-color: var(--clr-primary);
+ }
+
+
  /* .navMenu a:hover .menuoptions{
     display: block;
     transform: translateY(-50%);
@@ -207,7 +216,7 @@
      }
  }
 
- 
+
 
 
  .active {
@@ -217,3 +226,6 @@
  .inactive {
      display: none;
  }
+
+
+ /* cards */

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\access;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -55,6 +56,13 @@ class HomeController extends Controller
                 $usersAccess += 1;
             }
         }
+
+        $userData = User::select(DB::raw("COUNT(*) as count"))
+            ->where('role', 'user')
+            ->whereYear("created_at", date('M'))
+            ->groupBy(DB::raw("Week(created_at)"))
+            ->pluck('count');
+
         $role = Auth::user()->role;
         if($role == 'user' || $role == 'formateur' ){
             return view('home');
@@ -68,6 +76,7 @@ class HomeController extends Controller
                 'etudCount' => $etudCount,
                 'usersNonAccess' => $usersNonAccess,
                 'usersAccess' => $usersAccess,
+                'userData' => $userData,
             ]);
         }
     }
