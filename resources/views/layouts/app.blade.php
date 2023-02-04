@@ -15,42 +15,47 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/css/app.css','resources/js/app.js',])
+    @vite(['resources/sass/app.scss', 'resources/css/app.css','resources/js/app.js', 'resources/js/nav.js'])
 </head>
 <body>       
     <nav class="navMenu">
         <a href="/">
-            <div class="logo links">
+            <div class="logo">
                 <div class="closed-sq c1"></div>
                 <div class="opened-sq o1"></div>
                 <div class="opened-sq o2"></div>
                 <div class="closed-sq c2"></div>
             </div>
         </a>
-        <div>
-            <a class="links" href=" {{route('home')}} ">home</a>
-            <a class="links" href=" {{route('formation.index')}} ">Les formation</a>
-            <a class="links" href=" {{route('profile.changeInformations', auth()->user()->id)}} ">change informations</a>
-            <a class="links" href=" {{route('profile.changePassword', auth()->user()->id)}} ">change password</a>
-            {{-- <a class="links" href=" {{route('contenu.index')}} ">emloi du temps</a> --}}
+        <div class="options">
+            <a class="links" href=" {{route('home')}} "><i class="fa-solid fa-house"></i><span class="menuoptions optiontransition ">home</span></a>
+            <a class="links" href=" {{route('formation.index')}} "><i class="fa-sharp fa-solid fa-book"></i><span class="menuoptions optiontransition ">Les formation</span></a>
+            
             @if( Auth::user()->role == "admin" )
-                <a class="links" href=" {{route('adminTimeTable.index')}} ">Time Table</a>
-                <a class="links" href=" {{route('users.index')}} ">users</a>
+                <a class="links" href=" {{route('adminTimeTable.index')}} "><i class="fa-regular fa-calendar-days"></i><span class="menuoptions optiontransition ">Time Table</span></a>
+                <a class="links" href=" {{route('users.index')}} "><i class="fa-solid fa-users"></i><span class="menuoptions optiontransition ">users</span></a>
             
                 @else
-                    <a class="links" href=" {{route('timeTable.index')}} ">Time Table</a>
+                    <a class="links" href=" {{route('timeTable.index')}} "><i class="fa-regular fa-calendar-days"></i><span class="menuoptions optiontransition ">Time Table</span></a>
             @endif
         </div>
-        <div>
+        <div class="d-flex flex-column align-items-center gap-2">
+            
             <div class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->nom }}
+                    <i class="fa-solid fa-user"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    <a class="links" href=" {{route('profile.changeInformations', auth()->user()->id)}} ">change informations</a>
+                    <a class="links" href=" {{route('profile.changePassword', auth()->user()->id)}} ">change password</a>
+                </div>
+            </div>
+            
+                
+                    <a  class="links" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                        <i class="fa-solid fa-right-from-bracket"></i>
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
@@ -61,9 +66,10 @@
     </nav>
     
 
-        <main class="py-4">
+        <div class="main">
             @yield('content')
-        </main>
+        </div>
     </div>
 </body>
+
 </html>
