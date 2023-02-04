@@ -33,9 +33,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes([
-    'verify' => true
-]);
+Auth::routes();
 
 Route::group(['middleware' => ['auth', 'verified', 'role']], function () {
     Route::resource('users', userController::class);
@@ -74,7 +72,7 @@ Route::group(['middleware' => ['auth', 'verified', 'role']], function () {
 
 
 });
-Route::group(['middleware' => ['auth', 'verified']], function () {
+Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/profile/{id}/changeInformations', [profileController::class, 'edit_informations'])->name('profile.changeInformations');
     Route::put('/profile/update_informations', [profileController::class, 'update_informations'])->name('profile.update_informations');

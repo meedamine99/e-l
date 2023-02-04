@@ -1,0 +1,17 @@
+.les_card {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.une_card {
+    padding: .5em .3em;
+    margin-block: .5em;
+    border-radius: 15px;
+    width: 90%;
+    margin-inline: auto;
+    background-color: rgb(200, 200, 200);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
