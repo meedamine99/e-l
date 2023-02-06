@@ -39,8 +39,8 @@
             <a class="btn btn-primary" href="{{ route('matieres.index', ['formation' => $formation->id]) }}">les matieres </a>
           </div>
         </div>
+        @endforeach
       </div>
-    @endforeach
   </div>
 </div>
 </div>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@vite(['resources/css/dashboard.css' ,'resources/js/mibian.js' ])
+@vite(['resources/css/dashboard.css' /* ,'resources/js/mibian.js'  */])
 
 <div class="container">
     
@@ -55,22 +55,58 @@
                 {{$usersAccess}}
             </div>
         </div>
-        <div class="box">
-            <div class="top">
-                <p class="heading">Nombre d'étudiants<br>non access</p>
-                <i class="fa-solid fa-user-xmark"></i>
+        <a class="nonAccess" href=" {{route('users.nonAccess')}} ">
+            <div class="box">
+                <div class="top">
+                    <p class="heading">Nombre d'étudiants<br>non access</p>
+                    <i class="fa-solid fa-user-xmark"></i>
+                </div>
+                <div class="bottom">
+                    {{$usersNonAccess}}
+                </div>
             </div>
-            <div class="bottom">
-                {{$usersNonAccess}}
-            </div>
-        </div>
+        </a>
            
     </div>
-    <div>
-        <canvas id="chart"></canvas>
-    </div> 
-    <input class="userData" value=" {{$userData}} " hidden>
+
+<canvas id="myChart"></canvas>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: @json($dates),
+            datasets: [{
+                label: 'Nombre des formateurs',
+                data: @json($teacherCounts),
+                backgroundColor:'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1,
+                fill: true
+            },
+            {
+                label: 'Nombres des etudiants',
+                data: @json($userCounts),
+                backgroundColor:'#24acdc33',
+                borderColor: '#24acdc',
+                borderWidth: 1,
+                fill: true
+            }
+        ]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: false
+                    }
+                }]
+            }
+        }
+    });
+</script>
     
     
 @endsection

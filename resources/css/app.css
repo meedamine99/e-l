@@ -1,7 +1,7 @@
  :root {
      --clr-primary: #393943;
      --clr-secondary: #F2F2F3;
-     --clr-accent: #24acdc;
+     --clr-accent: #24aadb;
  }
 
  *,
@@ -31,7 +31,7 @@
      margin-block: auto;
      margin-right: 10px;
      height: 98%;
-     border-radius: 25px;
+     border-radius: 15px;
      box-shadow: -8px -8px 38px -11px rgba(0, 0, 0, 0.56);
      z-index: 1;
      overflow-y: scroll;
@@ -63,7 +63,7 @@
      margin-inline: 10px;
      height: 98%;
      justify-content: space-between;
-     border-radius: 25px;
+     border-radius: 15px;
      box-shadow: -8px -8px 38px -11px rgba(0, 0, 0, 0.56);
      display: flex;
      justify-content: space-between;
@@ -90,13 +90,13 @@
      left: 34px;
      background-color: var(--clr-primary);
      transform: translateY(-20%);
-     border-radius: 0 25px 25px 0;
+     border-radius: 0 15px 15px 0;
      transition: .3s;
 
  }
 
  .optiontransition {
-
+    display: none;
      opacity: 0;
      left: 0px;
  }
@@ -108,13 +108,15 @@
      text-transform: uppercase;
      display: inline-block;
      padding-inline: 0.5em;
-     -webkit-transition: all 0.2s ease-in-out;
-     transition: all 0.2s ease-in-out;
+     
+        
      transition: .3s;
+     position: relative;
  }
 
  .navMenu a:hover {
      color: var(--clr-secondary);
+     transform: scale(1.1);
  }
 
  .navMenu a i {
