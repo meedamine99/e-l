@@ -1,32 +1,26 @@
+
 @extends('layouts.app')
 @section('content')
-    <table border="2">
-            <tr>
-                <th>matiere</th>
-                <th>heur debut</th>
-                <th>heur fin</th>
-                <th>day</th>
-                <th>formateur</th>
-            </tr>
-                @foreach ($sessions as $session)
-            <tr>
-                    <td>
-                        {{$session->matiere->nom_matiere}}
-                    </td>
-                    <td>
-                        {{$session->heur_start}}
-                    </td>
-                    <td>
-                        {{$session->heur_end}}
-                    </td>
-                    <td>
-                        {{$session->day}}
-                    </td>
-                    <td>
-                        {{$session->user->nom}}
-                        {{$session->user->prenom}}
-                    </td>
-                </tr>
+
+<div class="container">
+    <h1>Emploi du temps</h1>
+
+        <div class="les_card">
+            @foreach ($sessions as $time)
+                        <div class="une_card">
+                            <div>{{$time->matiere->nom_matiere}}</div>
+                            {{$time->day}}
+                            {{$time->heur_start}}
+                            --
+                            {{$time->heur_end}}
+                            <div>
+                                {{$time->user->nom}}
+                                {{$time->user->prenom}}
+                            </div>
+                                                
+                        </div>
                 @endforeach
-        </table>
+        </div>
+    </div>
+    
 @endsection

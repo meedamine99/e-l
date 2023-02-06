@@ -79,7 +79,6 @@ class userController extends Controller
     }
 
     public function nonAccess(){
-        $users= User::all();
         
         $nonAccess = DB::table('users')
             ->where('role', 'user')

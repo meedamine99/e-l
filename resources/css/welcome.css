@@ -296,11 +296,11 @@ body {
 .about {}
 
 .about-image {
-    width: 400px;
+    /* width: 400px;
     height: 400px;
     background-size: cover;
     border-radius: 3px;
-    position: relative;
+    position: relative; */
 }
 
 .about-image .before {
@@ -308,36 +308,26 @@ body {
     border-radius: 3px;
     position: absolute;
     width: 160px;
-    height: 500px;
+    height: 300px;
     background-color: #24abdc5a;
 }
 
 .about-image1 .before {
-    top: -150px;
-    left: -30px;
+    top: 0px;
+    left: 0px;
 }
 
 .about-image2 .before {
-    top: -150px;
-    right: -30px;
+    top: 0px;
+    right: 0px;
 }
 
 .about-image3 .before {
-    top: -150px;
-    left: -30px;
+    top: 0px;
+    left: 0px;
 }
 
-.about-image1 {
-    background-image: url(../../public/images/bg1.jpg);
-}
 
-.about-image2 {
-    background-image: url(../../public/images/bg2.jpg);
-}
-
-.about-image3 {
-    background-image: url(../../public/images/bg3.jpg);
-}
 
 h2 {
     text-align: center;
