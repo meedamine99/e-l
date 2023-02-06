@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-<h2>les leçons</h2>
+<h1>les leçons</h1>
 
             
      {{--        <form  action="{{url('/search')}}">
@@ -16,7 +16,9 @@
     <p>{{$message}}</p>
   </div>
   @endif
-  <a id="create" href="{{route('leçon.create')}}">create leçon</a>
+    @if (Auth::user()->role == "admin")
+      <a id="create" href="{{route('leçon.create')}}">create leçon</a>
+    @endif
   <div class="les_card">
     @foreach ($leçon as $leçon)
     @if($matieres == $leçon->matiere_id)

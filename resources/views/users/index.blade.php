@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-                <h2> {{ __('users') }}</h2>
+                <h1> Les utilisateurs</h1>
    
                 <div class="card-body">
                   {{-- <form class="mb-3"  action="{{url('admin/search')}}">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\access;
+use App\Models\matiere;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -83,9 +84,16 @@ class HomeController extends Controller
         $teacherCounts[] = User::where('role', 'formateur')->whereDate('created_at', $date)->count();
     }
 
+    $matieres = matiere::join('accesses', 'matieres.id', '=', 'accesses.matiere_id')
+                    ->select('matieres.*')
+                    ->get();
+
+           
         $role = Auth::user()->role;
         if($role == 'user' || $role == 'formateur' ){
-            return view('home');
+            return view('home', [
+                'matieres' => $matieres,
+            ]);
         }elseif($role == 'admin'){
             return view('admin' ,compact('dates', 'userCounts','teacherCounts'), 
             [

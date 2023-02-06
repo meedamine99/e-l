@@ -8,14 +8,14 @@
     <input type="text" name="query" placeholder="search formation" >
   </div> --}}
   <div class="container">
-    <h2>les formations</h2>
+    <h1>les formations</h1>
     @if($message = Session::get('success'))
         <div>
           <p >{{$message}}</p>
         </div>
     @endif
     @if (Auth::user()->role == "admin")
-        <a id="create" href="{{route('formation.create')}}"class="text-center d-block">create formation</a>
+        <a id="create" href="{{route('formation.create')}}">create formation</a>
     @endif
     <div class="les_card">
     @foreach ($formation as $formation)

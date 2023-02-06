@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container">
-  <h2>les matieres</h2>
+  <h1>les matieres</h1>
   @if (Auth::user()->role == "admin")
   <a href="{{route('matieres.create')}}">create matiere</a>
   @endif

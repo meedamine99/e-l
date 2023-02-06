@@ -85,6 +85,8 @@
 @if (Auth::user()->role == "admin")
     <a href="{{route('videos.create')}}">upload a video</a>
 @endif
+<div class="container">
+<h1>Les video</h1>
 <div class="con">
     @foreach ($videos as $video)  
         @if($leçon == $video->leçon_id)
@@ -107,6 +109,7 @@
                 @endif
                 @endforeach
             </div>
+</div>
 </div>
     <script> 
         let listVideo = document.querySelectorAll('.video-list .vid');

@@ -85,7 +85,7 @@ window.addEventListener('scroll', function () {
 
     const images = document.querySelectorAll('.about-image');
     images.forEach(e => {
-        e.style.transform = "translateY(" + WinPos * .1 + "px)"
+        e.style.transform = "translateY(" + WinPos * .07 + "px)"
     });
 
     const befores = document.querySelectorAll('.before');
@@ -105,5 +105,7 @@ window.addEventListener('load', function () {
     page.style.display = "block"
     preloder.style.transition = "1s"
 })
+
+
 
 

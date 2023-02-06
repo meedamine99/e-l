@@ -25,7 +25,11 @@
                 <h2>APPRENDRE A NOUS CONNAITRE</h2>
                 <div class="about-container">
                     <div class="about-card ">
-                        <div class="about-image about-image1 "><div class="before"></div></div>
+                        <div class="about-image about-image1 ">
+                            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                            <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_hCzXxA2SNn.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop  autoplay></lottie-player>
+                            <div class="before"></div>    
+                        </div>
                         <div class="about-info ">
                             Bel Learning Pro est un cabinet qui œuvre dans les domaines d’entreprenariat,d’Economie Solidaire, de Gestion, de Marketing, de Formation et de Management au profit des sociétés privées, des coopératives et associations, des particuliersainsi que des administrations publiques.
                         </div>
@@ -34,10 +38,18 @@
                         <div class="about-info">
                             Le cabinet dispose également de plusieurs plateformes personnalisées d’enseignement à distance sans oublier que chaque bénéficiaire aura son propre espace sur la plateforme choisie selon le thème de formation.
                         </div>
-                        <div class="about-image about-image2"><div class="before"></div></div>
+                        <div class="about-image about-image2">
+                            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                            <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_qJxrpOdXS0.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop autoplay></lottie-player>
+                            <div class="before"></div>
+                        </div>
                     </div>
                     <div class="about-card">
-                        <div class="about-image about-image3"><div class="before"></div></div>
+                        <div class="about-image about-image3">
+                            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                            <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_XNUpRuMnqg.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop autoplay></lottie-player>
+                            <div class="before"></div>
+                        </div>
                         <div class="about-info">
                             Notre cabinet offre des formations de soutien pour tous les niveaux, les séances sont enregistrées dans des moocs et consultables à tout moment.
                         </div>

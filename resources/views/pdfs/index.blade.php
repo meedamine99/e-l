@@ -84,6 +84,7 @@
     }
 } 
 </style>
+<h1>les pdf</h1>
 @if (Auth::user()->role == "admin")
     <a href="{{route('pdfs.create')}}">upload a pdf</a>
 @endif

@@ -8,9 +8,42 @@
                         </div>
                     @endif
 
-                    <div>
-                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                        <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_iK2lxsGQEa.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
+                    <div class=" popup d-flex justify-content-around align-items-center">
+                        <div>
+                            <h1>Hello {{ Auth::user()->nom }}!</h1>
+                            <p>It's good to see you again.</p>
+                        </div>
+                        <div>
+                            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                            <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_iK2lxsGQEa.json"  background="transparent"  speed="1"  style=" width:200px height: 200px;"  loop autoplay></lottie-player>
+                        </div>
+                        <div class="user-info">
+                            <span>Nom complet :</span> <p>{{ Auth::user()->nom }} {{ Auth::user()->prenom }}</p> <br>
+                            <span>role :</span> <p>{{ Auth::user()->role }}</p> <br>
+                            <span>email :</span> <p>{{ Auth::user()->email }}</p> <br>
+                            <span>telephone :</span> <p>{{ Auth::user()->telephone }}</p> <br>
+                            <span>CIN :</span> <p>{{ Auth::user()->CIN }}</p> <br>
+                            <span>ville :</span> <p>{{ Auth::user()->ville }}</p> <br>
+                            <span>adresse :</span> <p>{{ Auth::user()->adresse }} </p> <br>
+                        </div>
+                    </div>
+                    <div class="les_card">
+                        <h2>Votre cours</h2>
+                        @foreach ($matieres as $matiere)
+                        
+                            <div class="une_card">
+                                <a class="" href="{{ route('leçon.index', ['matiere' => $matiere->id]) }}">{{ $matiere->nom_matiere }}</a>
+                            <div>
+                                {{ $matiere->formation->nom_formation }}
+                            </div>
+                            <div>
+                                <a class="btn btn-primary" href="{{ route('leçon.index', ['matiere' => $matiere->id]) }}">les leçons</a>
+                            </div>
+
+                    
+                        </div>
+                        
+                        @endforeach
                     </div>
                
 </div>
