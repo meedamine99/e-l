@@ -31,44 +31,36 @@
                         {{$message}}
                       </div>
                     @endif
-                    <table class="rwd-table">
-                        <thead>
-                            <tr>
-                              <th scope="col">CIN</th>
-                              <th scope="col">nom</th>
-                              <th scope="col">prenom</th>
-                              <th scope="col">role</th>
-                              {{-- <th scope="col">ville</th> --}}
-                              <th scope="col">actions</th>
-                            </tr>
-                          </thead>
-                          <tbody>
+                    <div class="les_card">
                             
                             @foreach ($users as $user)
                             @if ($user->role != 'admin')
+                            <div class="une_card">    
+                            
+                                <div >{{ $user->CIN }}</div>
+                              <div>
+                                <a href=" {{route('access.index', ['user' => $user->id, 'userName' => $user->nom])}} ">{{ $user->nom }} {{ $user->prenom }}</a>
                                 
-                            <tr>
-                                <td scope="row">{{ $user->CIN }}</td>
-                              <td><a href=" {{route('access.index', ['user' => $user->id, 'userName' => $user->nom])}} ">{{ $user->nom }}</a></td>
-                              <td><a href=" {{route('access.index', ['user' => $user->id, 'userName' => $user->nom])}} ">{{ $user->prenom }}</a></td>
-                              <td>{{ $user->role }}</td>
+                              </div>
+                              <div>{{ $user->role }}</div>
                               {{-- <td>{{ $user->ville }}</td> --}}
-                              <td>
+                              <div>
                                    
                                   <form style="display: inline-block" action="{{ route('users.update', $user->id) }}" method="Post">
                                       @csrf
                                       @method('put')
-                                      <button class="btn btn-outline-primary" onclick="return confirm('formateur ?')" type="submit"><i class="fa-solid fa-trash"></i> make formateur</button>
+                                      <button class="btn btn-outline-primary" onclick="return confirm('formateur ?')" type="submit"> make formateur</button>
                                     </form>
-                                </td>
-                            </tr>
+                              </div>
+                            
+                            </div>
                             @endif
                             @endforeach
-                          </tbody>
-                    </table>
-                    <div>
-                      {{ $users->links() }}
-                    </div>
+                            <div class="pagination">
+                              {{ $users->links('pagination.custom') }}
+                            </div>
+                          </div>
+                          
     </div>
   </div>
 @endsection

@@ -40,6 +40,8 @@ Route::group(['middleware' => ['auth', 'verified', 'role']], function () {
     Route::resource('access', accessController::class);
     Route::resource('adminTimeTable', adminTimeTableController::class);
     
+    Route::get('/nonAccess', [userController::class, 'nonAccess'])->name('users.nonAccess');
+
     Route::get('/formation/create', [formationController::class, 'create'])->name('formation.create');
     Route::post('/formation', [formationController::class, 'store'])->name('formation.store');
     Route::get('/formation/{id}/edit', [formationController::class, 'edit'])->name('formation.edit');

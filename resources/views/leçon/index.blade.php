@@ -17,16 +17,30 @@
   </div>
   @endif
   <a id="create" href="{{route('leçon.create')}}">create leçon</a>
-  <table >
-    <tr class="">
-      
-      <th>nom leçon</th>
-      <th>type</th>
-      <th>pdfs and videos</th>
-    </tr>
+  <div class="les_card">
     @foreach ($leçon as $leçon)
     @if($matieres == $leçon->matiere_id)
-    <tr>
+    <div class="une_card">
+      <div>
+        {{$leçon->nom}}
+      </div>
+      <div>
+        <a href="{{route("videos.index" , ['leçon' => $leçon->id])}}">videos</a>
+        <a href="{{route("pdfs.index" , ['leçon' => $leçon->id])}}">pdfs</a>
+      </div>
+      @if (Auth::user()->role == "admin")
+      <div>
+        <a class="btn btn-primary" href="{{ route('leçon.edit', $leçon->id) }}">Modifier</a>
+        <form style="display: inline-block" action="{{ route('leçon.destroy', $leçon->id) }}" method="Post">
+          @csrf
+          @method('DELETE')
+          <input type="hidden" name="matiere" id="" value=" {{$leçon->matiere_id}} ">
+          <button class="btn btn-danger" onclick="return confirm('do u really want to delete this leçon?')" type="submit">Supprimer</button>
+        </form>
+      </div>
+        @endif
+    </div>
+    {{-- <tr>
       <td>{{ $leçon->nom }}</td>
       <td>{{ $leçon->type }}</td>
       <td>
@@ -42,9 +56,9 @@
         </form>
         @endif
       </td>
-    </tr>
+    </tr> --}}
     @endif
     @endforeach
-  </table>
+  </div>
 </div>
 @endsection

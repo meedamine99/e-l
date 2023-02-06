@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\access;
 use Illuminate\Http\Request;
@@ -57,17 +58,36 @@ class HomeController extends Controller
             }
         }
 
-        $userData = User::select(DB::raw("COUNT(*) as count"))
-            ->where('role', 'user')
-            ->whereYear("created_at", date('M'))
-            ->groupBy(DB::raw("Week(created_at)"))
-            ->pluck('count');
+    $usersData = User::where('role', 'user')->whereBetween('created_at', [Carbon::now()->subDays(7), Carbon::now()])
+        ->get();
+
+    $teachers = User::where('role', 'formateur')->whereBetween('created_at', [Carbon::now()->subDays(7), Carbon::now()])
+        ->get();
+
+    $data = [];
+    foreach ($usersData as $user) {
+        $data[] = $user->created_at->format('Y-m-d');
+    }
+    foreach ($teachers as $teacher) {
+        $data[] = $teacher->created_at->format('Y-m-d');
+    }
+
+    $uniqueDates = array_unique($data);
+
+    $dates = [];
+    $userCounts = [];
+    $teacherCounts = [];
+    foreach ($uniqueDates as $date) {
+        $dates[] = $date;
+        $userCounts[] = User::where('role', 'user')->whereDate('created_at', $date)->count();
+        $teacherCounts[] = User::where('role', 'formateur')->whereDate('created_at', $date)->count();
+    }
 
         $role = Auth::user()->role;
         if($role == 'user' || $role == 'formateur' ){
             return view('home');
         }elseif($role == 'admin'){
-            return view('admin' , 
+            return view('admin' ,compact('dates', 'userCounts','teacherCounts'), 
             [
                 'userCount' => $userCount,
                 'userCountLastWeek' => $userCountLastWeek,
@@ -76,7 +96,6 @@ class HomeController extends Controller
                 'etudCount' => $etudCount,
                 'usersNonAccess' => $usersNonAccess,
                 'usersAccess' => $usersAccess,
-                'userData' => $userData,
             ]);
         }
     }

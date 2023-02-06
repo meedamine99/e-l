@@ -1,16 +1,8 @@
 @extends('layouts.app')
 @section('content')
 <style>
-    *{
-    margin: 0;padding: 0;
-    box-sizing: border-box;
-    text-transform: capitalize;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: normal;
-}
-body{
-    background: #eee;
-}
+
+
 .con{
     display: grid;
     grid-template-columns: 2fr 1fr;

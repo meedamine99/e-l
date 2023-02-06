@@ -6,7 +6,7 @@ console.log(userData);
 new Chart(chart, {
     type: 'line',
     data: {
-        labels: ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],
+        labels: ['Janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre' , 'décembre'],
         datasets: [
             {
                 label: 'etudiant',

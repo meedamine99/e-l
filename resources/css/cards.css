@@ -1,16 +1,23 @@
+ :root {
+     --clr-primary: #393943;
+     --clr-secondary: #F2F2F3;
+     --clr-accent: #24acdc;
+ }
 .les_card {
     display: flex;
     flex-direction: column;
-    
+    width: 90%;
+        margin-inline: auto;
 }
 
 .une_card {
+    border: 1px solid var(--clr-primary);
     padding: .5em .3em;
     margin-block: .5em;
     border-radius: 15px;
-    width: 90%;
-    margin-inline: auto;
+    
     background-color: rgb(200, 200, 200);
+    color:var(--clr-primary) ;
     display: flex;
     align-items: center;
     justify-content: space-evenly;

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\access;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class userController extends Controller
 {
@@ -15,7 +17,7 @@ class userController extends Controller
     public function index()
     {
         $allusers = User::all();
-        $users = User::paginate(4);
+        $users = User::paginate(10);
         return view('users.index', [ 'users' => $users , 'allusers' => $allusers ]);
     }
 
@@ -76,7 +78,17 @@ class userController extends Controller
         return redirect()->route('users.index');
     }
 
-    /**
+    public function nonAccess(){
+        $users= User::all();
+        
+        $nonAccess = DB::table('users')
+            ->where('role', 'user')
+            ->join('accesses', 'users.id', '!=', 'accesses.user_id')
+            ->whereNot('accesses.user_id','users.id' )->get();
+        return view('users.nonAccess', ['nonAccess' => $nonAccess]);
+    }
+
+    /** 
      * Remove the specified resource from storage.
      *
      * @param  int  $id
