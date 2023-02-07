@@ -260,3 +260,30 @@
  }
 
  /* popup */
+ /* button */
+ .btn-danger {
+     background: linear-gradient(-180deg, #E40017 0%, #E40017 100%) !important;
+     border-radius:0.375rem;
+     color: #FFFFFF;
+     font-size: 16px;
+     padding: .5em 1.5em;
+     text-decoration: none;
+     border: 0;
+     cursor: pointer;
+ }
+ .button-43 {
+    background: linear-gradient(-180deg, var(--clr-accent) 0%, var(--clr-accent) 100%);
+    border-radius:0.375rem;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: .5em 1.5em;
+    text-decoration: none;
+    border: 0;
+    cursor: pointer;
+  }
+  
+  .button-43:hover {
+    background: linear-gradient(-180deg, #1D95C9 0%, #17759C 100%);
+  }
+  
+ /* button */

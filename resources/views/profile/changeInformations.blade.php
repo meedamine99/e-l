@@ -2,7 +2,7 @@
 @section('content') 
 <div class="container">
   
-                <div class="card-header">{{ __('Profile Information') }}</div>
+                <h1>{{ __('Profile Information') }}</h1>
                   @if ( $errors->any() )
                                     <div class="pb-0 alert alert-danger">
                                         <ul>
@@ -80,7 +80,7 @@
                       </div>
   
                       <div>
-                        <button type="submit"><i></i> save</button>
+                        <button class="btn btn-primary button-43" type="submit"><i></i> save</button>
                       </div>
                     </form>
   

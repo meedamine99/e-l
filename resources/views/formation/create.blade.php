@@ -52,7 +52,7 @@
           @enderror
         </div>
         <div class="mb-3">
-          <button class="btn btn-primary" type="submit">create</button>
+          <button class="btn btn-primary button-43" type="submit">create</button>
         </div>
       </form>
     </div>

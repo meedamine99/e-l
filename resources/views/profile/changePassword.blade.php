@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content') 
-
-              <div class="card-header">{{ __('Profile Information') }}</div>
+<div class="container">
+              <h1>{{ __('Profile Information') }}</h1>
               
                 
                 
                 <p>
-                  {{ __("Change your password.") }}
+                  {{ __("Change your password") }}
                 </p>
                 <form class="actions" action="{{route('profile.update_password', auth()->user()->id)}}" id="change_password_form" method="post">
                   @if (session('status'))
@@ -15,10 +15,9 @@
                       </div>
                   @endif
                     @csrf
-                    <input type="hidden" name="_method" value="put">
+                    <input class="form-control" type="hidden" name="_method" value="put">
 
-                    <input type="hidden" name="token" value="{{ csrf_token() }}">
-                    {{-- <input type="hidden" name="_method" value="put"> --}}
+                    <input class="form-control" type="hidden" name="token" value="{{ csrf_token() }}">
                     @if ( $errors->any() )
                               <div class="alert alert-danger pb-0">
                                   <ul>
@@ -28,38 +27,38 @@
                                   </ul>
                               </div>
                           @endif  
-                    <div >
+                    <div class="mb-3">
                       <label for="" >email</label>
-                      <input type="email" name="email"  id="" placeholder="email" value="{{auth()->user()->email}}">
+                      <input class="form-control" type="email" name="email"  id="" placeholder="email" value="{{auth()->user()->email}}">
                     </div>
                     @error('email')
                       <p class="text-danger">{{ $message }}</p>
                     @enderror
-                    <div >
+                    <div class="mb-3" >
                       <label for="" >current password</label>
-                      <input type="password" name="current_password"  id="" placeholder="old password">
+                      <input class="form-control" type="password" name="current_password"  id="" placeholder="old password">
                     </div>
                     @error('current_password')
                       <p class="text-danger">{{ $message }}</p>
                     @enderror
 
-                    <div >
+                    <div class="mb-3">
                       <label for="" >new password</label>
-                      <input type="password" name="password"  id="" placeholder="new password">
+                      <input class="form-control" type="password" name="password"  id="" placeholder="new password">
                     </div>
                     @error('password')
                       <p class="text-danger">{{ $message }}</p>
                     @enderror
-                    <div >
+                    <div class="mb-3">
                       <label for="" >confirm password</label>
-                      <input type="password" name="password_confirmation"  id="" placeholder="confirm password">
+                      <input class="form-control" type="password" name="password_confirmation"  id="" placeholder="confirm password">
                       @error('password_confirmation')
                         <p class="text-danger">{{ $message }}</p>
                       @enderror
                     </div>
 
                     <div>
-                      <button type="submit">save</button>
+                      <button   class="btn btn-primary button-43" type="submit">save</button>
                     </div>
                 </form>
                   </div>
@@ -68,7 +67,7 @@
         </div>
       </div>
 
-
+  </div>
 
 
     
