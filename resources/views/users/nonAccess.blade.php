@@ -3,18 +3,22 @@
 <div class="container">
     <h1>étudiants non access</h1>
     <div class="les_card">
-        @foreach ($nonAccess as $etud)
-        <div class="une_card">
-            <div>
-                {{$etud->CIN}}
+        @if($nonAccess->count() > 0)
+            @foreach ($nonAccess as $etud)
+            <div class="une_card">
+                <div>
+                    {{$etud->CIN}}
+                </div>
+                <div>
+                    <a href=" {{route('access.index', ['user' => $etud->id, 'userName' => $etud->nom])}} ">{{ $etud->nom }}</a>
+                    <a href=" {{route('access.index', ['user' => $etud->id, 'userName' => $etud->nom])}} ">{{$etud->prenom}}</a>
+        
+                </div>
             </div>
-            <div>
-                <a href=" {{route('access.index', ['user' => $etud->id, 'userName' => $etud->nom])}} ">{{ $etud->nom }}</a>
-                <a href=" {{route('access.index', ['user' => $etud->id, 'userName' => $etud->nom])}} ">{{$etud->prenom}}</a>
-    
-            </div>
-        </div>
-        @endforeach
+            @endforeach
+        @else
+            <p class="text-center alert alert-danger">Aucun étudiant sans accès</p>
+        @endif
     </div>
     
 </div>

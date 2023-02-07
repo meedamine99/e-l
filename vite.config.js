@@ -11,6 +11,7 @@ export default defineConfig({
                 'resources/css/dashboard.css',
                 'resources/css/welcome.css',
                 'resources/js/app.js',
+                'resources/js/welcome.js',
                 'resources/js/accesses.js',
                 'resources/js/selectOptions.js',
                 'resources/js/tableHours.js',
