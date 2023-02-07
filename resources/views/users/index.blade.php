@@ -1,6 +1,20 @@
 @extends('layouts.app')
 @section('content')
 @vite(['resources/js/search.js'])
+<style>
+#search{
+  padding: .5em .375em;
+  border-radius: .375em;
+  border: none; 
+}
+#a{
+  text-decoration: none;
+  transition: .3s;
+}
+#a:hover{
+  color: white;
+}
+</style>
 
 <div class="container">
 
@@ -10,7 +24,7 @@
                       <div class="card-body">
                           <input
                               name="query"
-                              class="form-control"
+                              
                               id="search"
                               type="text"
                               placeholder="chercher avec nom ou CIN"
@@ -47,9 +61,12 @@
                                 </span>
                               </div>
                               <div>{{ $user->role }}</div>
-                              {{-- <td>{{ $user->ville }}</td> --}}
                               <div>
-                                   
+                                  {{-- <form style="display: inline-block" action="{{ route('users.show', $user->id) }}" method="Post">
+                                      @csrf
+                                      @method('put') --}}
+                                      <button class="btn btn-outline-primary"  type="submit"> <a href="{{ route('users.show', $user->id) }}" id="a">show</a></button>
+                                    {{-- </form> --}}
                                   <form style="display: inline-block" action="{{ route('users.update', $user->id) }}" method="Post">
                                       @csrf
                                       @method('put')
