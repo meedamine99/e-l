@@ -10,10 +10,9 @@
 #a{
   text-decoration: none;
   transition: .3s;
-}
-#a:hover{
   color: white;
 }
+
 </style>
 
 <div class="container">
@@ -28,15 +27,10 @@
                               id="search"
                               type="text"
                               placeholder="chercher avec nom ou CIN"
-                              list="lesnom"
                               onkeyup="search()"
                               style="width: 300px; margin-left:auto;"
                             />
-                          <datalist id="lesnom">
-                              @foreach ($allusers as $user)
-                                <option value="{{ $user->nom }}"></option>
-                              @endforeach
-                          </datalist>
+                          
                           @if (session('status'))
                               <div class="alert alert-success" role="alert">
                                   {{ session('status') }}
@@ -62,20 +56,18 @@
                               </div>
                               <div>{{ $user->role }}</div>
                               <div>
-                                  {{-- <form style="display: inline-block" action="{{ route('users.show', $user->id) }}" method="Post">
-                                      @csrf
-                                      @method('put') --}}
-                                      <button class="btn btn-outline-primary"  type="submit"> <a href="{{ route('users.show', $user->id) }}" id="a">show</a></button>
+
+                                      <button class="btn btn-primary button-43"  type="submit"> <a href="{{ route('users.show', $user->id) }}" id="a">show</a></button>
                                     {{-- </form> --}}
                                   <form style="display: inline-block" action="{{ route('users.update', $user->id) }}" method="Post">
                                       @csrf
                                       @method('put')
-                                      <button class="btn btn-outline-primary" onclick="return confirm('formateur ?')" type="submit"> make formateur</button>
+                                      <button class="btn btn-primary button-43" onclick="return confirm('formateur ?')" type="submit"> make formateur</button>
                                     </form>
                                     <form style="display: inline-block" action="{{ route('users.destroy', $user->id) }}" method="Post">
                                       @csrf
                                       @method('DELETE')
-                                      <button class="btn btn-outline-danger" onclick="return confirm('do u really want to delete this user?')" type="submit">Supprimer</button>
+                                      <button class="btn btn-danger" onclick="return confirm('do u really want to delete this user?')" type="submit">Supprimer</button>
                                     </form>
                               </div>
                             
