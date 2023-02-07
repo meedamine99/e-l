@@ -34,7 +34,7 @@
         <input type="text" class="form-control" name="type" id="" value="{{$formation->type}}">
       </div>
       <div  class="mb-3">
-        <button class="btn btn-primary" type="submit">edit</button>
+        <button class="btn btn-primary button-43" type="submit">edit</button>
       </div>
     </form>
 </div>

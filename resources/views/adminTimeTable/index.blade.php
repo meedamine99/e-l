@@ -3,7 +3,7 @@
 
 <div class="container">
     <h1>Emploi du temps</h1>
-        <a href=" {{route('adminTimeTable.create')}} ">create</a>
+        <a href=" {{route('adminTimeTable.create')}} "><i class="fa-solid fa-plus"></i> create</a>
         <div class="les_card">
             @foreach($adminTimeTable as $time)
                         <div class="une_card">

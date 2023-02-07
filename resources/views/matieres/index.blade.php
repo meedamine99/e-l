@@ -4,7 +4,7 @@
 <div class="container">
   <h1>les matieres</h1>
   @if (Auth::user()->role == "admin")
-  <a href="{{route('matieres.create')}}">create matiere</a>
+  <a href="{{route('matieres.create')}}"><i class="fa-solid fa-plus"></i> create matiere</a>
   @endif
   @if($message = Session::get('success'))
   <div class="text-success" role="alert">
@@ -20,7 +20,7 @@
             {{ $matiere->formation->nom_formation }}
         </div>
         <div>
-            <a class="btn btn-primary" href="{{ route('leçon.index', ['matiere' => $matiere->id]) }}">les leçons</a>
+            <a class="btn btn-primary button-43" href="{{ route('leçon.index', ['matiere' => $matiere->id]) }}">les leçons</a>
             @if (Auth::user()->role == "admin")
               <form style="display: inline-block" action="{{ route('matieres.destroy', $matiere->id) }}" method="Post">
                 @csrf
