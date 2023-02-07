@@ -25,8 +25,8 @@
           @enderror
         </div>
         <div class="mb-3">
-          <label for=""  class="form-label">date de début</label>
-          <input type="date" name="date_début" id=""  class="form-control @error('date_début') is-invalid @enderror">
+          <label for="date_début"  class="form-label">date de début</label>
+          <input id="date_début" type="date" name="date_début" id=""  class="form-control @error('date_début') is-invalid @enderror">
           @error('date_début')
               <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>

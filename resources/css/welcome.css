@@ -296,34 +296,30 @@ body {
 .about {}
 
 .about-image {
-    /* width: 400px;
-    height: 400px;
-    background-size: cover;
-    border-radius: 3px;
-    position: relative; */
+    position: relative; 
 }
 
 .about-image .before {
-    content: "";
+    
     border-radius: 3px;
     position: absolute;
     width: 160px;
-    height: 300px;
+    height: 400px;
     background-color: #24abdc5a;
 }
 
 .about-image1 .before {
-    top: 0px;
+    top: -20px;
     left: 0px;
 }
 
 .about-image2 .before {
-    top: 0px;
+    top: -40px;
     right: 0px;
 }
 
 .about-image3 .before {
-    top: 0px;
+    top: -50px;
     left: 0px;
 }
 
