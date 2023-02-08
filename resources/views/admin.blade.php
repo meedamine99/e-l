@@ -12,7 +12,7 @@
     <div class="boxs">
         <div class="box">
             <div class="top">
-                <p class="heading">Nombre Totale</p>
+                <p class="heading">Nombre Total</p>
                 <i class="fa-solid fa-users-line"></i>
             </div>
             <div class="bottom">
@@ -21,7 +21,7 @@
         </div>
         <div class="box">
             <div class="top">
-                <p class="heading">Nombre formateur</p>
+                <p class="heading">Nombre formateurs</p>
                 <i class="fa-solid fa-chalkboard-user"></i>
             </div>
             <div class="bottom">
@@ -39,7 +39,7 @@
         </div>
         <div class="box">
             <div class="top">
-                <p class="heading">Nombre last week</p>
+                <p class="heading">Nombre <br> dernier semaine</p>
                 <i class="fa-solid fa-users"></i>
             </div>
             <div class="bottom">
@@ -48,7 +48,7 @@
         </div>
         <div class="box">
             <div class="top">
-                <p class="heading">Nombre d'étudiants<br>access</p>
+                <p class="heading">Nombre d'étudiants<br>accès</p>
                 <i class="fa-solid fa-user-check"></i>
             </div>
             <div class="bottom">
@@ -58,7 +58,7 @@
         <a class="nonAccess" href=" {{route('users.nonAccess')}} ">
             <div class="box">
                 <div class="top">
-                    <p class="heading">Nombre d'étudiants<br>non access</p>
+                    <p class="heading">Nombre d'étudiants<br>non accès</p>
                     <i class="fa-solid fa-user-xmark"></i>
                 </div>
                 <div class="bottom">

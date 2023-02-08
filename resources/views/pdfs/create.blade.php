@@ -24,7 +24,7 @@
                               @enderror
                            </div>
                            <div class="mb-3">
-                              <label class="form-label">Title:</label>
+                              <label class="form-label">titre :</label>
                               <input type="text" name="title" class="form-control @error('title') is-invalid @enderror"/>
                               @error('title')
                                  <span class="invalid-feedback" role="alert">
@@ -33,7 +33,7 @@
                               @enderror
                            </div>
                            <div class="mb-3">
-                              <label class="form-label">Select a pdf:</label>
+                              <label class="form-label">Séléctionner PDF:</label>
                               <input type="file" name="pdf" class="form-control @error('pdf') is-invalid @enderror"/>
                               @error('pdf')
                                  <span class="invalid-feedback" role="alert">

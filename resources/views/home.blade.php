@@ -19,12 +19,12 @@
                         </div>
                         <div class="user-info">
                             <span>Nom complet :</span> <p>{{ Auth::user()->nom }} {{ Auth::user()->prenom }}</p> <br>
-                            <span>role :</span> <p>{{ Auth::user()->role }}</p> <br>
-                            <span>email :</span> <p>{{ Auth::user()->email }}</p> <br>
-                            <span>telephone :</span> <p>{{ Auth::user()->telephone }}</p> <br>
+                            <span>Role :</span> <p>{{ Auth::user()->role }}</p> <br>
+                            <span>Email :</span> <p>{{ Auth::user()->email }}</p> <br>
+                            <span>Telephone :</span> <p>{{ Auth::user()->telephone }}</p> <br>
                             <span>CIN :</span> <p>{{ Auth::user()->CIN }}</p> <br>
-                            <span>ville :</span> <p>{{ Auth::user()->ville }}</p> <br>
-                            <span>adresse :</span> <p>{{ Auth::user()->adresse }} </p> <br>
+                            <span>Ville :</span> <p>{{ Auth::user()->ville }}</p> <br>
+                            <span>Adresse :</span> <p>{{ Auth::user()->adresse }} </p> <br>
                         </div>
                     </div>
                     <div class="les_card">

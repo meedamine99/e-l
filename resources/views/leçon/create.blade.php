@@ -8,7 +8,7 @@
         <a class="link" href="{{route('matieres.index')}}"><i class="fa-solid fa-arrow-left"></i> back</a>
       </div>
   <div class="mb-3"> 
-    <label class="form-label" for="">select a matiere</label>
+    <label class="form-label" for="">séléctionner une matière</label>
     <select class="form-select @error('matiere_id') is-invalid @enderror" name="matiere_id" id="">
       @foreach ($matieres as $matiere)
         <option value="{{ $matiere->id }}">{{$matiere->nom_matiere}}</option>
@@ -30,7 +30,7 @@
     @enderror
   </div>
   <div class="mb-3">
-    <button class="btn btn-primary button-43" type="submit">create</button>
+    <button class="btn btn-primary button-43" type="submit">créer</button>
   </div>
 </form>
 </div>

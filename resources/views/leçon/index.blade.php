@@ -14,7 +14,7 @@
   </div>
   @endif
     @if (Auth::user()->role == "admin")
-      <a id="create" href="{{route('leçon.create')}}"><i class="fa-solid fa-plus"></i> create leçon</a>
+      <a id="create" href="{{route('leçon.create')}}"><i class="fa-solid fa-plus"></i> créer leçon</a>
     @endif
   <div class="les_card">
     @foreach ($leçon as $leçon)
@@ -24,8 +24,8 @@
         {{$leçon->nom}}
       </div>
       <div>
-        <a href="{{route("videos.index" , ['leçon' => $leçon->id])}}">videos</a>
-        <a href="{{route("pdfs.index" , ['leçon' => $leçon->id])}}">pdfs</a>
+        <a href="{{route("videos.index" , ['leçon' => $leçon->id])}}">Vidéos</a>
+        <a href="{{route("pdfs.index" , ['leçon' => $leçon->id])}}">Pdfs</a>
       </div>
       @if (Auth::user()->role == "admin")
       <div>
