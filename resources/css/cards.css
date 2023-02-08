@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     width: 90%;
-        margin-inline: auto;
+    margin-inline: auto;
 }
 
 .une_card {
@@ -26,4 +26,16 @@
 .une_card:hover{
     box-shadow: -8px 6px 26px -19px rgba(0, 0, 0, 0.7);
     transform: scale(1.01);
+}
+@media screen and (max-width: 900px) {
+    .une_card {
+        flex-direction: column;
+        gap: 1em;
+    }
+    .une_card > *{
+        text-align: center;
+    }
+    .une_card > .btn {
+        margin-block: 5px;
+    } 
 }

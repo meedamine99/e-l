@@ -84,32 +84,35 @@
     }
 } 
 </style>
-<h1>les pdf</h1>
-@if (Auth::user()->role == "admin")
-    <a href="{{route('pdfs.create')}}">upload a pdf</a>
-@endif
-<div class="con">
-    @foreach ($pdfs as $pdf)  
-        @if($leçon == $pdf->leçon_id)
-            <div class="main-video">
-                <div class="video">
-                    <iframe src="{{ asset('leçon_pdfs/'.$pdf->path  ) }}" controls></iframe>
-                    <h3 class="title">{{$pdf->title}}</h3>
+<div class="container">
+    <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+    <h2>Les PDF</h2>
+    @if (Auth::user()->role == "admin")
+        <a href="{{route('pdfs.create')}}"><i class="fa-solid fa-plus"></i> Uploader un PDF</a>
+    @endif
+    <div class="con">
+        @foreach ($pdfs as $pdf)
+            @if($leçon == $pdf->leçon_id)
+                <div class="main-video">
+                    <div class="video">
+                        <iframe src="{{ asset('leçon_pdfs/'.$pdf->path  ) }}" controls></iframe>
+                        <h3 class="title">{{$pdf->title}}</h3>
+                    </div>
                 </div>
-            </div>
-            @break
-            @endif
-            @endforeach
-            <div class="video-list">
-                @foreach ($pdfs as $pdf)  
-                @if($leçon == $pdf->leçon_id)
-                <div class="vid active">
-                    <iframe src="{{ asset('leçon_pdfs/'.$pdf->path  ) }}" muted></iframe>
-                    <h3 class="title">{{$pdf->title}}</h3>
-                </div>
+                @break
                 @endif
                 @endforeach
-            </div>
+                <div class="video-list">
+                    @foreach ($pdfs as $pdf)
+                    @if($leçon == $pdf->leçon_id)
+                    <div class="vid active">
+                        <iframe src="{{ asset('leçon_pdfs/'.$pdf->path  ) }}" muted></iframe>
+                        <h3 class="title">{{$pdf->title}}</h3>
+                    </div>
+                    @endif
+                    @endforeach
+                </div>
+    </div>
 </div>
     <script> 
         let listVideo = document.querySelectorAll('.video-list .vid');

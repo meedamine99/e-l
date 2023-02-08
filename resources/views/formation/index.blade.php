@@ -5,16 +5,17 @@
 
 
   <div class="container">
-    <h1>les formations</h1>
-    @if($message = Session::get('success'))
-        <div>
-          <p >{{$message}}</p>
-        </div>
-    @endif
-    @if (Auth::user()->role == "admin")
-        <a id="create" href="{{route('formation.create')}}"> <i class="fa-solid fa-plus"></i> créer formation</a>
-    @endif
+    <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+    <h2>les formations</h2>
     <div class="les_card">
+      @if($message = Session::get('success'))
+          <div>
+            <p class="alert alert-success">{{$message}}</p>
+          </div>
+      @endif
+      @if (Auth::user()->role == "admin")
+          <a id="create" href="{{route('formation.create')}}"> <i class="fa-solid fa-plus"></i> Créer formation</a>
+      @endif
     @foreach ($formation as $formation)
       <div class="une_card">
         <a class="" href="{{ route('matieres.index', ['formation' => $formation->id]) }}">{{ $formation->nom_formation }}</a>

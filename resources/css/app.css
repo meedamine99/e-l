@@ -287,3 +287,54 @@
   }
   
  /* button */
+
+ /* dashboard menu */
+@media screen and (max-width: 768px) {
+    .navMenu {
+        position: absolute; 
+        left: -90px; 
+        height: 100%;
+        margin: 0;
+        border-radius: 0;
+        transition: .3s;
+    }
+    .main {
+        flex: 9 1;
+        margin: 0;
+        border-radius: 0;
+        height: 100%;
+    }
+    .bars {
+        display: block;
+    }
+}
+
+.toggel {
+    left: 0;
+}
+
+.bars {
+    font-size: 2rem;
+    position: absolute;
+    top: 10px;
+    display: none;
+    left: 4%;
+    color: var(--clr-accent);
+}
+
+@media screen and (max-width: 768px) {
+    .lefti {
+        left:calc(90px - 2%);
+    }
+
+    .bars {
+        display: block;
+        transition: .3s;
+    }
+    .popup {
+        flex-direction: column;
+    }
+    .user-info {
+        width: 100%;
+    }
+}

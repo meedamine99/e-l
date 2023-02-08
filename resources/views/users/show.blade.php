@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <h1>{{ $user->nom }} {{ $user->prenom }}</h1>
+        <h2>{{ $user->nom }} {{ $user->prenom }}</h2>
         <div class=" popup d-flex justify-content-around align-items-center">
                         <div class="user-info">
                             <span>Role :</span> <p>{{ $user->role }}</p> <br>

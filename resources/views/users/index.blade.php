@@ -17,7 +17,7 @@
 
 <div class="container">
 
-                <h1> Les Utilisateurs</h1>
+                <h2> Les Utilisateurs</h2>
    
                 <div class="les_card">
                       <div class="card-body">

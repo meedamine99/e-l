@@ -4,12 +4,17 @@
 
 <div class="container">
     
-    <h1 class="iname"> DASHBOARD</h1>
+    <h2 class="iname"> DASHBOARD</h2>
+        @if($message = Session::get('success'))
+          <div>
+            <p class="alert alert-success">{{$message}}</p>
+          </div>
+        @endif
     <div class="date">
         {{$date}}
     </div>
     <div class="boxs d-flex row">
-        <div class="col-md-4 col-xs-12 p-1">
+        <div class="col-lg-4 col-md-6 col-xs-12 p-1">
             <div class="box">
                 <div class="top">
                     <p class="heading">Nombre Total</p>
@@ -20,7 +25,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xs-12 p-1">
+        <div class="col-lg-4 col-md-6 col-xs-12 p-1">
             <div class="box">
                 <div class="top">
                     <p class="heading">Nombre formateur</p>
@@ -32,7 +37,7 @@
             </div>
         </div>
 
-        <div class="col-md-4 col-xs-12 p-1">
+        <div class="col-lg-4 col-md-6 col-xs-12 p-1">
             <div class="box">
                 <div class="top">
                     <p class="heading">Nombre d'étudiants</p>
@@ -44,7 +49,7 @@
             </div>
         </div>
         
-        <div class="col-md-4 col-xs-12 p-1">
+        <div class="col-lg-4 col-md-6 col-xs-12 p-1">
             <div class="box">
                 <div class="top">
                     <p class="heading">Nombre <br> dernier semaine</p>
@@ -56,7 +61,7 @@
 
             </div>
         </div>
-        <div class="col-md-4 col-xs-12 p-1">
+        <div class="col-lg-4 col-md-6 col-xs-12 p-1">
             <div class="box">
                 <div class="top">
                     <p class="heading">Nombre d'étudiants<br> avec accés</p>
@@ -67,7 +72,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xs-12 p-1">
+        <div class="col-lg-4 col-md-6 col-xs-12 p-1">
             <a class="nonAccess" href=" {{route('users.nonAccess')}} ">
                 <div class="box">
                     <div class="top">

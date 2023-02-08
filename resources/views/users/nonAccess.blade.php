@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <h1>étudiants non access</h1>
+    <h2>étudiants non access</h2>
     <div class="les_card">
         @if($nonAccess->count() > 0)
             @foreach ($nonAccess as $etud)

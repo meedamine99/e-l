@@ -2,6 +2,8 @@
 @section('content')
             
                <div class="container">
+                  <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+                  <h2>Uploader un vidéo</h2>
                   @if ($message = Session::get('success'))
                       <div class="alert alert-success alert-block">
                          <button type="button" class="close" data-dismiss="alert">×</button>
@@ -43,7 +45,7 @@
                               @enderror
                            </div>
                            <div class="mb-3">
-                              <button type="submit" class="btn btn-primary">Ajouter</button>
+                              <button type="submit" class="btn btn-primary button-43">Ajouter</button>
                            </div>
                   
                   

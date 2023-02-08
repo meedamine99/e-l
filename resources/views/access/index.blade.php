@@ -3,7 +3,8 @@
 
 @vite(['resources/js/select.js',])
     <div class="container">
-        <h1>Donner access à {{$userName}}</h1>
+    <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+        <h2>Donner access à {{$userName}}</h2>
         
         <form action=" {{route('access.create')}} " enctype="multipart/form-data">
             <input type="hidden" name="user_id" value=" {{$user}} ">

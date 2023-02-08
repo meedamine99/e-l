@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+   <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+   <h2>Uploader un PDF</h2>
                   @if ($message = Session::get('success'))
                       <div class="alert alert-success alert-block">
                          <button type="button" class="close" data-dismiss="alert">×</button>

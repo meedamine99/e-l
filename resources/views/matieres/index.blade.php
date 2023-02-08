@@ -2,20 +2,12 @@
 @section('content')
 
 <div class="container">
-  <h1>les matieres</h1>
-
-  @if (Auth::user()->role == "admin")
-  <a href="{{route('matieres.create')}}"><i class="fa-solid fa-plus"></i> créer matiere</a>
-  @endif
-  @if($message = Session::get('success'))
-  <div class="text-success" role="alert">
-    {{$message}}
-  </div>
-  @endif
+  <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+  <h2>Les matieres</h2>
   
   <div class="les_card">
     @if (Auth::user()->role == "admin")
-    <a href="{{route('matieres.create')}}"><i class="fa-solid fa-plus"></i> create matiere</a>
+    <a href="{{route('matieres.create')}}"><i class="fa-solid fa-plus"></i> Créer matiere</a>
     @endif
     @if($message = Session::get('success'))
     <div class="text-success" role="alert">
