@@ -7,19 +7,18 @@
     <h1 class="iname"> DASHBOARD</h1>
     <div class="date">
         {{$date}}
-
     </div>
     <div class="boxs d-flex row">
         <div class="col-md-4 col-xs-12 p-1">
             <div class="box">
                 <div class="top">
-                    <p class="heading">Nombre Totale</p>
+                    <p class="heading">Nombre Total</p>
                     <i class="fa-solid fa-users-line"></i>
                 </div>
                 <div class="bottom">
                 {{ $userCount}}
                 </div>
-            </div>
+
         </div>
         <div class="col-md-4 col-xs-12 p-1">
             <div class="box">
@@ -32,6 +31,7 @@
                 </div>
             </div>
         </div>
+
         <div class="col-md-4 col-xs-12 p-1">
             <div class="box">
                 <div class="top">
@@ -43,21 +43,23 @@
                 </div>
             </div>
         </div>
+        
         <div class="col-md-4 col-xs-12 p-1">
             <div class="box">
                 <div class="top">
-                    <p class="heading">Nombre last week</p>
+                    <p class="heading">Nombre <br> dernier semaine</p>
                     <i class="fa-solid fa-users"></i>
                 </div>
                 <div class="bottom">
                    {{$userCountLastWeek}}
                 </div>
+
             </div>
         </div>
         <div class="col-md-4 col-xs-12 p-1">
             <div class="box">
                 <div class="top">
-                    <p class="heading">Nombre d'étudiants<br>access</p>
+                    <p class="heading">Nombre d'étudiants<br> avec accés</p>
                     <i class="fa-solid fa-user-check"></i>
                 </div>
                 <div class="bottom">
@@ -69,7 +71,7 @@
             <a class="nonAccess" href=" {{route('users.nonAccess')}} ">
                 <div class="box">
                     <div class="top">
-                        <p class="heading">Nombre d'étudiants<br>non access</p>
+                        <p class="heading">Nombre d'étudiants<br>non accès</p>
                         <i class="fa-solid fa-user-xmark"></i>
                     </div>
                     <div class="bottom">

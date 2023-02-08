@@ -17,7 +17,7 @@
 
 <div class="container">
 
-                <h1> Les utilisateurs</h1>
+                <h1> Les Utilisateurs</h1>
    
                 <div class="les_card">
                       <div class="card-body">
@@ -57,12 +57,12 @@
                               <div>{{ $user->role }}</div>
                               <div>
 
-                                      <button class="btn btn-primary button-43"  type="submit"> <a href="{{ route('users.show', $user->id) }}" id="a">show</a></button>
+                                      <button class="btn btn-primary button-43"  type="submit"> <a href="{{ route('users.show', $user->id) }}" id="a">Show</a></button>
                                     {{-- </form> --}}
                                   <form style="display: inline-block" action="{{ route('users.update', $user->id) }}" method="Post">
                                       @csrf
                                       @method('put')
-                                      <button class="btn btn-primary button-43" onclick="return confirm('formateur ?')" type="submit"> make formateur</button>
+                                      <button class="btn btn-primary button-43" onclick="return confirm('vous voulez le rendre formateur ?')" type="submit"> Rendre formateur</button>
                                     </form>
                                     <form style="display: inline-block" action="{{ route('users.destroy', $user->id) }}" method="Post">
                                       @csrf

@@ -23,7 +23,7 @@
                       <input type="hidden" name="_method" value="put">
   
                       <div class="mb-3">
-                        <label for="" >nom</label>
+                        <label for="" >Nom</label>
                         <input class="form-control" type="text" name="nom"  id="" placeholder="nom" value="{{auth()->user()->nom}}">
                       </div>
                       @error('nom')
@@ -31,7 +31,7 @@
                       @enderror
   
                       <div class="mb-3">
-                        <label for="" >prenom</label>
+                        <label for="" >Prenom</label>
                         <input  class="form-control" type="text" name="prenom"  id="" placeholder="prenom" value="{{auth()->user()->prenom}}">
                       </div>
                       @error('prenom')
@@ -39,7 +39,7 @@
                       @enderror
   
                       <div class="mb-3">
-                        <label for="" >ville</label>
+                        <label for="" >Ville</label>
                         <input  class="form-control" type="text" name="ville"  id="" placeholder="ville" value="{{auth()->user()->ville}}">
                       </div>
                       @error('ville')
@@ -47,7 +47,7 @@
                       @enderror
   
                       <div class="mb-3">
-                        <label for="" >address</label>
+                        <label for="" >Addresse</label>
                         <input  class="form-control" type="text" name="adresse"  id="" placeholder="address" value="{{auth()->user()->adresse}}">
                       </div>
                       @error('address')
@@ -55,7 +55,7 @@
                       @enderror
   
                       <div class="mb-3">
-                        <label for="" >cin</label>
+                        <label for="" >CIN</label>
                         <input  class="form-control" type="text" name="CIN"  id="" placeholder="cin" value="{{auth()->user()->CIN}}">
                       </div>
                       @error('cin')
@@ -63,7 +63,7 @@
                       @enderror
   
                       <div class="mb-3">
-                        <label for="" >telephone</label>
+                        <label for="" >Telephone</label>
                         <input  class="form-control" type="text" name="telephone"  id="" placeholder="telephone" value="{{auth()->user()->telephone}}">
                       </div>
                       @error('telephone')
@@ -72,7 +72,7 @@
   
   
                       <div class="mb-3">
-                        <label for="" >password</label>
+                        <label for="" >Password</label>
                         <input  class="form-control" type="password" name="password"  id="" placeholder="password">
                         @error('password')
                           <p class="text-danger">{{ $message }}</p>
@@ -80,7 +80,7 @@
                       </div>
   
                       <div>
-                        <button class="btn btn-primary button-43" type="submit"><i></i> save</button>
+                        <button class="btn btn-primary button-43" type="submit"><i></i> Sauvgarder</button>
                       </div>
                     </form>
   
