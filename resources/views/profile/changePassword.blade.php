@@ -28,14 +28,14 @@
                               </div>
                           @endif  
                     <div class="mb-3">
-                      <label for="" >email</label>
+                      <label for="" >Email</label>
                       <input class="form-control" type="email" name="email"  id="" placeholder="email" value="{{auth()->user()->email}}">
                     </div>
                     @error('email')
                       <p class="text-danger">{{ $message }}</p>
                     @enderror
                     <div class="mb-3" >
-                      <label for="" >current password</label>
+                      <label for="" >Votre mot de passe</label>
                       <input class="form-control" type="password" name="current_password"  id="" placeholder="old password">
                     </div>
                     @error('current_password')
@@ -43,14 +43,14 @@
                     @enderror
 
                     <div class="mb-3">
-                      <label for="" >new password</label>
+                      <label for="" >Nouveau mot de passe</label>
                       <input class="form-control" type="password" name="password"  id="" placeholder="new password">
                     </div>
                     @error('password')
                       <p class="text-danger">{{ $message }}</p>
                     @enderror
                     <div class="mb-3">
-                      <label for="" >confirm password</label>
+                      <label for="" >Confirmer le mot de passe</label>
                       <input class="form-control" type="password" name="password_confirmation"  id="" placeholder="confirm password">
                       @error('password_confirmation')
                         <p class="text-danger">{{ $message }}</p>
@@ -58,7 +58,7 @@
                     </div>
 
                     <div>
-                      <button   class="btn btn-primary button-43" type="submit">save</button>
+                      <button   class="btn btn-primary button-43" type="submit">Sauvgarder</button>
                     </div>
                 </form>
                   </div>

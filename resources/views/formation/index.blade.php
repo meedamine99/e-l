@@ -12,7 +12,7 @@
         </div>
     @endif
     @if (Auth::user()->role == "admin")
-        <a id="create" href="{{route('formation.create')}}"> <i class="fa-solid fa-plus"></i> create formation</a>
+        <a id="create" href="{{route('formation.create')}}"> <i class="fa-solid fa-plus"></i> créer formation</a>
     @endif
     <div class="les_card">
     @foreach ($formation as $formation)

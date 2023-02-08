@@ -29,14 +29,14 @@
         </a>
         <div class="options">
             <a class="links" href=" {{route('home')}} "><i class="fa-solid fa-house"></i><span class="menuoptions optiontransition ">home</span></a>
-            <a class="links" href=" {{route('formation.index')}} "><i class="fa-sharp fa-solid fa-book"></i><span class="menuoptions optiontransition ">Les formation</span></a>
+            <a class="links" href=" {{route('formation.index')}} "><i class="fa-sharp fa-solid fa-book"></i><span class="menuoptions optiontransition ">Les formations</span></a>
             
             @if( Auth::user()->role == "admin" )
-                <a class="links" href=" {{route('adminTimeTable.index')}} "><i class="fa-regular fa-calendar-days"></i><span class="menuoptions optiontransition ">Time Table</span></a>
-                <a class="links" href=" {{route('users.index')}} "><i class="fa-solid fa-users"></i><span class="menuoptions optiontransition ">users</span></a>
+                <a class="links" href=" {{route('adminTimeTable.index')}} "><i class="fa-regular fa-calendar-days"></i><span class="menuoptions optiontransition ">Emploi du temps</span></a>
+                <a class="links" href=" {{route('users.index')}} "><i class="fa-solid fa-users"></i><span class="menuoptions optiontransition ">utilisateurs</span></a>
             
                 @else
-                    <a class="links" href=" {{route('timeTable.index')}} "><i class="fa-regular fa-calendar-days"></i><span class="menuoptions optiontransition ">Time Table</span></a>
+                    <a class="links" href=" {{route('timeTable.index')}} "><i class="fa-regular fa-calendar-days"></i><span class="menuoptions optiontransition ">Emploi du temps</span></a>
             @endif
         </div>
         <div class="d-flex flex-column align-items-center gap-2">
@@ -46,8 +46,8 @@
                    <i class="fa-solid fa-circle-user"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <a class="links" href=" {{route('profile.changeInformations', auth()->user()->id)}} ">change informations</a>
-                    <a class="links" href=" {{route('profile.changePassword', auth()->user()->id)}} ">change password</a>
+                    <a class="links" href=" {{route('profile.changeInformations', auth()->user()->id)}} ">changer informations</a>
+                    <a class="links" href=" {{route('profile.changePassword', auth()->user()->id)}} ">changer le mot de passe</a>
                 </div>
             </div>
             

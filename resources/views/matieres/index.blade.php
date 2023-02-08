@@ -4,7 +4,7 @@
 <div class="container">
   <h1>les matieres</h1>
   @if (Auth::user()->role == "admin")
-  <a href="{{route('matieres.create')}}"><i class="fa-solid fa-plus"></i> create matiere</a>
+  <a href="{{route('matieres.create')}}"><i class="fa-solid fa-plus"></i> créer matiere</a>
   @endif
   @if($message = Session::get('success'))
   <div class="text-success" role="alert">
