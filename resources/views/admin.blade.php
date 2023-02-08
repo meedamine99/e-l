@@ -18,7 +18,7 @@
                 <div class="bottom">
                 {{ $userCount}}
                 </div>
-
+            </div>
         </div>
         <div class="col-md-4 col-xs-12 p-1">
             <div class="box">
