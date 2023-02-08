@@ -137,16 +137,16 @@
                     <form action=" {{route('contact.submit')}} " method="POST">
                         @csrf
                         <label class="float-label">
-                            <input name="name" class="input" placeholder=" " type="text" required="required">
-                            <span class="label">nom</span>
+                            <input name="name" class="input" placeholder=" Nom " type="text" required="required">
+
                         </label>
                         <label class="float-label">
-                            <input name="email" class="input" placeholder=" " type="email" required="required">
-                            <span class="label">Email</span>
+                            <input name="email" class="input" placeholder=" Prénom " type="email" required="required">
+
                         </label>
                         <label class="float-label">
-                            <textarea name="content" class="input" name="" id="" cols="30" rows="4" required></textarea>
-                            <span class="label">massage</span>
+                            <textarea name="content" class="input" placeholder="Message" cols="30" rows="4" required></textarea>
+                            
                         </label>
                         <button class="links" ><span>envoyer</span></button>
                     </form>
