@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
+      <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+      <h2>Créer une formation</h2>
       <form action="{{ route('formation.store')}}" method="POST" class=" g-3  needs-validation" novalidate>
       @if ( $errors->any() )
                     <div class="pb-0 alert alert-danger">
@@ -12,9 +14,7 @@
                     </div>
                 @endif
         @csrf
-        <div class="mb-3">
-          <a class="link" href="{{route('formation.index')}}"><i class="fa-solid fa-arrow-left"></i> back</a>
-        </div>
+        
         <div class="mb-3">
           <label for=""  class="form-label">nom</label>
           <input type="text" name="nom_formation" id=""  class="form-control @error('nom_formation') is-invalid @enderror">

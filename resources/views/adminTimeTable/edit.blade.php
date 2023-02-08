@@ -2,89 +2,96 @@
 @section('content')
      @vite(['resources/js/selectOptions.js'])
     @vite(['resources/js/select.js'])
-    <form action=" {{route('adminTimeTable.update', $adminTimeTable->id)}} " method="POST">
-        @csrf
-        <input type="hidden" name="_method" value="put">
-        <div>
-            
-            <label for="">formateur</label>
-            <select name="user_id" id="" class=" @error('user_id') is-invalid @enderror">
-                
-                @foreach ($formateurs as $formateur)
-                    <option value=" {{$formateur->id}}">{{$formateur->nom}} {{$formateur->prenom}}</option>  
-                @endforeach
-            </select>
-            @error('user_id')
+    <div class="container">
+        <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+        <form action=" {{route('adminTimeTable.update', $adminTimeTable->id)}} " method="POST">
+            @csrf
+            <input type="hidden" name="_method" value="put">
+            <div class="mb-3">
+        
+                <label for="">formateur</label>
+                <select name="user_id" id="" class=" @error('user_id') is-invalid @enderror form-select">
+                    <option value=""></option>
+                    @foreach ($formateurs as $formateur)
+                    <option value=" {{$formateur->id}}">{{$formateur->nom}} {{$formateur->prenom}}</option>
+                    @endforeach
+                </select>
+                @error('user_id')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
-            @enderror
-        
+                @enderror
+            </div>
             
             
-            <div>
+            <div class="mb-3">
                 <label for="">heure debut</label>
-                <select name="heur_start" id="hourStart"  style="width:150px;" class=" @error('heur_debut') is-invalid @enderror">
-                
+                <select name="heur_start" id="hourStart" class=" @error('heur_debut') is-invalid @enderror form-select">
+                    <option value=""></option>
+                    
                 </select>
                 @error('heur_start')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
-        
             
-            <div>
+            
+            <div class="mb-3">
                 <label for="">heure fin</label>
-                <select name="heur_end" id="hourEnd" class=" @error('heur_end') is-invalid @enderror">
-                
+                <select name="heur_end" id="hourEnd" class=" @error('heur_end') is-invalid @enderror form-select">
+                    <option value=""></option>
+                    
                 </select>
                 @error('heur_end')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
             
             
-            <div>
+            <div class="mb-3">
                 <label for="">formation</label>
-                <select name="" id="formation" class=" @error('formation') is-invalid @enderror">
-                
+                <select name="" id="formation" class=" @error('formation') is-invalid @enderror form-select">
+                    <option value=""></option>
+                    
                     @foreach ($formations as $formation)
-                        <option value=" {{$formation->id}} ">{{$formation->nom_formation}}</option>
+                    <option value=" {{$formation->id}} ">{{$formation->nom_formation}}</option>
                     @endforeach
                 </select>
                 @error('formation')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
             
-            <div>
+            <div class="mb-3">
                 <label for="">matiere</label>
-                <select name="matiere_id" id="" class=" @error('matiere_id') is-invalid @enderror">
-                
+                <select name="matiere_id" id="" class=" @error('matiere_id') is-invalid @enderror form-select">
+                    <option value=""></option>
+                    
                     @foreach ($matieres as $matiere)
-                        <div >
-                            <option class="matiere" data-matiere="{{$matiere->formation->id}}" value=" {{$matiere->id}} ">{{$matiere->nom_matiere}}</option>
-                        </div>
+                    <div >
+                        <option class="matiere" data-matiere="{{$matiere->formation->id}}" value=" {{$matiere->id}} ">{{$matiere->nom_matiere}}</option>
+                    </div>
                     @endforeach
                 </select>
                 @error('matiere_id')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
             
             
-            <div>
+            <div class="mb-3">
                 <label for="">jour</label>
-                <select name="day" id="" class=" @error('day') is-invalid @enderror">
-                
+                <select name="day" id="" class=" @error('day') is-invalid @enderror form-select">
+                    <option value=""></option>
+                    
                     <option value="lundi">lundi</option>
                     <option value="mardi">mardi</option>
                     <option value="mercredi">mercredi</option>
@@ -94,16 +101,17 @@
                     <option value="dimanch">dimanch</option>
                 </select>
                 @error('day')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
-        <div><button type="submit">ajouter</button></div>   
+            <div><button type="submit" class="btn btn-primary button-43">ajouter</button></div>
+        </div>
+        
+    </form>
     </div>
-    
-</form>
-</div>
+
 <script>
     const formationSelect = document.getElementById('formation');
     const selectMatiere = document.querySelectorAll('.matiere');

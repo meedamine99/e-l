@@ -82,11 +82,12 @@
     }
 } 
 </style>
-@if (Auth::user()->role == "admin")
-    <a href="{{route('videos.create')}}">upload a video</a>
-@endif
 <div class="container">
-<h1>Les video</h1>
+    <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+    <h2>Les vidéo</h2>
+    @if (Auth::user()->role == "admin")
+        <a href="{{route('videos.create')}}"> <i class="fa-solid fa-plus"></i> Uploader un vidéo</a>
+    @endif
 <div class="con">
     @foreach ($videos as $video)  
         @if($leçon == $video->leçon_id)

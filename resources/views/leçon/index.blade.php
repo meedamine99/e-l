@@ -1,22 +1,23 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-<h1>les leçons</h1>
+  <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+<h2>Les leçons </h2>
 
             
 
 </form>
 <div>
   
-  @if($message = Session::get('success'))
-  <div class="success">
-    <p>{{$message}}</p>
-  </div>
-  @endif
-    @if (Auth::user()->role == "admin")
-      <a id="create" href="{{route('leçon.create')}}"><i class="fa-solid fa-plus"></i> créer leçon</a>
-    @endif
   <div class="les_card">
+    @if($message = Session::get('success'))
+    <div class="success">
+      <p class="alert alert-success">{{$message}}</p>
+    </div>
+    @endif
+      @if (Auth::user()->role == "admin")
+        <a id="create" href="{{route('leçon.create')}}"><i class="fa-solid fa-plus"></i> créer leçon</a>
+      @endif
     @foreach ($leçon as $leçon)
     @if($matieres == $leçon->matiere_id)
     <div class="une_card">

@@ -1,14 +1,16 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+  <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+  <h2>Créer une matiere</h2>
 <form action="{{ route('matieres.store')}}" method="POST">
       @csrf
                  <div class="mb-3">
-        <a class="link" href="{{route('matieres.index')}}"><i class="fa-solid fa-arrow-left"></i> back</a>
       </div>
   <div class="mb-3"> 
     <label class="form-label" for="">séléctionner une formation</label>
     <select  name="formation_id" id="" class="form-select @error('formation_id') is-invalid @enderror">
+          <option value=""></option>
       @foreach ($formations as $formation)
         <option value="{{ $formation->id }}">{{$formation->nom_formation}}</option>
       @endforeach

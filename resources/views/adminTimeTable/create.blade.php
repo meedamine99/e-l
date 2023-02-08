@@ -3,11 +3,13 @@
 <div class="container">
     @vite(['resources/js/selectOptions.js'])
     @vite(['resources/js/select.js'])
+    <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+    <h2>Créer une session</h2>
     <form action=" {{route('adminTimeTable.store')}} " method="POST">
         @csrf
         <div>
             
-            <div>
+            <div class="mb-3">
                 <label for="">formateur</label>
                 <select name="formateur" id="" class=" @error('formateur') is-invalid @enderror form-select ">
                     <option value=""></option>
@@ -24,7 +26,7 @@
         
             
             
-            <div>
+            <div class="mb-3">
                 <label for="">heure debut</label>
                 <select name="heur_start" id="hourStart"  class=" @error('heur_start') is-invalid @enderror form-select ">
                     <option value=""></option>
@@ -37,7 +39,7 @@
             </div>
         
             
-            <div>
+            <div class="mb-3">
                 <label for="">heure fin</label>
                 <select name="heur_end" id="hourEnd" class=" @error('heur_end') is-invalid @enderror form-select    ">
                     <option value=""></option>
@@ -50,7 +52,7 @@
             </div>
             
             
-            <div>
+            <div class="mb-3">
                 <label for="">formation</label>
                 <select name="" id="formation" class=" @error('formation') is-invalid @enderror form-select ">
                     <option value=""></option>
@@ -65,7 +67,7 @@
                 @enderror
             </div>
             
-            <div>
+            <div  class="mb-3">
                 <label for="">matiere</label>
                 <select name="matiere" id="" class=" @error('matiere') is-invalid @enderror form-select ">
                     <option value=""></option>
@@ -83,7 +85,7 @@
             </div>
             
             
-            <div>
+            <div class="mb-3">
                 <label for="">jour</label>
                 <select name="day" id="" class=" @error('day') is-invalid @enderror form-select ">
                     <option value=""></option>
@@ -101,7 +103,7 @@
                     </span>
                 @enderror
             </div>
-        <div><button type="submit">ajouter</button></div>
+        <div><button type="submit" class="btn btn-brimary button-43">ajouter</button></div>
     </div>
     
 </form>

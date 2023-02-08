@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                    @if($message = Session::get('success'))
+                        <div>
+                            <p class="alert alert-success">{{$message}}</p>
                         </div>
                     @endif
 
@@ -13,7 +13,7 @@
                             <h1>Hello {{ Auth::user()->nom }}!</h1>
                             <p>It's good to see you again.</p>
                         </div>
-                        <div>
+                        <div class="hello">
                             <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
                             <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_iK2lxsGQEa.json"  background="transparent"  speed="1"  style=" width:200px height: 200px;"  loop autoplay></lottie-player>
                         </div>

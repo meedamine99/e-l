@@ -65,11 +65,27 @@
         </div>
     </nav>
     
-
+        <style>
+            
+        </style>
         <div class="main">
+            <span class="bars"><i class="fa-solid fa-bars"></i></span>
             @yield('content')
         </div>
     </div>
+   
+        <script>
+        const bars = document.querySelector('.bars');
+        
+        const navMenu = document.querySelector('.navMenu');
+        bars.addEventListener('click', function() {
+            navMenu.classList.toggle('toggel');
+            bars.classList.toggle('lefti');
+            // bars.style.left = "90px";
+        })
+        
+    </script>
+ 
 </body>
 
 </html>

@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <a class="link" href="{{route('formation.index')}}"><i class="fa-solid fa-arrow-left"></i> back</a>
+    <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+    <h2>Modifier La formation {{$formation->nom_formation}} </h2>
             <form  action="{{ route('formation.update', $formation->id)}}" method="POST">
               @method('POST')
         @if ( $errors->any() )

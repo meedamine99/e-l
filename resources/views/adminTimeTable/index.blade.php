@@ -2,9 +2,10 @@
 @section('content')
 
 <div class="container">
-    <h1>Emploi du temps</h1>
-        <a href=" {{route('adminTimeTable.create')}} "><i class="fa-solid fa-plus"></i> create</a>
-        <div class="les_card">
+    <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+    <h2>Emploi du temps</h2>
+    <div class="les_card">
+            <a href=" {{route('adminTimeTable.create')}} "><i class="fa-solid fa-plus"></i> create</a>
             @foreach($adminTimeTable as $time)
                         <div class="une_card">
                             <div>{{$time->matiere->nom_matiere}}</div>
@@ -18,7 +19,7 @@
                             </div>
                                                 
                             <div>
-                                <a class="btn btn-primary" href="{{ route('adminTimeTable.edit', $time->id) }}">Modifier</a>
+                                <a class="btn btn-primary button-43" href="{{ route('adminTimeTable.edit', $time->id) }}">Modifier</a>
                                 <form style="display: inline-block" action="{{ route('adminTimeTable.destroy', $time->id) }}" method="Post">
                                     @csrf
                                     @method('DELETE')

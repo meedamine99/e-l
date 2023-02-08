@@ -40,7 +40,7 @@ class profileController extends Controller
         $request->user()->save();
 
         return redirect()->route('home')
-            ->with('status', 'profile informations est modifier');
+            ->with('success', 'profile informations est modifier');
     }
 
     public function edit_Password(){
@@ -66,7 +66,7 @@ class profileController extends Controller
             $request->user()->save();
 
              return redirect()->route('home')
-                ->with('status', 'Le mot de passe est changer');
+                ->with('success', 'Le mot de passe est changer');
     }
 
     public function destroy(Request $request)

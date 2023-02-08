@@ -2,10 +2,12 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+  <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+  <h2>Créer une leçon</h2>
+
 <form action="{{ route('leçon.store')}}" method="POST">
       @csrf
                  <div class="mb-3">
-        <a class="link" href="{{route('matieres.index')}}"><i class="fa-solid fa-arrow-left"></i> back</a>
       </div>
   <div class="mb-3"> 
     <label class="form-label" for="">séléctionner une matière</label>

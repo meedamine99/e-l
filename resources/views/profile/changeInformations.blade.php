@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content') 
 <div class="container">
-  
-                <h1>{{ __('Profile Information') }}</h1>
+                <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+                <h2>{{ __('Profile Information') }}</h2>
                   @if ( $errors->any() )
                                     <div class="pb-0 alert alert-danger">
                                         <ul>
