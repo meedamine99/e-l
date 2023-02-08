@@ -57,7 +57,7 @@ class videoController extends Controller
 
         $leçon = $request->leçon_id;
         return redirect()->route('videos.index', ['leçon' => $leçon])
-            ->with('success','video uploaded successfully');
+            ->with('success','vidéo uploader avec succés');
     }
 
     /**

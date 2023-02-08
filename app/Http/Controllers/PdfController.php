@@ -56,7 +56,7 @@ class pdfController extends Controller
         $pdf->save();
         $leçon = $request->leçon_id;
         return redirect()->route('pdfs.index', ['leçon' => $leçon])
-            ->with('success','pdf uploaded successfully');
+            ->with('success','pdf uploader avec succés');
     }
 
     /**

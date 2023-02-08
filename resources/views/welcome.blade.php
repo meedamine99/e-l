@@ -2,19 +2,18 @@
 @section('content')
     
 
-        <main>
             <section class="hero" id="hero">
                 <div>
-                    <h1 class="">
+                    <h1 class="titre">
                         JE NE PERDS JAMAIS  <br />
-                        <p id="p">SOIT JE GAGNE SOIT J’APPRENDS</p>
+                        <span id="p">SOIT JE GAGNE SOIT J’APPRENDS</span>
                     </h1>
                     <div class="image">
                         @auth
-                            <a style="text-decoration: none" href="{{ url('/home') }}"><button class="links custom-btn btn-5"><span>registre</span></button></a>
+                            <a style="text-decoration: none" href="{{ url('/home') }}"><button class="links my-btn btn-5"><span>registre</span></button></a>
                             @else
                             @if (Route::has('register'))
-                            <a style="text-decoration: none" href="{{ route('register') }}"><button class="links custom-btn btn-5"><span>registre</span></button></a>
+                            <a style="text-decoration: none" href="{{ route('register') }}"><button class="links my-btn btn-5"><span>registre</span></button></a>
                         @endif
                         @endauth
                         <div class="bg1"></div>
@@ -22,12 +21,12 @@
                 </div>
             </section>
             <section class="about" id="about">
-                <h2>APPRENDRE A NOUS CONNAITRE</h2>
+                <h2 class="h2-title">APPRENDRE A NOUS CONNAITRE</h2>
                 <div class="about-container">
                     <div class="about-card ">
                         <div class="about-image about-image1 ">
                             <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                            <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_hCzXxA2SNn.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop  autoplay></lottie-player>
+                            <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_hCzXxA2SNn.json"  background="transparent"  speed="1"   loop  autoplay></lottie-player>
                             <div class="before"></div>    
                         </div>
                         <div class="about-info ">
@@ -39,15 +38,15 @@
                             Le cabinet dispose également de plusieurs plateformes personnalisées d’enseignement à distance sans oublier que chaque bénéficiaire aura son propre espace sur la plateforme choisie selon le thème de formation.
                         </div>
                         <div class="about-image about-image2">
-                            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                            <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_qJxrpOdXS0.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop autoplay></lottie-player>
+                           
+                            <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_qJxrpOdXS0.json"  background="transparent"  speed="1"   loop autoplay></lottie-player>
                             <div class="before"></div>
                         </div>
                     </div>
                     <div class="about-card">
                         <div class="about-image about-image3">
-                            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                            <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_XNUpRuMnqg.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop autoplay></lottie-player>
+                           
+                            <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_XNUpRuMnqg.json"  background="transparent"  speed="1"   loop autoplay></lottie-player>
                             <div class="before"></div>
                         </div>
                         <div class="about-info">
@@ -57,7 +56,7 @@
                 </div>
             </section>
             <section class="service" id="service">
-                <h2>LES SERVICES QUE NOUS OFFRONS</h2>
+                <h2 class="h2-title">LES SERVICES QUE NOUS OFFRONS</h2>
                 <div>
                     <div class="btns">
                         <div class="pre-btn links"></div>
@@ -122,7 +121,7 @@
                 </div>
             </section>
             <section id="contact" class="contact">
-                <h2>contactez-nous</h2>
+                <h2 class="h2-title">contactez-nous</h2>
                 <div class="contact-form">
                     <div class="icons">
                         

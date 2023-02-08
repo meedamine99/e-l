@@ -65,7 +65,7 @@ class adminTimeTableController extends Controller
         $adminTimeTable->save();
 
         return redirect()->route('adminTimeTable.index')
-            ->with('success','session created successfully');
+            ->with('success','La session est créer avec succés');
     }
 
     /**
@@ -111,7 +111,7 @@ class adminTimeTableController extends Controller
 
         $adminTimeTable->fill($request->post())->save();
         return redirect()->route('adminTimeTable.index')
-            ->with('success','session modified successfully');
+            ->with('success','La session est modifier avec succés');
     }
 
     /**
@@ -124,6 +124,6 @@ class adminTimeTableController extends Controller
     {
         $adminTimeTable->delete();
         return redirect()->route('adminTimeTable.index')
-            ->with('success','session deleted successfully');
+            ->with('success','La session est supprimer avec succés');
     }
 }

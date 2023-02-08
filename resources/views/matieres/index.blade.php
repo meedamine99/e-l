@@ -3,15 +3,20 @@
 
 <div class="container">
   <h1>les matieres</h1>
-  @if (Auth::user()->role == "admin")
-  <a href="{{route('matieres.create')}}"><i class="fa-solid fa-plus"></i> create matiere</a>
-  @endif
-  @if($message = Session::get('success'))
-  <div class="text-success" role="alert">
-    {{$message}}
-  </div>
-  @endif
   <div class="les_card">
+    @if (Auth::user()->role == "admin")
+    <a href="{{route('matieres.create')}}"><i class="fa-solid fa-plus"></i> create matiere</a>
+    @endif
+    @if($message = Session::get('success'))
+    <div class="text-success" role="alert">
+      {{$message}}
+    </div>
+    @endif
+    @if($message = Session::get('noAccess'))
+    <div class="alert alert-danger">
+      <p>{{$message}}</p>
+    </div>
+    @endif
     @foreach ($matieres as $matiere)
       @if($formation == $matiere->formation_id)
         <div class="une_card">
