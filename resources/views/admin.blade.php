@@ -5,71 +5,86 @@
 <div class="container">
     
     <h1 class="iname"> DASHBOARD</h1>
-        <div class="date">
-            {{$date}}
-
-        </div>
-    <div class="boxs">
-        <div class="box">
-            <div class="top">
-                <p class="heading">Nombre Total</p>
-                <i class="fa-solid fa-users-line"></i>
-            </div>
-            <div class="bottom">
-               {{ $userCount}}
-            </div>
-        </div>
-        <div class="box">
-            <div class="top">
-                <p class="heading">Nombre formateurs</p>
-                <i class="fa-solid fa-chalkboard-user"></i>
-            </div>
-            <div class="bottom">
-               {{$formateurCount}}
-            </div>
-        </div>
-        <div class="box">
-            <div class="top">
-                <p class="heading">Nombre d'étudiants</p>
-                <i class="fa-solid fa-graduation-cap"></i>
-            </div>
-            <div class="bottom">
-               {{$etudCount}}
-            </div>
-        </div>
-        <div class="box">
-            <div class="top">
-                <p class="heading">Nombre <br> dernier semaine</p>
-                <i class="fa-solid fa-users"></i>
-            </div>
-            <div class="bottom">
-               {{$userCountLastWeek}}
-            </div>
-        </div>
-        <div class="box">
-            <div class="top">
-                <p class="heading">Nombre d'étudiants<br>accès</p>
-                <i class="fa-solid fa-user-check"></i>
-            </div>
-            <div class="bottom">
-                {{$usersAccess}}
-            </div>
-        </div>
-        <a class="nonAccess" href=" {{route('users.nonAccess')}} ">
+    <div class="date">
+        {{$date}}
+    </div>
+    <div class="boxs d-flex row">
+        <div class="col-md-4 col-xs-12 p-1">
             <div class="box">
                 <div class="top">
-                    <p class="heading">Nombre d'étudiants<br>non accès</p>
-                    <i class="fa-solid fa-user-xmark"></i>
+                    <p class="heading">Nombre Total</p>
+                    <i class="fa-solid fa-users-line"></i>
                 </div>
                 <div class="bottom">
-                    {{$usersNonAccess}}
+                {{ $userCount}}
+                </div>
+
+        </div>
+        <div class="col-md-4 col-xs-12 p-1">
+            <div class="box">
+                <div class="top">
+                    <p class="heading">Nombre formateur</p>
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                </div>
+                <div class="bottom">
+                   {{$formateurCount}}
                 </div>
             </div>
-        </a>
-           
-    </div>
+        </div>
 
-<canvas id="myChart"></canvas>
+        <div class="col-md-4 col-xs-12 p-1">
+            <div class="box">
+                <div class="top">
+                    <p class="heading">Nombre d'étudiants</p>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="bottom">
+                   {{$etudCount}}
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-xs-12 p-1">
+            <div class="box">
+                <div class="top">
+                    <p class="heading">Nombre <br> dernier semaine</p>
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <div class="bottom">
+                   {{$userCountLastWeek}}
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12 p-1">
+            <div class="box">
+                <div class="top">
+                    <p class="heading">Nombre d'étudiants<br> avec accés</p>
+                    <i class="fa-solid fa-user-check"></i>
+                </div>
+                <div class="bottom">
+                    {{$usersAccess}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12 p-1">
+            <a class="nonAccess" href=" {{route('users.nonAccess')}} ">
+                <div class="box">
+                    <div class="top">
+                        <p class="heading">Nombre d'étudiants<br>non accès</p>
+                        <i class="fa-solid fa-user-xmark"></i>
+                    </div>
+                    <div class="bottom">
+                        {{$usersNonAccess}}
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+           
+        
+        <canvas id="myChart"></canvas>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 <script>

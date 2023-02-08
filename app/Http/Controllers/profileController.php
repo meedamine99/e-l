@@ -40,7 +40,7 @@ class profileController extends Controller
         $request->user()->save();
 
         return redirect()->route('home')
-            ->with('status', 'profile informations updated');
+            ->with('status', 'profile informations est modifier');
     }
 
     public function edit_Password(){
@@ -58,7 +58,7 @@ class profileController extends Controller
             $user = auth()->user();
 
             if (!Hash::check($request->current_password, $user->password)) {
-                return redirect()->back()->withErrors(['current_password' => 'Current password is incorrect.']);
+                return redirect()->back()->withErrors(['current_password' => 'Votre mot de mot de passe est incorrect.']);
             }
 
             $user->password = Hash::make($request->password);
@@ -66,7 +66,7 @@ class profileController extends Controller
             $request->user()->save();
 
              return redirect()->route('home')
-                ->with('status', 'password updated');
+                ->with('status', 'Le mot de passe est changer');
     }
 
     public function destroy(Request $request)

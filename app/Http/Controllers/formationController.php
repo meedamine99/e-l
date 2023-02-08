@@ -43,7 +43,7 @@ class formationController extends Controller
             ]);
         formation::create($request->post());
         return redirect()->route('formation.index')
-            ->with('success','formation created successfully');
+            ->with('success','La formation est créer avec succés');
     }
 
     /**
@@ -87,7 +87,7 @@ class formationController extends Controller
             $formation = formation::find($id);
             $formation->fill($request->post())->save();
             return redirect()->route('formation.index')
-                ->with('success','formation edited successfully');
+                ->with('success','La formation est modifier avec succés');
     }
 
     /**
@@ -101,6 +101,6 @@ class formationController extends Controller
         $formation = formation::find($id);
         $formation->delete();
         return redirect()->route('formation.index')
-            ->with('success','formation destroyed successfully');
+            ->with('success','La formation est supprimer avec succés');
     }
 }

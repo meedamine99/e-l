@@ -17,9 +17,6 @@
 }
 
 .boxs {
-    display: grid;
-    grid-gap: .5em;
-    grid-template-columns: repeat(3 , 1fr);
     margin-bottom: 3em ;
 }
 
@@ -31,6 +28,7 @@
     padding: 1em;
     position: relative;
     transition: .3s;
+    height: 150px;
 }
 
 .top {
@@ -53,6 +51,7 @@
 
 .nonAccess{
     text-decoration: none;
+    color: var(--clr-primary);
 }
 .nonAccess:hover > .box{
     box-shadow: -8px 6px 26px -19px rgba(0, 0, 0, 0.7);

@@ -51,7 +51,7 @@ class matiereController extends Controller
             
         matiere::create($request->post());
         return redirect()->route('matieres.index', ['formation' => $formation])
-            ->with('success','matiere created successfully');
+            ->with('success','La matière est créer avec succés');
     }
 
     /**
@@ -100,6 +100,6 @@ class matiereController extends Controller
         $matiere->delete();
         $formation = $request->formation;
         return redirect()->route('matieres.index', ['formation' => $formation])
-            ->with('success','commande deleted successfully');
+            ->with('success','La commande est supprimer avec succés');
     }
 }

@@ -7,7 +7,8 @@ use App\Models\access;
 use App\Models\matiere;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-    
+use Illuminate\Support\Facades\Redirect;
+
 class leçonController extends Controller
 {
     /** 
@@ -23,7 +24,7 @@ class leçonController extends Controller
         if($found == 1 || Auth::user()->role == 'admin') {
             return view('leçon.index', [ 'leçon' => $leçon , 'matieres' => $matieres ]);
         }else {
-            return 'not welcome here';
+            return Redirect()->back()->with('noAccess', "Vous n'avez pas l'accés a cette matiere");
         }
     }
 
@@ -53,7 +54,7 @@ class leçonController extends Controller
             $matiere = $request->matiere_id;
         leçon::create($request->post());
         return redirect()->route('leçon.index', ['matiere' => $matiere])
-            ->with('success','leçon created successfully');
+            ->with('success','La leçon est créer avec succés');
     }
 
     /**
@@ -94,7 +95,7 @@ class leçonController extends Controller
 
             $leçon->fill($request->post())->save();
             return redirect()->route('leçon.index')
-                ->with('success','leçon edited successfully');
+                ->with('success','La leçon est modifier avec succés');
     }
 
     /**
@@ -109,6 +110,6 @@ class leçonController extends Controller
         $leçon = leçon::find($id);
         $leçon->delete();
         return redirect()->route('leçon.index', ['matiere' => $matiere])
-            ->with('success','leçon destroyed successfully');
+            ->with('success','La leçon est supprimer avec succés');
     }
 }

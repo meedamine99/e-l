@@ -16,7 +16,7 @@
                                 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form2Example18">Adresse Email :</label>
-                                    <input type="email" id="form2Example18" class="form-control form-control-lg" placeholder="entrer votre email" name="email"/>
+                                    <input type="email" id="form2Example18" class="form-control form-control-lg @error('email') is-invalid @enderror" placeholder="entrer votre email" name="email"/>
                                     
                                 </div>
 
@@ -30,7 +30,7 @@
 
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="form2Example28">Mot de passe :</label>
-                                <input type="password" id="form2Example28" class="form-control form-control-lg" placeholder="entrer votre mot de passe" name="password"/>
+                                <input type="password" id="form2Example28" class="form-control form-control-lg @error('password') is-invalid @enderror" placeholder="entrer votre mot de passe" name="password"/>
                                 
                             </div>
 
