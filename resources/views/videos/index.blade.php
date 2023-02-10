@@ -83,7 +83,7 @@
 } 
 </style>
 <div class="container">
-    <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+    <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
     <h2>Les vidéo</h2>
     @if (Auth::user()->role == "admin")
         <a href="{{route('videos.create')}}"> <i class="fa-solid fa-plus"></i> Uploader un vidéo</a>

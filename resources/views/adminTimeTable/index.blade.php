@@ -2,10 +2,11 @@
 @section('content')
 
 <div class="container">
-    <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+    <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
     <h2>Emploi du temps</h2>
     <div class="les_card">
-            <a href=" {{route('adminTimeTable.create')}} "><i class="fa-solid fa-plus"></i> create</a>
+            <a href=" {{route('adminTimeTable.create')}} "><i class="fa-solid fa-plus"></i> Créer une session</a>
+            @if($adminTimeTable->count() > 0)
             @foreach($adminTimeTable as $time)
                         <div class="une_card">
                             <div>{{$time->matiere->nom_matiere}}</div>
@@ -28,6 +29,9 @@
                             </div>
                         </div>
                 @endforeach
+            @else
+                <p class="text-center alert alert-danger">Aucun session</p>
+            @endif
         </div>
     </div>
     <script>

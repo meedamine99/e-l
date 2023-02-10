@@ -2,7 +2,7 @@
 @section('content')
             
                <div class="container">
-                  <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+                  <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
                   <h2>Uploader un vidéo</h2>
                   @if ($message = Session::get('success'))
                       <div class="alert alert-success alert-block">

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+    <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
     <h2>Modifier La formation {{$formation->nom_formation}} </h2>
             <form  action="{{ route('formation.update', $formation->id)}}" method="POST">
               @method('POST')

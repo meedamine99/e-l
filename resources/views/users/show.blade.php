@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
+        <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
         <h2>{{ $user->nom }} {{ $user->prenom }}</h2>
         <div class=" popup d-flex justify-content-around align-items-center">
                         <div class="user-info">

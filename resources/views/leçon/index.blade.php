@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-  <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+  <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
 <h2>Les leçons </h2>
 
             
@@ -30,7 +30,6 @@
       </div>
       @if (Auth::user()->role == "admin")
       <div>
-        <a class="btn btn-primary button-43" href="{{ route('leçon.edit', $leçon->id) }}">Modifier</a>
         <form style="display: inline-block" action="{{ route('leçon.destroy', $leçon->id) }}" method="Post">
           @csrf
           @method('DELETE')

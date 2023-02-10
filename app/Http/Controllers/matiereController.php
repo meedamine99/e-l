@@ -18,10 +18,11 @@ class matiereController extends Controller
     public function index(Request $request)
     {
         $formation = $request->formation;
+        $nom_formation = $request->nom_formation;
         $matieres = matiere::all();
         $accesses = access::all();
         
-        return view('matieres.index', [ 'matieres' => $matieres , 'formation' => $formation, 'accesses' => $accesses]);
+        return view('matieres.index', [ 'matieres' => $matieres , 'formation' => $formation, 'nom_formation' => $nom_formation, 'accesses' => $accesses]);
     }
 
     /**
@@ -62,7 +63,7 @@ class matiereController extends Controller
      */
     public function show(matiere $matiere)
     {
-        return view('matieres.show', ['matiere' => $matiere]);
+        
     }
 
     /**
@@ -73,7 +74,9 @@ class matiereController extends Controller
      */
     public function edit($id)
     {
-        
+        $formations = formation::all();
+        $matiere = matiere::find($id);
+        return view('matieres.edit',['formations' => $formations , 'matiere' => $matiere]);
     }
 
     /**
@@ -83,9 +86,17 @@ class matiereController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-
+        $request->validate([
+            'nom_matiere' => 'required|string', 
+            'formation_id' => 'required',
+            ]); 
+            $formation = $request->formation_id;
+            $matiere = matiere::find($id);
+            $matiere->fill($request->post())->save();
+            return redirect()->route('matieres.index', ['formation' => $formation])
+            ->with('success','La matière est modifier avec succés');
     }
 
     /**
@@ -100,6 +111,6 @@ class matiereController extends Controller
         $matiere->delete();
         $formation = $request->formation;
         return redirect()->route('matieres.index', ['formation' => $formation])
-            ->with('success','La commande est supprimer avec succés');
+            ->with('success','La matiere est supprimer avec succés');
     }
 }

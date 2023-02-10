@@ -3,7 +3,7 @@
 <div class="container">
     @vite(['resources/js/selectOptions.js'])
     @vite(['resources/js/select.js'])
-    <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+    <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
     <h2>Créer une session</h2>
     <form action=" {{route('adminTimeTable.store')}} " method="POST">
         @csrf
@@ -103,7 +103,7 @@
                     </span>
                 @enderror
             </div>
-        <div><button type="submit" class="btn btn-brimary button-43">ajouter</button></div>
+        <div><button type="submit" class="btn btn-brimary button-43">Créer</button></div>
     </div>
     
 </form>

@@ -5,7 +5,7 @@
 
 
   <div class="container">
-    <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+    <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
     <h2>les formations</h2>
     <div class="les_card">
       @if($message = Session::get('success'))
@@ -16,9 +16,10 @@
       @if (Auth::user()->role == "admin")
           <a id="create" href="{{route('formation.create')}}"> <i class="fa-solid fa-plus"></i> Créer formation</a>
       @endif
+    @if($formation->count() > 0)
     @foreach ($formation as $formation)
       <div class="une_card">
-        <a class="" href="{{ route('matieres.index', ['formation' => $formation->id]) }}">{{ $formation->nom_formation }}</a>
+        <a class="" href="{{ route('matieres.index', ['formation' => $formation->id, 'nom_formation' => $formation->nom_formation]) }}">{{ $formation->nom_formation }}</a>
         <div>
           <strong>début: </strong> {{ $formation->date_début }} -- 
           <strong>fin: </strong>{{ $formation->date_fin }}
@@ -34,10 +35,13 @@
             </form>
             @endif
             
-            <a class="btn btn-primary button-43" href="{{ route('matieres.index', ['formation' => $formation->id]) }}">les matieres </a>
+            <a class="btn btn-primary button-43" href="{{ route('matieres.index', ['formation' => $formation->id, 'nom_formation' => $formation->nom_formation]) }}">les matieres </a>
           </div>
         </div>
         @endforeach
+        @else
+            <p class="text-center alert alert-danger">Aucun formation</p>
+        @endif
       </div>
   </div>
 </div>
