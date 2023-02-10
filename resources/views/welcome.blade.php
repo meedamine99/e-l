@@ -6,7 +6,7 @@
                 <div>
                     <h1 class="titre">
                         JE NE PERDS <span style="color: #24acdc;">JAMAIS</span>  <br />
-                        <span id="p">SOIT JE GAGNE SOIT J’APPRENDS</span>
+                        <span id="p"><span style="color: #24acdc;">SOIT JE GAGNE </span> SOIT J’APPRENDS</span>
                     </h1>
                     <div class="image">
                         @auth

@@ -17,7 +17,7 @@ class emailController extends Controller
             'content' => 'required',
             ]);  
             
-        Mail::to('medaminerouibeh99@gmail.com')->send(new emailMail(strip_tags($request->name), strip_tags($request->email), strip_tags($request->content)));
+        Mail::to('bellearningpro@gmail.com')->send(new emailMail(strip_tags($request->name), strip_tags($request->email), strip_tags($request->content)));
         return redirect('/');
     }
 }
