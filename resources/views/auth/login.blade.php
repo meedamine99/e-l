@@ -77,7 +77,8 @@
             
 
                 <div class="col-sm-6 px-0 d-none d-sm-block">
-                    <img alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;" src=" {{url("/images/bg.jpg")}} " alt="">  
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_KvK0ZJBQzu.json"  background="transparent"  speed="1"  style="width: 690px; height: 690px;"  loop autoplay></lottie-player>  
                 </div>
             </div>
             

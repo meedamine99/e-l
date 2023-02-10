@@ -8,7 +8,8 @@
         <div class=" text-black">
             <div class="d-flex align-items-center  gap-5 ">
                 <div class="col-sm-6 px-0 d-none d-sm-block">
-                    <img alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;" src=" {{url("/images/bg.jpg")}} " alt="">  
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_ntdmh9RIUC.json"  background="transparent"  speed="1"  style="width: 30vw; height: 600px;"   loop  autoplay></lottie-player>  
                 </div>
         
                             <form method="POST" action="{{ route('register') }}">

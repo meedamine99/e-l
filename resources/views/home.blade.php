@@ -10,12 +10,12 @@
 
                     <div class=" popup d-flex justify-content-around align-items-center">
                         <div>
-                            <h1>Hello {{ Auth::user()->nom }}!</h1>
-                            <p>It's good to see you again.</p>
+                            <h1>{{ Auth::user()->nom }}!</h1>
+                            <p>Il est bon de vous revoir.</p>
                         </div>
                         <div class="hello">
                             <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                            <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_iK2lxsGQEa.json"  background="transparent"  speed="1"  style=" width:200px height: 200px;"  loop autoplay></lottie-player>
+                            <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_kkTEN8ht7u.json"  background="transparent"  speed="1"  style=" width:200px height: 200px;"  loop autoplay></lottie-player>
                         </div>
                         <div class="user-info">
                             <span>Nom complet :</span> <p>{{ Auth::user()->nom }} {{ Auth::user()->prenom }}</p> <br>
@@ -28,7 +28,8 @@
                         </div>
                     </div>
                     <div class="les_card">
-                        <h2>Votre cours</h2>
+                        <h2>Mes cours</h2>
+                        @if(!empty($matiere))
                         @foreach ($matieres as $matiere)
                         
                             <div class="une_card">
@@ -37,13 +38,16 @@
                                 {{ $matiere->formation->nom_formation }}
                             </div>
                             <div>
-                                <a class="btn btn-primary" href="{{ route('leçon.index', ['matiere' => $matiere->id]) }}">les leçons</a>
+                                <a class="btn btn-primary button-43" href="{{ route('leçon.index', ['matiere' => $matiere->id]) }}">les leçons</a>
                             </div>
 
                     
                         </div>
                         
                         @endforeach
+                        @else
+                            <p class="text-center alert alert-danger">Aucun cours</p>
+                        @endif
                     </div>
                
 </div>

@@ -5,8 +5,8 @@
             <section class="hero" id="hero">
                 <div>
                     <h1 class="titre">
-                        JE NE PERDS JAMAIS  <br />
-                        <span id="p">SOIT JE GAGNE SOIT J’APPRENDS</span>
+                        JE NE PERDS <span style="color: #24acdc;">JAMAIS</span>  <br />
+                        <span id="p"><span style="color: #24acdc;">SOIT JE GAGNE </span> SOIT J’APPRENDS</span>
                     </h1>
                     <div class="image">
                         @auth
@@ -140,11 +140,11 @@
 
                         </label>
                         <label class="float-label">
-                            <input name="email" class="input" placeholder=" Prénom " type="email" required="required">
+                            <input name="email" class="input" placeholder=" E-mail " type="email" required="required">
 
                         </label>
                         <label class="float-label">
-                            <textarea name="content" class="input" placeholder="Message" cols="30" rows="4" required></textarea>
+                            <textarea name="content" class="input" placeholder=" Message" cols="30" rows="4" required></textarea>
                             
                         </label>
                         <button class="links" ><span>envoyer</span></button>

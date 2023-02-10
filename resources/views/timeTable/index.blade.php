@@ -7,7 +7,7 @@
     <h2>Emploi du temps</h2>
 
         <div class="les_card">
-            @if($sessions->count() > 0)
+            @if( !empty($sessions) )
             @foreach ($sessions as $time)
                         <div class="une_card">
                             <div>{{$time->matiere->nom_matiere}}</div>
