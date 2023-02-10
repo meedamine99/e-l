@@ -2,7 +2,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-  <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+  <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
   <h2>Créer une leçon</h2>
 
 <form action="{{ route('leçon.store')}}" method="POST">

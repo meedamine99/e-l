@@ -314,6 +314,7 @@
 }
 
 .bars {
+    cursor: pointer;
     font-size: 2rem;
     position: absolute;
     top: 10px;

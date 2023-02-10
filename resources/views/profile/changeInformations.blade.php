@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content') 
 <div class="container">
-                <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+                <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
                 <h2>{{ __('Profile Information') }}</h2>
                   @if ( $errors->any() )
                                     <div class="pb-0 alert alert-danger">

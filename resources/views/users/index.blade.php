@@ -16,7 +16,7 @@
 </style>
 
 <div class="container">
-
+  <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
                 <h2> Les Utilisateurs</h2>
    
                 <div class="les_card">

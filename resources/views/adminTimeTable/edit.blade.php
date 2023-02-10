@@ -3,7 +3,7 @@
      @vite(['resources/js/selectOptions.js'])
     @vite(['resources/js/select.js'])
     <div class="container">
-        <a href="{{ url()->previous() }}" ><i class="fa-solid fa-left-long"></i></a>
+        <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
         <form action=" {{route('adminTimeTable.update', $adminTimeTable->id)}} " method="POST">
             @csrf
             <input type="hidden" name="_method" value="put">
@@ -106,7 +106,7 @@
                 </span>
                 @enderror
             </div>
-            <div><button type="submit" class="btn btn-primary button-43">ajouter</button></div>
+            <div><button type="submit" class="btn btn-primary button-43">Modifier</button></div>
         </div>
         
     </form>

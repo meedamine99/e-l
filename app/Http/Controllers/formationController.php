@@ -54,7 +54,7 @@ class formationController extends Controller
      */
     public function show(formation $formation)
     {
-        return view('formation.show', ['formation' => $formation]);
+        
     }    
     /**
      * Show the form for editing the specified resource.
