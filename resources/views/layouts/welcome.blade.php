@@ -43,10 +43,10 @@
                     <ul class="navbar-nav w-100 d-flex justify-content-between">
                         <li class="nav-item m-aut">
                             <ul class="navbar-nav">
-                                <li class="nav-item first-link"><a class="links" href="/#hero">Home</a></li>
-                                <li class="nav-item"><a class="links" href="/#about">about</a></li>
-                                <li class="nav-item"><a class="links" href="/#service">services</a></li>
-                                <li class="nav-item"><a class="links" href="/#contact">contact</a></li>
+                                <li class="nav-item first-link"><a class="links" href="/#hero">Accueil</a></li>
+                                <li class="nav-item"><a class="links" href="/#about">A propos</a></li>
+                                <li class="nav-item"><a class="links" href="/#service">Services</a></li>
+                                <li class="nav-item"><a class="links" href="/#contact">Contact</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -54,7 +54,7 @@
                                 @if (Route::has('login'))
                                     <div >
                                     @auth
-                                        <a class="links auth" href="{{ url('/home') }}">dashboard</a>
+                                        <a class="links auth" href="{{ url('/home') }}">Table de bord</a>
                                         @else
                                         <a class="links auth" href="{{ route('login') }}">Log in</a>
                                         @if (Route::has('register'))

@@ -151,17 +151,14 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
-/* nav */
-/* .nav{
-    display: flex;
-    justify-content: center;
-} */
+
 .navMenu {
     background-color: var(--clr-secondary);
 
-    position: fixed;
+    position: sticky !important;
+    top: 0;
     width: 100%;
-    padding: 2em !important;
+    padding: 1em 2em !important;
     display: flex;
     justify-content: space-between;
     align-items: center;

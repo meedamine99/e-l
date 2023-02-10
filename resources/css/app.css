@@ -1,16 +1,26 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
  :root {
      --clr-primary: #393943;
      --clr-secondary: #F2F2F3;
      --clr-accent: #24aadb;
+     --font-family-primary: 'Montserrat', sans-serif;
+     --font-normal: 300;
+     --font-bold: 700;
  }
-
+ * {
+    font-family: var(--font-family-primary);
+ }
  *,
  *::before,
  *::after {
+    
      box-sizing: border-box;
      padding: 0;
      margin: 0;
+ }
+ h2, h1 {
+    
+    font-weight: var(--font-bold);
  }
 
  body {
@@ -241,7 +251,7 @@
     margin-bottom: 3em;
  }
  .popup h1{
-    font-family: 'Itim', cursive;
+    
  }
  .popup span {
     text-transform: capitalize;
