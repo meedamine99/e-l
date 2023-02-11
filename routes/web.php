@@ -15,6 +15,7 @@ use App\Http\Controllers\profileController;
 use App\Http\Controllers\formationController;
 use App\Http\Controllers\timeTableController;
 use App\Http\Controllers\adminTimeTableController;
+use App\Http\Controllers\welcomeController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 
@@ -29,11 +30,11 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [welcomeController::class, 'welcome']);
 
-Auth::routes();
+Auth::routes([
+    'verify' => true,
+]);
 
 Route::group(['middleware' => ['auth', 'verified', 'role']], function () {
     Route::resource('users', userController::class);
@@ -74,7 +75,7 @@ Route::group(['middleware' => ['auth', 'verified', 'role']], function () {
 
 
 });
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::get('/profile/{id}/changeInformations', [profileController::class, 'edit_informations'])->name('profile.changeInformations');
     Route::put('/profile/update_informations', [profileController::class, 'update_informations'])->name('profile.update_informations');

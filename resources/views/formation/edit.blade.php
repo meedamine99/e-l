@@ -3,7 +3,7 @@
 <div class="container">
     <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
     <h2>Modifier La formation {{$formation->nom_formation}} </h2>
-            <form  action="{{ route('formation.update', $formation->id)}}" method="POST">
+            <form  action="{{ route('formation.update', $formation->id)}}" method="POST" enctype="multipart/form-data">
               @method('POST')
         @if ( $errors->any() )
                       <div class="pb-0 alert alert-danger">
@@ -29,6 +29,10 @@
       <div  class="mb-3">
         <label for="" class="form-label">date de fin</label>
         <input type="date" class="form-control" name="date_fin" id="" value="{{$formation->date_fin}}">
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">formation image</label>
+        <input type="file" class="" name="image" id="" value="">
       </div>
       <div class="mb-3">
         <label for="" class="form-label">type</label>

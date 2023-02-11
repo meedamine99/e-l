@@ -39,9 +39,25 @@ class formationController extends Controller
         $request->validate([
             'nom_formation' => 'required|string',
             'date_début' => 'required|date',
-            'date_fin' => 'required|date'
+            'date_fin' => 'required|date',
+            'image' => 'required|mimes:png,jpg,jpeg'
             ]);
-        formation::create($request->post());
+            $imageName = $request->image->hashName();
+            
+
+            $request->image->move(public_path('formation_images'), $imageName);
+
+            $formation = new formation();
+            $formation->nom_formation = $request->nom_formation;
+            $formation->date_début = $request->date_début;
+            $formation->date_fin = $request->date_fin;
+            $formation->path = $imageName;
+            $formation->type = $request->type;
+            
+
+            $formation->save();
+
+        
         return redirect()->route('formation.index')
             ->with('success','La formation est créer avec succés');
     }
@@ -80,12 +96,38 @@ class formationController extends Controller
         $request->validate([
             'nom_formation' => 'required',
             'date_début' => 'required',
-            'date_fin' => 'required'
+            'date_fin' => 'required',
+            'image' => 'mimes:png,jpg,jpeg'
 
             ]);
 
             $formation = formation::find($id);
-            $formation->fill($request->post())->save();
+            if($request->hasFile('image')){
+                
+                
+                $imageName = $request->image->hashName();
+                
+
+                $request->image->move(public_path('formation_images'), $imageName);
+
+                $formation->nom_formation = $request->nom_formation;
+                $formation->date_début = $request->date_début;
+                $formation->date_fin = $request->date_fin;
+                $formation->path = $imageName;
+                $formation->type = $request->type;
+                
+
+                $formation->save();
+                
+            }else {
+                
+                $formation->nom_formation = $request->nom_formation;
+                $formation->date_début = $request->date_début;
+                $formation->date_fin = $request->date_fin;
+                $formation->path = $formation->path;
+                $formation->type = $request->type;
+                $formation->save();
+            }
             return redirect()->route('formation.index')
                 ->with('success','La formation est modifier avec succés');
     }

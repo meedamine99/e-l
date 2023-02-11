@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nom_formation');
             $table->date('date_début');
             $table->date('date_fin');
+            $table->string('path');
             $table->string('type');
             $table->timestamps();
         });

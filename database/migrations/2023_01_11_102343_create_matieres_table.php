@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('matieres', function (Blueprint $table) {
             $table->id();
             $table->string('nom_matiere');
+            $table->string('path');
             $table->foreignId('formation_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
