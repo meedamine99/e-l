@@ -283,6 +283,26 @@ body {
     background-size: cover;
 }
 
+#spin {
+    color: var(--clr-accent);
+}
+#spin::after {
+    content: "";
+    animation: spin 2s linear infinite;
+}
+@keyframes spin {
+    0% {
+        content: "JE GAGNE";
+    }
+    50% {
+        content: "J’APPRENDS";
+    }
+    100%{
+        content: "JE GAGNE";
+    }
+}
+
+
 /* hero section */
 /* about */
 
@@ -394,21 +414,10 @@ body {
     height: 300px;
     background-size: cover;
 }
-
-.service-image1 {
-    background-image: url(../../public/images/bg1.jpg);
-}
-
-.service-image2 {
-    background-image: url(../../public/images/bg2.jpg);
-}
-
-.service-image3 {
-    background-image: url(../../public/images/bg3.jpg);
-}
-
-.service-image4 {
-    background-image: url(../../public/images/baki.jpg);
+.service-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .service-info {

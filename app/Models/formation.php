@@ -17,6 +17,7 @@ class formation extends Model
         'nom_formation',
         'date_début',
         'date_fin',
+        'path',
         'type'
     ];
     public function matiere(){

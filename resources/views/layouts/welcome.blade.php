@@ -54,7 +54,11 @@
                                 @if (Route::has('login'))
                                     <div >
                                     @auth
-                                        <a class="links auth" href="{{ url('/home') }}">Tableaux de bord</a>
+                                        @if(Auth::user()->role == 'admin')
+                                            <a class="links auth" href="{{ url('/home') }}">Tableaux de bord</a>
+                                        @else
+                                            <a class="links auth" href="{{ url('/home') }}">Accueil</a>
+                                        @endif
                                         @else
                                         <a class="links auth" href="{{ route('login') }}">Log in</a>
                                         @if (Route::has('register'))

@@ -15,6 +15,7 @@ class matiere extends Model
      */
     protected $fillable = [
         'nom_matiere',
+        'path',
         'formation_id'
     ];
     public function formation(){

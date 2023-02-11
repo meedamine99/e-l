@@ -3,7 +3,7 @@
     <div class="container">
       <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
       <h2>Créer une formation</h2>
-      <form action="{{ route('formation.store')}}" method="POST" class=" g-3  needs-validation" novalidate>
+      <form action="{{ route('formation.store')}}" method="POST" enctype="multipart/form-data" class=" g-3  needs-validation" novalidate>
       @if ( $errors->any() )
                     <div class="pb-0 alert alert-danger">
                         <ul>
@@ -37,6 +37,15 @@
           <label for=""  class="form-label">date de fin</label>
           <input type="date" name="date_fin" id="" class="form-control @error('date_fin') is-invalid @enderror">
           @error('date_fin')
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+              </span>
+          @enderror
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">formation image</label>
+          <input type="file" name="image" id=""  class="form-control @error('image') is-invalid @enderror">
+          @error('image')
               <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
               </span>

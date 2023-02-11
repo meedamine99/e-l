@@ -23,6 +23,10 @@
     font-weight: var(--font-bold);
  }
 
+ input[type=date]{
+    width: 200px;
+ }
+
  body {
      color: var(--clr-primary);
      background-color: #145a73;

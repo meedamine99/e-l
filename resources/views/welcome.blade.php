@@ -5,8 +5,9 @@
             <section class="hero" id="hero">
                 <div>
                     <h1 class="titre">
-                        JE NE PERDS <span style="color: #24acdc;">JAMAIS</span>  <br />
-                        <span id="p"><span style="color: #24acdc;">SOIT JE GAGNE </span> SOIT J’APPRENDS</span>
+                        JE NE PERDS
+                        <span style="color: #24acdc;">JAMAIS</span>  <br />
+                        <span id="p">SOIT <span id="spin"></span></span>
                     </h1>
                     <div class="image">
                         @auth
@@ -63,60 +64,24 @@
                         <div class="nxt-btn links"></div>
                     </div>
                     <div class="service-container">
+                        @foreach($formations as $formation)
                         <div class="service-card">
-                            <div class="service-image service-image1">
-                                <!-- <img src="bg2.jpg" alt=""> -->
+                            <div class="service-image">
+                                <img src=" {{url('/formation_images/' . $formation->path)}} " alt="">
                             </div>
                             <div class="service-info">
-                                <h3>informatique</h3>
+                                <h3> {{$formation->nom_formation}} </h3>
                                 <ul>
-                                    <li><a href=""> office </a></li>
-                                    <li><a href=""> html </a></li>
-                                    <li><a href=""> css </a></li>
-                                    <li><a href=""> js </a></li>
-                                    <li><a href=""> wordpress </a></li>
+                                    @foreach($matieres as $matiere)
+                                        @if($matiere->formation_id == $formation->id)
+                                            <li><a href=""> {{$matiere->nom_matiere}} </a></li>
+                                        @endif
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
-                        <div class="service-card">
-                            <div class="service-image service-image2"></div>
-                            <div class="service-info">
-                                <h3>informatique</h3>
-                                <ul>
-                                    <li><a href=""> office </a></li>
-                                    <li><a href=""> html </a></li>
-                                    <li><a href=""> css </a></li>
-                                    <li><a href=""> js </a></li>
-                                    <li><a href=""> wordpress </a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="service-card">
-                            <div class="service-image service-image3"></div>
-                            <div class="service-info">
-                                <h3>informatique</h3>
-                                <ul>
-                                    <li><a href=""> office </a></li>
-                                    <li><a href=""> html </a></li>
-                                    <li><a href=""> css </a></li>
-                                    <li><a href=""> js </a></li>
-                                    <li><a href=""> wordpress </a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="service-card">
-                            <div class="service-image service-image4"></div>
-                            <div class="service-info">
-                                <h3>informatique</h3>
-                                <ul>
-                                    <li><a href=""> office </a></li>
-                                    <li><a href=""> html </a></li>
-                                    <li><a href=""> css </a></li>
-                                    <li><a href=""> js </a></li>
-                                    <li><a href=""> wordpress </a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        @endforeach
+                        
                     </div>
                 </div>
             </section>
