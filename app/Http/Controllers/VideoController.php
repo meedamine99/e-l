@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\leçon;
 use App\Models\video;
+use App\Models\matiere;
+use App\Models\formation;
 use Illuminate\Http\Request;
 
 class videoController extends Controller
@@ -15,8 +17,9 @@ class videoController extends Controller
      */
     public function index(Request $request)
     {   
-        $videos = video::all();
+        
         $leçon = $request->leçon;
+        $videos = video::where('leçon_id', $leçon)->get();
         return view('videos.index', [ 'videos' => $videos , 'leçon' => $leçon]);
     }
 
@@ -26,9 +29,11 @@ class videoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        $matieres = matiere::all();
+        $formations = formation::all();
         $leçons = leçon::all();
-        return view('videos.create', ['leçons' => $leçons]);
+        return view('videos.create', ['leçons' => $leçons, 'matieres' => $matieres, 'formations' => $formations]);
     }
 
     /**

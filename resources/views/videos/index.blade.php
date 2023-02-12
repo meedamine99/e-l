@@ -83,34 +83,38 @@
 } 
 </style>
 <div class="container">
-    <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
-    <h2>Les vidéo</h2>
-    @if (Auth::user()->role == "admin")
-        <a href="{{route('videos.create')}}"> <i class="fa-solid fa-plus"></i> Uploader un vidéo</a>
-    @endif
-<div class="con">
-    @foreach ($videos as $video)  
-        @if($leçon == $video->leçon_id)
-            <div class="main-video">
-                <div class="video">
-                    <video src="{{ asset('vids/'.$video->path  ) }}" controls></video>
-                    <h3 class="title">{{$video->title}}</h3>
+        <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
+        <h2>Les vidéo</h2>
+        @if (Auth::user()->role == "admin")
+            <a href="{{route('videos.create')}}"> <i class="fa-solid fa-plus"></i> Uploader un vidéo</a>
+        @endif
+    <div class="con">
+        @if($videos->count() > 0)
+        @foreach ($videos as $video)  
+            
+                <div class="main-video">
+                    <div class="video">
+                        <video src="{{ asset('vids/'.$video->path  ) }}" controls></video>
+                        <h3 class="title">{{$video->title}}</h3>
+                    </div>
                 </div>
-            </div>
-            @break
-            @endif
-            @endforeach
-            <div class="video-list">
-                @foreach ($videos as $video)  
-                @if($leçon == $video->leçon_id)
-                <div class="vid active">
-                    <video src="{{ asset('vids/'.$video->path  ) }}" muted></video>
-                    <h3 class="title">{{$video->title}}</h3>
-                </div>
-                @endif
+                @break
+                
                 @endforeach
-            </div>
-</div>
+                <div class="video-list">
+                    @foreach ($videos as $video)  
+                    
+                    <div class="vid active">
+                        <video src="{{ asset('vids/'.$video->path  ) }}" muted></video>
+                        <h3 class="title">{{$video->title}}</h3>
+                    </div>
+                    
+                    @endforeach
+                </div>
+    </div>
+        @else
+                <p class="text-center alert alert-danger">Aucun video</p>
+        @endif
 </div>
     <script> 
         let listVideo = document.querySelectorAll('.video-list .vid');

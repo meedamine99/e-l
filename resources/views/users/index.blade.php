@@ -18,7 +18,7 @@
 <div class="container">
   <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
                 <h2> Les Utilisateurs</h2>
-   
+                @if($users->count() > 1)
                 <div class="les_card">
                       <div class="card-body">
                           <input
@@ -80,6 +80,9 @@
                           </div>
                           
     </div>
+    @else
+      <p class="alert alert-danger text-center"> Aucun utilisateur</p>
+    @endif
   </div>
   <script>
     function search() {

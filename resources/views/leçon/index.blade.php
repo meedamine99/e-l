@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
   <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
-<h2>Les leçons </h2>
+<h2>Les leçons de {{$nom_matiere}} </h2>
 
             
 
@@ -18,8 +18,9 @@
       @if (Auth::user()->role == "admin")
         <a id="create" href="{{route('leçon.create')}}"><i class="fa-solid fa-plus"></i> créer leçon</a>
       @endif
+      @if($leçon->count() > 0)
     @foreach ($leçon as $leçon)
-    @if($matieres == $leçon->matiere_id)
+    
     <div class="une_card">
       <div>
         {{$leçon->nom}}
@@ -40,8 +41,11 @@
         @endif
     </div>
     
-    @endif
+    
     @endforeach
+    @else
+            <p class="text-center alert alert-danger">Aucun leçon dans la matiere {{$nom_matiere}}</p>
+    @endif
   </div>
 </div>
 @endsection

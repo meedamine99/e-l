@@ -19,8 +19,9 @@ class matiereController extends Controller
     {
         $formation = $request->formation;
         $nom_formation = $request->nom_formation;
-        $matieres = matiere::all();
+        
         $accesses = access::all();
+        $matieres = matiere::where('formation_id', $formation)->get();
         
         return view('matieres.index', [ 'matieres' => $matieres , 'formation' => $formation, 'nom_formation' => $nom_formation, 'accesses' => $accesses]);
     }
@@ -30,9 +31,10 @@ class matiereController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {   
         $formations = formation::all();
+        
         return view('matieres.create',['formations' => $formations]);
     }
 
@@ -47,11 +49,27 @@ class matiereController extends Controller
         $request->validate([
             'nom_matiere' => 'required|string', 
             'formation_id' => 'required',
+            'preview' => 'required|mimes:pdf',
             ]); 
             $formation = $request->formation_id;
+            $nom_formation = formation::where('id' , $formation)->first('nom_formation');
+            $nom_formation = $nom_formation->nom_formation;
+
+            $previewName = $request->preview->hashName();
             
-        matiere::create($request->post());
-        return redirect()->route('matieres.index', ['formation' => $formation])
+            $request->preview->move(public_path('matiere_previews'), $previewName);
+
+            $matiere = new matiere();
+            $matiere->nom_matiere = $request->nom_matiere;            
+            $matiere->formation_id = $request->formation_id;            
+            $matiere->path = $previewName;
+
+            
+
+            $matiere->save();
+
+        
+        return redirect()->route('matieres.index', ['formation' => $formation, 'nom_formation' => $nom_formation])
             ->with('success','La matière est créer avec succés');
     }
 
@@ -94,8 +112,10 @@ class matiereController extends Controller
             ]); 
             $formation = $request->formation_id;
             $matiere = matiere::find($id);
+            $nom_formation = formation::where('id' , $formation)->first('nom_formation');
+            $nom_formation = $nom_formation->nom_formation;
             $matiere->fill($request->post())->save();
-            return redirect()->route('matieres.index', ['formation' => $formation])
+            return redirect()->route('matieres.index', ['formation' => $formation, 'nom_formation' => $nom_formation])
             ->with('success','La matière est modifier avec succés');
     }
 

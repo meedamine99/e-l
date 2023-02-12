@@ -10,6 +10,7 @@ export default defineConfig({
                 'resources/css/cards.css',
                 'resources/css/dashboard.css',
                 'resources/css/welcome.css',
+                'resources/css/preview.css',
                 'resources/js/app.js',
                 'resources/js/welcome.js',
                 'resources/js/accesses.js',

@@ -22,7 +22,7 @@
                 </div>
             </section>
             <section class="about" id="about">
-                <h2 class="h2-title">APPRENDRE A NOUS CONNAITRE</h2>
+                <h2 class="h2-title header">APPRENDRE A NOUS CONNAITRE</h2>
                 <div class="about-container">
                     <div class="about-card ">
                         <div class="about-image about-image1 ">
@@ -57,11 +57,11 @@
                 </div>
             </section>
             <section class="service" id="service">
-                <h2 class="h2-title">LES SERVICES QUE NOUS OFFRONS</h2>
+                <h2 class="h2-title header">LES SERVICES QUE NOUS OFFRONS</h2>
                 <div>
                     <div class="btns">
-                        <div class="pre-btn links"></div>
-                        <div class="nxt-btn links"></div>
+                        <div class="pre-btn links"><i class="fa-solid fa-chevron-left"></i></div>
+                        <div class="nxt-btn links"><i class="fa-solid fa-chevron-right"></i></div>
                     </div>
                     <div class="service-container">
                         @foreach($formations as $formation)
@@ -74,7 +74,7 @@
                                 <ul>
                                     @foreach($matieres as $matiere)
                                         @if($matiere->formation_id == $formation->id)
-                                            <li><a href=""> {{$matiere->nom_matiere}} </a></li>
+                                            <li><a href="{{ route('welcome.preview', $matiere->id) }}"> {{$matiere->nom_matiere}} </a></li>
                                         @endif
                                     @endforeach
                                 </ul>
@@ -86,7 +86,7 @@
                 </div>
             </section>
             <section id="contact" class="contact">
-                <h2 class="h2-title">contactez-nous</h2>
+                <h2 class="h2-title header">contactez-nous</h2>
                 <div class="contact-form">
                     <div class="icons">
                         

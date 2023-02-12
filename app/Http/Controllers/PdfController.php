@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\pdf;
 use App\Models\leçon;
+use App\Models\matiere;
+use App\Models\formation;
 use Illuminate\Http\Request;
 
 class pdfController extends Controller
@@ -27,8 +29,10 @@ class pdfController extends Controller
      */
     public function create()
     {
+        $matieres = matiere::all();
+        $formations = formation::all();
         $leçons = leçon::all();
-        return view('pdfs.create', ['leçons' => $leçons]);
+        return view('pdfs.create', ['leçons' => $leçons, 'matieres' => $matieres, 'formations' => $formations]);
     }
 
     /**

@@ -31,6 +31,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 */
 
 Route::get('/', [welcomeController::class, 'welcome']);
+Route::get('/preview/{id}/', [welcomeController::class, 'preview'])->name('welcome.preview');
 
 Auth::routes([
     'verify' => true,

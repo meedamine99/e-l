@@ -372,7 +372,7 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 100px;
+    gap: 50px;
 }
 
 .service-container {
@@ -431,30 +431,29 @@ body {
 .nxt-btn {
     display: block;
     margin: 30px auto;
-    width: 20px;
-    height: 20px;
-    border-top: 2px solid var(--clr-accent);
-    border-left: 2px solid var(--clr-accent);
+    padding: 5px;
+    font-size: 2rem;
+    color: var(--clr-accent);
     cursor: pointer;
     transition: .3s;
 }
 
 .pre-btn {
     left: 0;
-    transform: rotate(-45deg);
+    
 }
 
 .pre-btn:hover {
-    transform: scale(1.2) rotate(-45deg) translate(-5px, -5px);
+    transform: scale(1.2) ;
 }
 
 .nxt-btn {
     right: 0;
-    transform: rotate(135deg);
+    
 }
 
 .nxt-btn:hover {
-    transform: scale(1.2) rotate(135deg) translate(-5px, -5px);
+    transform: scale(1.2) ;
 }
 
 
@@ -910,3 +909,15 @@ img {
 }
 
 /* media query */
+
+/* extra */
+.header {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1.2s ease-out;
+}
+
+.headerVisible {
+    opacity: 1;
+    transform: translateY(0);
+}

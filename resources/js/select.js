@@ -36,3 +36,8 @@ const formationSelectForTime = document.getElementById('formation');
 const selectMatiere = document.querySelectorAll('.matiere');
 
 select(formationSelectForTime, selectMatiere)
+
+const metiereSelecte = document.getElementById('matiere');
+const selectLeçon = document.querySelectorAll('.leçon');
+
+select(metiereSelecte, selectLeçon)
