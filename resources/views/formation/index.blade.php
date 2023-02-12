@@ -6,7 +6,7 @@
 
   <div class="container">
     <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
-    <h2>les formations</h2>
+    <h2>Les formations</h2>
     <div class="les_card">
       @if($message = Session::get('success'))
           <div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\leçon;
 use App\Models\access;
+use App\Models\formation;
 use App\Models\matiere;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,10 +20,12 @@ class leçonController extends Controller
     public function index(Request $request)
     {
         $matieres = $request->matiere;
-        $leçon = leçon::all();
+        $nom_matiere = $request->nom_matiere;
+       
+        $leçon = leçon::where('matiere_id', $matieres)->get();
         $found = access::where('user_id', Auth::user()->id)->where('matiere_id', $matieres)->count();
         if($found == 1 || Auth::user()->role == 'admin') {
-            return view('leçon.index', [ 'leçon' => $leçon , 'matieres' => $matieres ]);
+            return view('leçon.index', [ 'leçon' => $leçon , 'matieres' => $matieres,  'nom_matiere' => $nom_matiere ]);
         }else {
             return Redirect()->back()->with('noAccess', "Vous n'avez pas l'accés a cette matiere");
         }
@@ -36,7 +39,8 @@ class leçonController extends Controller
     public function create()
     {
         $matieres = matiere::all();
-        return view('leçon.create', [ 'matieres' => $matieres ]);
+        $formations = formation::all();
+        return view('leçon.create', [ 'matieres' => $matieres, 'formations' => $formations ]);
     }
 
     /**
@@ -52,8 +56,10 @@ class leçonController extends Controller
             'matiere_id' => 'required',
             ]);
             $matiere = $request->matiere_id;
+            $nom_matiere = matiere::where('id' , $matiere)->first('nom_matiere');
+            $nom_matiere = $nom_matiere->nom_matiere;
         leçon::create($request->post());
-        return redirect()->route('leçon.index', ['matiere' => $matiere])
+        return redirect()->route('leçon.index', ['matiere' => $matiere, 'nom_matiere' =>$nom_matiere])
             ->with('success','La leçon est créer avec succés');
     }
 

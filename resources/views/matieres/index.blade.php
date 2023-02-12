@@ -19,15 +19,16 @@
       <p>{{$message}}</p>
     </div>
     @endif
+    @if($matieres->count() > 0)
     @foreach ($matieres as $matiere)
-    @if($formation == $matiere->formation_id)
+    
         <div class="une_card">
-            <a class="" href="{{ route('leçon.index', ['matiere' => $matiere->id]) }}">{{ $matiere->nom_matiere }}</a>
+            <a class="" href="{{ route('leçon.index', ['matiere' => $matiere->id, 'nom_matiere' => $matiere->nom_matiere ]) }}">{{ $matiere->nom_matiere }}</a>
         <div>
             {{ $matiere->formation->nom_formation }}
         </div>
         <div>
-            <a class="btn btn-primary button-43" href="{{ route('leçon.index', ['matiere' => $matiere->id]) }}">les leçons</a>
+            <a class="btn btn-primary button-43" href="{{ route('leçon.index', ['matiere' => $matiere->id, 'nom_matiere' => $matiere->nom_matiere]) }}">les leçons</a>
             @if (Auth::user()->role == "admin")
             <a class="btn btn-primary button-43" href="{{ route('matieres.edit', $matiere->id) }}">Modifier</a>
               <form style="display: inline-block" action="{{ route('matieres.destroy', $matiere->id) }}" method="Post">
@@ -41,8 +42,11 @@
 
   
       </div>
-      @endif
+      
     @endforeach
+    @else
+            <p class="text-center alert alert-danger">Aucun matiere dans la formation {{$nom_formation}}</p>
+    @endif
     
   </div>
 

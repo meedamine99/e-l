@@ -2,12 +2,12 @@
 @section('content') 
 <div class="container">
               <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
-              <h2>{{ __('Profile Information') }}</h2>
+              <h2>{{ __('Profile Informations') }}</h2>
               
                 
                 
                 <p>
-                  {{ __("Change your password") }}
+                  {{ __("Changez votre mot de passe") }}
                 </p>
                 <form class="actions" action="{{route('profile.update_password', auth()->user()->id)}}" id="change_password_form" method="post">
                   @if (session('status'))
@@ -29,7 +29,7 @@
                               </div>
                           @endif  
                     <div class="mb-3">
-                      <label for="" >Email</label>
+                      <label for="" >Votre Email</label>
                       <input class="form-control" type="email" name="email"  id="" placeholder="email" value="{{auth()->user()->email}}">
                     </div>
                     @error('email')

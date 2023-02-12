@@ -2,7 +2,7 @@
 @section('content') 
 <div class="container">
                 <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
-                <h2>{{ __('Profile Information') }}</h2>
+                <h2>{{ __('Profile Informations') }}</h2>
                   @if ( $errors->any() )
                                     <div class="pb-0 alert alert-danger">
                                         <ul>
@@ -15,7 +15,7 @@
   
   
                   <p>
-                    {{ __("Update your account's profile information.") }}
+                    {{ __("Mettez à jour les informations de profil de votre compte.") }}
                   </p>
                   <form class="actions" action="{{route('profile.update_informations', auth()->id())}}" method="post">
   

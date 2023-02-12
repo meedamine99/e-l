@@ -14,7 +14,7 @@
     padding: 10px;
 }   
 .con .main-video iframe{
-    width: 500px;
+    width: 100%;
         height: 600px;
         display: inline-block;
 } 
@@ -125,7 +125,6 @@
                  iframe.classList.add('active');
                  if(iframe.classList.contains('active')){
                      let src = iframe.children[0].getAttribute('src');
-                     console.log(src);
                      mainVideo.src = src;
                      let text = iframe.children[1].innerHTML;
                      title.innerHTML = text;
