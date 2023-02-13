@@ -86,7 +86,6 @@ class HomeController extends Controller
     }
 
     $matieres = matiere::join('accesses', 'matieres.id', '=', 'accesses.matiere_id')
-                    ->select('matieres.*')
                     ->where('accesses.user_id' , Auth::user()->id)
                     ->get();
 

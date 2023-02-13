@@ -29,7 +29,7 @@
                     </div>
                     <div class="les_card">
                         <h2>Mes cours</h2>
-                        @if(!empty($matiere))
+                        @if($matieres->count() > 0)
                         @foreach ($matieres as $matiere)
                         
                             <div class="une_card">
