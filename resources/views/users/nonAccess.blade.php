@@ -4,7 +4,7 @@
     <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
     <h2>étudiants non access</h2>
     <div class="les_card">
-        @if($nonAccess->count() > 0)
+        @if(!empty($nonAccess))
             @foreach ($nonAccess as $etud)
             <div class="une_card">
                 <div>

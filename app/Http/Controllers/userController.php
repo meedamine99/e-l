@@ -79,11 +79,16 @@ class userController extends Controller
     }
 
     public function nonAccess(){
-        
-        $nonAccess = DB::table('users')
-            ->where('role', 'user')
-            ->join('accesses', 'users.id', '!=', 'accesses.user_id')
-            ->whereNot('accesses.user_id','users.id' )->get();
+            $users = User::all()->where('role' , 'user');
+            $accesses = access::all();
+            $nonAccess = [];
+            foreach($accesses as $access){
+                foreach($users as $user){
+                if ( $access->user_id != $user->id && !in_array( $user,  $nonAccess)){
+                        $nonAccess[] = $user;
+                }
+            }
+            }
         return view('users.nonAccess', ['nonAccess' => $nonAccess]);
     }
 
