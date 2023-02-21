@@ -35,9 +35,18 @@
         <input type="file" class="" name="image" id="" value="">
       </div>
       <div class="mb-3">
-        <label for="" class="form-label">type</label>
-        <input type="text" class="form-control" name="type" id="" value="{{$formation->type}}">
-      </div>
+          <label for="" class="form-label">type</label>
+          <select name="type" id="" class="form-select @error('type') is-invalid @enderror">
+            <option value="présentiel">présentiel</option>
+            <option value="a distance">a distance</option>
+            <option value="les deux">les deux</option>
+          </select>
+          @error('type')
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+              </span>
+          @enderror
+        </div>
       <div  class="mb-3">
         <button class="btn btn-primary button-43" type="submit">edit</button>
       </div>

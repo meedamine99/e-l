@@ -30,7 +30,7 @@
     box-shadow: -8px 6px 26px -19px rgba(0, 0, 0, 0.7);
     transform: scale(1.01);
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1200px) {
     .une_card {
         flex-direction: column;
         gap: 1em;
