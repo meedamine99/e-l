@@ -21,6 +21,9 @@
       <div class="une_card">
         <a class="" href="{{ route('matieres.index', ['formation' => $formation->id, 'nom_formation' => $formation->nom_formation]) }}">{{ $formation->nom_formation }}</a>
         <div>
+          {{$formation->type}}
+        </div>
+        <div>
           <strong>début: </strong> {{ $formation->date_début }} -- 
           <strong>fin: </strong>{{ $formation->date_fin }}
         </div>

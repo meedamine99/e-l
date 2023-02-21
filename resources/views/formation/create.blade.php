@@ -53,7 +53,11 @@
         </div>
         <div class="mb-3">
           <label for="" class="form-label">type</label>
-          <input type="text" name="type" id=""  class="form-control @error('type') is-invalid @enderror">
+          <select name="type" id="" class="form-select @error('type') is-invalid @enderror">
+            <option value="présentiel">présentiel</option>
+            <option value="a distance">a distance</option>
+            <option value="les deux">les deux</option>
+          </select>
           @error('type')
               <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
