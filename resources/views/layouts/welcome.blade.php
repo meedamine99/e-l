@@ -4,6 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link rel="icon" href=" {{url("/images/logo.png")}} ">
+
         <title>{{ config('app.name', 'e-learning') }}</title>
 
         <!-- Fonts -->

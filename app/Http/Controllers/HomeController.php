@@ -89,7 +89,7 @@ class HomeController extends Controller
                     ->where('accesses.user_id' , Auth::user()->id)
                     ->get();
 
-           
+            
         $role = Auth::user()->role;
         if($role == 'user' || $role == 'formateur' ){
             return view('home', [
