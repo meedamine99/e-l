@@ -18,18 +18,31 @@
 <div class="container">
   <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
                 <h2> Les Utilisateurs</h2>
+                  
                 @if($users->count() > 1)
                 <div class="les_card">
                       <div class="card-body">
-                          <input
-                              name="query"
-                              
-                              id="search"
-                              type="text"
-                              placeholder="chercher avec nom ou CIN"
-                              onkeyup="search()"
-                              style="width: 300px; margin-left:auto;"
-                            />
+                          <div>
+                            <input
+                                name="query"
+                            
+                                id="search"
+                                type="text"
+                                placeholder="chercher avec nom ou CIN"
+                                onkeyup="search()"
+                                style="width: 300px; margin-left:auto;"
+                              />
+                          </div>
+                            <div class="filter">
+                              <div>
+                                <input class="form-check-input"  type="checkbox" id="filterUser" name="filterUser" value="user" checked>
+                                <label for="filterUser"><strong>Users</strong></label>
+                              </div>
+                              <div>
+                                <input class="form-check-input"  type="checkbox" id="filterFormateur" name="filterFormateur" value="formateur" checked>
+                                <label for="filterFormateur"><strong>Formateurs</strong></label>
+                              </div>
+                            </div>
                           
                           @if (session('status'))
                               <div class="alert alert-success" role="alert">
@@ -42,7 +55,7 @@
                               {{$message}}
                             </div>
                           @endif
-                            
+                            <div id="userList">
                             @foreach ($users as $user)
                             @if ($user->role != 'admin')
                             <div class="une_card">    
@@ -74,6 +87,7 @@
                             </div>
                             @endif
                             @endforeach
+                            </div>
                             <div class="pagination">
                               {{ $users->links('pagination.custom') }}
                             </div>
@@ -105,4 +119,32 @@
     })
 }
   </script>
+  <script>
+function filterUsers() {
+  // Get the checked checkboxes
+  const filterUser = document.getElementById("filterUser").checked;
+  const filterFormateur = document.getElementById("filterFormateur").checked;
+
+  // Get the user list
+  const userList = document.getElementById("userList");
+
+  // Loop through the user list and show/hide based on the checkboxes
+  for (let i = 0; i < userList.children.length; i++) {
+    const userRole = userList.children[i].querySelectorAll("div")[1].innerText;
+
+    if ((filterUser && userRole === "user") || (filterFormateur && userRole === "formateur")) {
+      userList.children[i].style.display = "";
+    } else {
+      userList.children[i].style.display = "none";
+    }
+  }
+}
+
+// Call the filter function when the checkboxes change
+document.getElementById("filterUser").addEventListener("change", filterUsers);
+document.getElementById("filterFormateur").addEventListener("change", filterUsers);
+
+// Call the filter function initially to show the initial filtered list
+filterUsers();
+</script>
 @endsection

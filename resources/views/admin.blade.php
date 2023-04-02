@@ -93,7 +93,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 <script>
-    var ctx = document.getElementById('myChart').getContext('2d');
+    var ctx = document.getElementById('myChart').getContext('2d') ;
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {

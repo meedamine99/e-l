@@ -3,42 +3,66 @@
      --clr-secondary: #F2F2F3;
      --clr-accent: #24acdc;
  }
-.les_card {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    margin-inline: auto;
-}
-.alert {
-    border-radius: 15px !important;
-}
 
-.une_card {
-    /* border: 1px solid var(--clr-primary); */
-    padding: .5em .3em;
-    margin-block: .5em;
-    border-radius: 15px;
-    
-    background-color: rgb(200, 200, 200);
-    color:var(--clr-primary) ;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    transition: .3s;
-}
-.une_card:hover{
-    box-shadow: -8px 6px 26px -19px rgba(0, 0, 0, 0.7);
-    transform: scale(1.01);
-}
-@media screen and (max-width: 1200px) {
-    .une_card {
-        flex-direction: column;
-        gap: 1em;
-    }
-    .une_card > *{
-        text-align: center;
-    }
-    .une_card > .btn {
-        margin-block: 5px;
-    } 
-}
+ .les_card {
+     display: flex;
+     flex-direction: column;
+     width: 90%;
+     margin-inline: auto;
+ }
+
+ .alert {
+     border-radius: 15px !important;
+ }
+
+ .une_card {
+     /* border: 1px solid var(--clr-primary); */
+     padding: .5em .3em;
+     margin-block: .5em;
+     border-radius: 15px;
+
+     background-color: rgb(200, 200, 200);
+     color: var(--clr-primary);
+     display: flex;
+     align-items: center;
+     justify-content: space-evenly;
+     transition: .3s;
+ }
+
+ .filter {
+     padding: .5em .3em;
+     margin-block: .5em;
+     border-radius: 15px;
+
+     background-color: rgb(200, 200, 200);
+     color: var(--clr-primary);
+     display: flex;
+     align-items: center;
+     justify-content: space-evenly;
+     transition: .3s;
+ }
+
+ .filter strong:hover,
+ .filter input:hover {
+     cursor: pointer;
+ }
+
+ .une_card:hover {
+     box-shadow: -8px 6px 26px -19px rgba(0, 0, 0, 0.7);
+     transform: scale(1.01);
+ }
+
+ @media screen and (max-width: 1200px) {
+     .une_card {
+         flex-direction: column;
+         gap: 1em;
+     }
+
+     .une_card>* {
+         text-align: center;
+     }
+
+     .une_card>.btn {
+         margin-block: 5px;
+     }
+ }
