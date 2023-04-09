@@ -1,5 +1,12 @@
 @extends('layouts.app')
 @section('content')
+
+<style>
+    .une_card a{
+      margin-inline: .5em;
+    }
+</style>
+
 <div class="container">
   <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
 <h2>Les leçons de {{$nom_matiere}} </h2>
@@ -31,6 +38,7 @@
       </div>
       @if (Auth::user()->role == "admin")
       <div>
+        <a class="btn btn-primary button-43" href="{{ route('leçon.edit', $leçon->id) }}">Modifier</a>
         <form style="display: inline-block" action="{{ route('leçon.destroy', $leçon->id) }}" method="Post">
           @csrf
           @method('DELETE')

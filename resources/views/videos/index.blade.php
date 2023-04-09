@@ -85,6 +85,11 @@
 <div class="container">
         <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
         <h2>Les vidéo</h2>
+        @if($message = Session::get('success'))
+        <div class="success">
+            <p class="alert alert-success">{{$message}}</p>
+        </div>
+        @endif
         @if (Auth::user()->role == "admin")
             <a href="{{route('videos.create')}}"> <i class="fa-solid fa-plus"></i> Uploader un vidéo</a>
         @endif
@@ -95,7 +100,7 @@
                 <div class="main-video">
                     <div class="video">
                         <video src="{{ asset('vids/'.$video->path  ) }}" controls></video>
-                        <h3 class="title">{{$video->title}}</h3>
+                        <h3 class="title">{{$video->title}}</h3> 
                     </div>
                 </div>
                 @break
@@ -107,15 +112,24 @@
                     <div class="vid active">
                         <video src="{{ asset('vids/'.$video->path  ) }}" muted></video>
                         <h3 class="title">{{$video->title}}</h3>
+                        @if (Auth::user()->role == "admin")
+                        <form class="ms-auto" style="display: inline-block" action="{{ route('videos.destroy', $video->id) }}" method="Post">
+                                @csrf
+                                @method('DELETE')
+                                <input type="hidden" name="leçon_id" id="" value=" {{$video->leçon_id}} ">
+                                <button class="btn btn-danger" onclick="return confirm('do u really want to delete this video?')" type="submit">Supprimer</button>
+                            </form>
+                        @endif
                     </div>
                     
                     @endforeach
                 </div>
     </div>
+</div>
         @else
                 <p class="text-center alert alert-danger">Aucun video</p>
+                
         @endif
-</div>
     <script> 
         let listVideo = document.querySelectorAll('.video-list .vid');
         let mainVideo = document.querySelector('.main-video video');

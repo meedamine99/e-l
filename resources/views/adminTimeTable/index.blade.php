@@ -4,6 +4,11 @@
 <div class="container">
     <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
     <h2>Emploi du temps</h2>
+    @if($message = Session::get('success'))
+        <div class="success">
+            <p class="alert alert-success">{{$message}}</p>
+        </div>
+        @endif
     <div class="les_card">
             <a href=" {{route('adminTimeTable.create')}} "><i class="fa-solid fa-plus"></i> Créer une session</a>
             @if($adminTimeTable->count() > 0)
