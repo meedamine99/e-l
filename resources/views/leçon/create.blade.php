@@ -8,8 +8,7 @@
 
 <form action="{{ route('leçon.store')}}" method="POST">
       @csrf
-                 <div class="mb-3">
-      </div>
+             
 
             <div class="mb-3">
                 <label for="">formation</label>

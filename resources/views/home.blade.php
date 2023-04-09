@@ -33,12 +33,12 @@
                         @foreach ($matieres as $matiere)
                         
                             <div class="une_card">
-                                <a class="" href="{{ route('leçon.index', ['matiere' => $matiere->id]) }}">{{ $matiere->nom_matiere }}</a>
-                            <div>
+                                <a class="" href="{{ route('leçon.index', ['matiere' => $matiere->id, 'nom_matiere' => $matiere->nom_matiere]) }}">{{ $matiere->nom_matiere }}</a>
+                            {{-- <div>
                                 {{ $matiere->formation->nom_formation }}
-                            </div>
+                            </div> --}}
                             <div>
-                                <a class="btn btn-primary button-43" href="{{ route('leçon.index', ['matiere' => $matiere->id]) }}">les leçons</a>
+                                <a class="btn btn-primary button-43" href="{{ route('leçon.index', ['matiere' => $matiere->id, 'nom_matiere' => $matiere->nom_matiere]) }}">les leçons</a>
                             </div>
 
                     

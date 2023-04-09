@@ -105,8 +105,12 @@ class videoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        //
+        $video = video::find($id);
+        $video->delete();
+        $leçon = $request->leçon_id;
+        return redirect()->route('videos.index', ['leçon' => $leçon])
+            ->with('success','vidéo supprimé avec succés');
     }
 }

@@ -3,8 +3,18 @@
 <div class="container">
   <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
   <h2>Modifier une matiere</h2>
-<form action="{{ route('matieres.update' , $matiere->id)}}" method="POST">
-    <input type="hidden" name="_method" value="put">
+<form action="{{ route('matieres.update' , $matiere->id)}}" method="POST" enctype="multipart/form-data">
+    @method('PUT')
+
+     @if ( $errors->any() )
+                      <div class="pb-0 alert alert-danger">
+                          <ul>
+                              @foreach($errors->all() as $error)
+                                  <li>{{ $error }}</li>
+                              @endforeach
+                          </ul>
+                      </div>
+                  @endif
 
       @csrf
     <div class="mb-3">
@@ -31,6 +41,10 @@
             <strong>{{ $message }}</strong>
         </span>
     @enderror
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">matiere pdf preview</label>
+    <input type="file" class="" name="preview" id="" value="">
   </div>
   <div class="mb-3">
     <button class="btn btn-primary button-43" type="submit">Modifier</button>

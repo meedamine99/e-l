@@ -95,7 +95,7 @@ class matiereController extends Controller
         $formations = formation::all();
         $matiere = matiere::find($id);
         return view('matieres.edit',['formations' => $formations , 'matiere' => $matiere]);
-    }
+    } 
 
     /**
      * Update the specified resource in storage.
@@ -106,15 +106,34 @@ class matiereController extends Controller
      */
     public function update(Request $request, $id)
     {
+       
         $request->validate([
             'nom_matiere' => 'required|string', 
             'formation_id' => 'required',
+            'preview' => 'mimes:pdf'
             ]); 
-            $formation = $request->formation_id;
             $matiere = matiere::find($id);
+
+            if($request->hasFile('preview')){
+                $previewName = $request->preview->hashName();
+                
+                $request->preview->move(public_path('matiere_previews'), $previewName);
+
+                $matiere->nom_matiere = $request->nom_matiere;
+                $matiere->formation_id = $request->formation_id;
+                $matiere->path = $previewName;
+                $matiere->save();
+                
+            }else {
+                $matiere->nom_matiere = $request->nom_matiere;
+                $matiere->formation_id = $request->formation_id;
+                $matiere->save();
+            }
+
+            $formation = $request->formation_id;
+
             $nom_formation = formation::where('id' , $formation)->first('nom_formation');
             $nom_formation = $nom_formation->nom_formation;
-            $matiere->fill($request->post())->save();
             return redirect()->route('matieres.index', ['formation' => $formation, 'nom_formation' => $nom_formation])
             ->with('success','La matière est modifier avec succés');
     }

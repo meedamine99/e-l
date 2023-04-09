@@ -85,9 +85,17 @@ class HomeController extends Controller
         $teacherCounts[] = User::where('role', 'formateur')->whereDate('created_at', $date)->count();
     }
 
-    $matieres = matiere::join('accesses', 'matieres.id', '=', 'accesses.matiere_id')
+    
+    
+    /* $matieres = matiere::join('accesses', 'matieres.id', '=', 'accesses.matiere_id')
                     ->where('accesses.user_id' , Auth::user()->id)
-                    ->get();
+                    ->get(); */
+        $matieres = DB::table('matieres')
+            ->join('accesses', 'matieres.id', '=', 'accesses.matiere_id')
+            ->where('accesses.user_id', '=', Auth::user()->id)
+            ->select('matieres.*')
+            ->get();
+            
 
             
         $role = Auth::user()->role;
