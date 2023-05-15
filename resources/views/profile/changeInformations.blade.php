@@ -12,7 +12,9 @@
                                         </ul>
                                     </div>
                                 @endif
-  
+                                    @if ($message = Session::get('error'))
+                                        <p class="alert alert-danger">{{$message}}</p>
+                                    @endif
   
                   <p>
                     {{ __("Mettez à jour les informations de profil de votre compte.") }}

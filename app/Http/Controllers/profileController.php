@@ -35,6 +35,8 @@ class profileController extends Controller
             auth()->user()->telephone = $request->telephone;
             auth()->user()->adresse = $request->adresse;
             auth()->user()->updated_at = now();
+        }else {
+            return back()->with("error", "L'ancien mot de passe ne correspond pas !");
         }
 
         $request->user()->save();
