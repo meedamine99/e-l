@@ -80,9 +80,12 @@ class leçonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(leçon $leçon)
+    public function edit($id)
     {
-        return view('leçon.edit', ['leçon' => $leçon]); 
+        $matieres = matiere::all();
+        $formations = formation::all();
+        $leçon = leçon::find($id);
+        return view('leçon.edit', [ 'matieres' => $matieres, 'formations' => $formations, 'leçon' => $leçon ]);
     }
 
     /**
@@ -92,15 +95,20 @@ class leçonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, leçon $leçon)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'nom' => 'required|string',
             'matiere_id' => 'required',
             ]);  
-
+            $leçon = leçon::find($id);
             $leçon->fill($request->post())->save();
-            return redirect()->route('leçon.index')
+
+            $matiere = $request->matiere_id;
+            $nom_matiere = matiere::where('id' , $matiere)->first('nom_matiere');
+            $nom_matiere = $nom_matiere->nom_matiere;
+
+            return redirect()->route('leçon.index', ['matiere' => $matiere, 'nom_matiere' =>$nom_matiere])
                 ->with('success','La leçon est modifier avec succés');
     }
 

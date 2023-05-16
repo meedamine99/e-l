@@ -87,6 +87,11 @@
 <div class="container">
     <a href="javascript:history.back()" ><i class="fa-solid fa-left-long"></i></a>
     <h2>Les PDF</h2>
+    @if($message = Session::get('success'))
+        <div class="success">
+            <p class="alert alert-success">{{$message}}</p>
+        </div>
+    @endif
     @if (Auth::user()->role == "admin")
         <a href="{{route('pdfs.create')}}"><i class="fa-solid fa-plus"></i> Uploader un PDF</a>
     @endif
@@ -108,6 +113,14 @@
                     <div class="vid active">
                         <iframe src="{{ asset('leçon_pdfs/'.$pdf->path  ) }}" muted></iframe>
                         <h3 class="title">{{$pdf->title}}</h3>
+                        @if (Auth::user()->role == "admin")
+                        <form class="ms-auto" style="display: inline-block" action="{{ route('pdfs.destroy', $pdf->id) }}" method="Post">
+                                @csrf
+                                @method('DELETE')
+                                <input type="hidden" name="leçon_id" id="" value=" {{$pdf->leçon_id}} ">
+                                <button class="btn btn-danger" onclick="return confirm('do u really want to delete this pdf?')" type="submit">Supprimer</button>
+                            </form>
+                        @endif
                     </div>
                     @endif
                     @endforeach

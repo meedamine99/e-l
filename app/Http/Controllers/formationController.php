@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\formation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class formationController extends Controller
 {
@@ -141,6 +142,7 @@ class formationController extends Controller
     public function destroy($id)
     {
         $formation = formation::find($id);
+        File::delete(public_path('formation_images/'. $formation->path));
         $formation->delete();
         return redirect()->route('formation.index')
             ->with('success','La formation est supprimer avec succés');

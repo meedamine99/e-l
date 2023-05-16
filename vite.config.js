@@ -13,7 +13,6 @@ export default defineConfig({
                 'resources/css/preview.css',
                 'resources/js/app.js',
                 'resources/js/welcome.js',
-                'resources/js/accesses.js',
                 'resources/js/selectOptions.js',
                 'resources/js/tableHours.js',
                 'resources/js/nav.js',
