@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('path');
-            $table->foreignId('leçon_id')->constrained()->onDelete('cascade');
+            $table->foreignId('lecon_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

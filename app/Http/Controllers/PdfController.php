@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\pdf;
-use App\Models\leçon;
+use App\Models\lecon;
 use App\Models\matiere;
 use App\Models\formation;
 use Illuminate\Http\Request;
@@ -18,8 +18,8 @@ class pdfController extends Controller
     public function index(Request $request)
     {   
         $pdfs = pdf::all();
-        $leçon = $request->leçon;
-        return view('pdfs.index', [ 'pdfs' => $pdfs , 'leçon' => $leçon]);
+        $lecon = $request->lecon;
+        return view('pdfs.index', [ 'pdfs' => $pdfs , 'lecon' => $lecon]);
     }
 
     /**
@@ -31,8 +31,8 @@ class pdfController extends Controller
     {
         $matieres = matiere::all();
         $formations = formation::all();
-        $leçons = leçon::all();
-        return view('pdfs.create', ['leçons' => $leçons, 'matieres' => $matieres, 'formations' => $formations]);
+        $lecons = lecon::all();
+        return view('pdfs.create', ['lecons' => $lecons, 'matieres' => $matieres, 'formations' => $formations]);
     }
 
     /**
@@ -44,22 +44,22 @@ class pdfController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'leçon_id' => 'required',
+            'lecon_id' => 'required',
             'title' => 'required|string|max:255',
             'pdf' => 'required|file|mimes:pdf',
         ]);
         $pdfName = $request->pdf->hashName();
 
-        $request->pdf->move(public_path('leçon_pdfs'), $pdfName);
+        $request->pdf->move(public_path('lecon_pdfs'), $pdfName);
 
         $pdf = new pdf();
         $pdf->path = $pdfName;
         $pdf->title = $request->title;
-        $pdf->leçon_id = $request->leçon_id;
+        $pdf->lecon_id = $request->lecon_id;
 
         $pdf->save();
-        $leçon = $request->leçon_id;
-        return redirect()->route('pdfs.index', ['leçon' => $leçon])
+        $lecon = $request->lecon_id;
+        return redirect()->route('pdfs.index', ['lecon' => $lecon])
             ->with('success','pdf uploader avec succés');
     }
 
@@ -107,8 +107,8 @@ class pdfController extends Controller
     {
         $pdf = pdf::find($id);
         $pdf->delete();
-        $leçon = $request->leçon_id;
-        return redirect()->route('pdfs.index', ['leçon' => $leçon])
+        $lecon = $request->lecon_id;
+        return redirect()->route('pdfs.index', ['lecon' => $lecon])
             ->with('success','pdf supprimé avec succés');
     }
 }

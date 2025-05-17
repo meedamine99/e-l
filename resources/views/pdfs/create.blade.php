@@ -46,13 +46,13 @@
                            </div>
                            <div class="mb-3">
                               <label class="form-label">leçon:</label>
-                              <select name="leçon_id" id="" class="form-select @error('leçon_id') is-invalid @enderror"">
+                              <select name="lecon_id" id="" class="form-select @error('lecon_id') is-invalid @enderror"">
                                  <option></option>  
-                                    @foreach($leçons as $leçon )
-                                       <option class="leçon" data-matiere="{{$leçon->matiere->id}}" value="{{$leçon->id}}">{{$leçon->nom}}</option>
+                                    @foreach($lecons as $lecon )
+                                       <option class="lecon" data-matiere="{{$lecon->matiere->id}}" value="{{$lecon->id}}">{{$lecon->nom}}</option>
                                     @endforeach
                               </select>
-                              @error('leçon_id')
+                              @error('lecon_id')
                                  <span class="invalid-feedback" role="alert">
                                        <strong>{{ $message }}</strong>
                                  </span>

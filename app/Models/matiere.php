@@ -24,7 +24,7 @@ class matiere extends Model
     public function langue(){
         return $this-> belongsTo(langue::class);
     }
-    public function leçon(){
-         return $this-> hasMany(leçon::class);
+    public function lecon(){
+         return $this-> hasMany(lecon::class);
     }
 }

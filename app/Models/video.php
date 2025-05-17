@@ -9,9 +9,9 @@ class video extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title', 'path','leçon_id'
+        'title', 'path','lecon_id'
     ];
-    public function leçon(){
-        return $this-> belongsTo(leçon::class);
+    public function lecon(){
+        return $this-> belongsTo(lecon::class);
     }
 }

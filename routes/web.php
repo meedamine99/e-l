@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\emailController;
-use App\Http\Controllers\leçonController;
+use App\Http\Controllers\leconController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\accessController;
 use App\Http\Controllers\matiereController;
@@ -33,11 +33,9 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 Route::get('/', [welcomeController::class, 'welcome']);
 Route::get('/preview/{id}/', [welcomeController::class, 'preview'])->name('welcome.preview');
 
-Auth::routes([
-    'verify' => true,
-]);
+Auth::routes();
 
-Route::group(['middleware' => ['auth', 'verified', 'role']], function () {
+Route::group(['middleware' => ['auth', 'role']], function () {
     Route::resource('users', userController::class);
     Route::resource('access', accessController::class);
     Route::resource('adminTimeTable', adminTimeTableController::class);
@@ -56,11 +54,11 @@ Route::group(['middleware' => ['auth', 'verified', 'role']], function () {
     Route::put('/matieres/{id}', [matiereController::class, 'update'])->name('matieres.update');
     Route::DELETE('/matieres/{id}', [matiereController::class, 'destroy'])->name('matieres.destroy');
 
-    Route::get('/leçon/create', [leçonController::class, 'create'])->name('leçon.create');
-    Route::post('/leçon', [leçonController::class, 'store'])->name('leçon.store');
-    Route::get('/leçon/{id}/edit', [leçonController::class, 'edit'])->name('leçon.edit');
-    Route::put('/leçon/{id}', [leçonController::class, 'update'])->name('leçon.update');
-    Route::DELETE('/leçon/{id}', [leçonController::class, 'destroy'])->name('leçon.destroy');
+    Route::get('/lecon/create', [leconController::class, 'create'])->name('lecon.create');
+    Route::post('/lecon', [leconController::class, 'store'])->name('lecon.store');
+    Route::get('/lecon/{id}/edit', [leconController::class, 'edit'])->name('lecon.edit');
+    Route::put('/lecon/{id}', [leconController::class, 'update'])->name('lecon.update');
+    Route::DELETE('/lecon/{id}', [leconController::class, 'destroy'])->name('lecon.destroy');
 
     Route::get('/videos/create', [VideoController::class, 'create'])->name('videos.create');
     Route::post('/videos', [VideoController::class, 'store'])->name('videos.store');
@@ -88,7 +86,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::get('/formation', [formationController::class, 'index'])->name('formation.index');
 
-    Route::get('/leçon', [leçonController::class, 'index'])->name('leçon.index');
+    Route::get('/lecon', [leconController::class, 'index'])->name('lecon.index');
 
     Route::get('/videos', [VideoController::class, 'index'])->name('videos.index');
 

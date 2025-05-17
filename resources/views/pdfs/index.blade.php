@@ -97,10 +97,10 @@
     @endif
     <div class="con">
         @foreach ($pdfs as $pdf)
-            @if($leçon == $pdf->leçon_id)
+            @if($lecon == $pdf->lecon_id)
                 <div class="main-video">
                     <div class="video">
-                        <iframe src="{{ asset('leçon_pdfs/'.$pdf->path  ) }}" controls></iframe>
+                        <iframe src="{{ asset('lecon_pdfs/'.$pdf->path  ) }}" controls></iframe>
                         <h3 class="title">{{$pdf->title}}</h3>
                     </div>
                 </div>
@@ -109,15 +109,15 @@
                 @endforeach
                 <div class="video-list">
                     @foreach ($pdfs as $pdf)
-                    @if($leçon == $pdf->leçon_id)
+                    @if($lecon == $pdf->lecon_id)
                     <div class="vid active">
-                        <iframe src="{{ asset('leçon_pdfs/'.$pdf->path  ) }}" muted></iframe>
+                        <iframe src="{{ asset('lecon_pdfs/'.$pdf->path  ) }}" muted></iframe>
                         <h3 class="title">{{$pdf->title}}</h3>
                         @if (Auth::user()->role == "admin")
                         <form class="ms-auto" style="display: inline-block" action="{{ route('pdfs.destroy', $pdf->id) }}" method="Post">
                                 @csrf
                                 @method('DELETE')
-                                <input type="hidden" name="leçon_id" id="" value=" {{$pdf->leçon_id}} ">
+                                <input type="hidden" name="lecon_id" id="" value=" {{$pdf->lecon_id}} ">
                                 <button class="btn btn-danger" onclick="return confirm('do u really want to delete this pdf?')" type="submit">Supprimer</button>
                             </form>
                         @endif

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\leçon;
+use App\Models\lecon;
 use App\Models\video;
 use App\Models\matiere;
 use App\Models\formation;
@@ -18,9 +18,9 @@ class videoController extends Controller
     public function index(Request $request)
     {   
         
-        $leçon = $request->leçon;
-        $videos = video::where('leçon_id', $leçon)->get();
-        return view('videos.index', [ 'videos' => $videos , 'leçon' => $leçon]);
+        $lecon = $request->lecon;
+        $videos = video::where('lecon_id', $lecon)->get();
+        return view('videos.index', [ 'videos' => $videos , 'lecon' => $lecon]);
     }
 
     /**
@@ -32,8 +32,8 @@ class videoController extends Controller
     {   
         $matieres = matiere::all();
         $formations = formation::all();
-        $leçons = leçon::all();
-        return view('videos.create', ['leçons' => $leçons, 'matieres' => $matieres, 'formations' => $formations]);
+        $lecons = lecon::all();
+        return view('videos.create', ['lecons' => $lecons, 'matieres' => $matieres, 'formations' => $formations]);
     }
 
     /**
@@ -45,7 +45,7 @@ class videoController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'leçon_id' => 'required',
+            'lecon_id' => 'required',
             'title' => 'required|string|max:255',
             'video' => 'required|file|mimes:mp4,mov',
         ]);
@@ -56,12 +56,12 @@ class videoController extends Controller
         $video = new video();
         $video->path = $videoName;
         $video->title = $request->title;
-        $video->leçon_id = $request->leçon_id;
+        $video->lecon_id = $request->lecon_id;
 
         $video->save();
 
-        $leçon = $request->leçon_id;
-        return redirect()->route('videos.index', ['leçon' => $leçon])
+        $lecon = $request->lecon_id;
+        return redirect()->route('videos.index', ['lecon' => $lecon])
             ->with('success','vidéo uploader avec succés');
     }
 
@@ -109,8 +109,8 @@ class videoController extends Controller
     {
         $video = video::find($id);
         $video->delete();
-        $leçon = $request->leçon_id;
-        return redirect()->route('videos.index', ['leçon' => $leçon])
+        $lecon = $request->lecon_id;
+        return redirect()->route('videos.index', ['lecon' => $lecon])
             ->with('success','vidéo supprimé avec succés');
     }
 }
