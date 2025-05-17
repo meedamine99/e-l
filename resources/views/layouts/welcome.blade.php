@@ -4,8 +4,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="icon" href=" {{url("/images/logo.png")}} ">
-
         <title>{{ config('app.name', 'e-learning') }}</title>
 
         <!-- Fonts -->
@@ -29,13 +27,8 @@
         <div class="shine"></div>
         
             <nav class="navMenu navbar navbar-expand-lg ">
-                <a href="/" class="navbar-brand d-inline-block">
-                    <div class="logo links">
-                        <div class="closed-sq c1"></div>
-                        <div class="opened-sq o1"></div>
-                        <div class="opened-sq o2"></div>
-                        <div class="closed-sq c2"></div>
-                    </div>
+                <a href="/e-learning-pro_2/public" class="navbar-brand d-inline-block">
+                    e-learning  
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -47,7 +40,7 @@
                         <li class="nav-item m-aut">
                             <ul class="navbar-nav">
                                 <li class="nav-item first-link"><a class="links" href="/#hero">Accueil</a></li>
-                                <li class="nav-item"><a class="links" href="/#about">A propos</a></li>
+                                {{-- <li class="nav-item"><a class="links" href="/#about">A propos</a></li> --}}
                                 <li class="nav-item"><a class="links" href="/#service">Services</a></li>
                                 <li class="nav-item"><a class="links" href="/#contact">Contact</a></li>
                             </ul>

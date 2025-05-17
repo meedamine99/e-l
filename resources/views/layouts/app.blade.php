@@ -7,26 +7,26 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="icon" href=" {{url("/images/logo.png")}} ">
-
     <title>{{ config('app.name', 'e-learning') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com"> 
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+""
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/css/cards.css' ,'resources/css/app.css','resources/js/app.js', 'resources/js/nav.js'])
+    <style>
+        .logo {
+            animation: none;
+        }
+    </style>
 </head>
 <body>       
     <nav class="navMenu">
-        <a href="/">
+        <a href="/e-learning-pro_2/public">
             <div class="logo">
-                <div class="closed-sq c1"></div>
-                <div class="opened-sq o1"></div>
-                <div class="opened-sq o2"></div>
-                <div class="closed-sq c2"></div>
+                home
             </div>
         </a>
         <div class="options">
